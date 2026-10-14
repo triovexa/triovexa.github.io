@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import ProjectsNavbar from '../components/ProjectsNavbar';
 import NexusStackingCards from '../components/NexusStackingCards';
-import ProjectsOverviewGrid from '../components/ProjectsOverviewGrid';
 import CTASection from '../components/CTASection';
 import ServicesFooter from '../components/ServicesFooter';
 import InquiryModal from '../components/InquiryModal';
 import WhyChooseInteractiveHero from '../components/WhyChooseInteractiveHero';
+import NexusTriangleExpandTransition from '../components/NexusTriangleExpandTransition';
 import {
   PROJECT_CATEGORIES,
   CLIENT_PROJECTS,
@@ -60,13 +60,6 @@ export default function Projects() {
     }
   };
 
-  const handleScrollToGrid = () => {
-    const gridEl = document.getElementById('all-projects-grid');
-    if (gridEl) {
-      gridEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
   // Listen to popstate (back/forward browser buttons)
   useEffect(() => {
     const handlePopState = () => {
@@ -104,45 +97,20 @@ export default function Projects() {
         onSelectTab={handleTabChange}
       />
 
-      {/* 2. Step-by-Step White Chevron Transition (Yellow.ai Nexus Reference Style) */}
-      <div className="nexus-chevron-divider" aria-hidden="true">
-        <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none" className="nexus-chevron-svg">
-          <path d="M0,120 L720,0 L1440,120 L1440,120 L0,120 Z" fill="#ffffff" />
-        </svg>
-      </div>
+      {/* 2. Scroll-Driven Expanding Triangle Transition (Yellow.ai Nexus Reference Style) */}
+      <NexusTriangleExpandTransition currentCategory={currentCategory} />
 
-      {/* 3. White Background Showcase Section (Holding Stacking Cards & Overview Grid) */}
+      {/* 3. White Background Showcase Section (Holding Stacking Cards Deck) */}
       <section className="nexus-white-showcase-section" id="nexus-cards-showcase">
         <div className="nexus-white-container">
-          {/* Clean Heading on White Canvas */}
-          <div className="nexus-white-header">
-            <span className="nexus-white-pill">
-              <i className={currentCategory.icon}></i> {currentCategory.label}
-            </span>
-            <h2 className="nexus-white-title">
-              Featured Innovation <span className="nexus-white-title-gradient">Projects</span>
-            </h2>
-            <p className="nexus-white-subtitle">
-              Engineered with industrial precision, zero emulation, and production-grade architectures. Scroll to explore each milestone.
-            </p>
-          </div>
-
           {/* Yellow.ai Nexus Interactive Stacking & Zoom-Out Cards Showcase */}
           <div className="nexus-cards-showcase-section">
             <NexusStackingCards
               key={activeTab}
               projects={currentProjects}
               onOpenInquiry={handleOpenInquiry}
-              onScrollToGrid={handleScrollToGrid}
             />
           </div>
-
-          {/* All Projects Grid Overview */}
-          <ProjectsOverviewGrid
-            category={currentCategory}
-            projects={currentProjects}
-            onOpenInquiry={handleOpenInquiry}
-          />
         </div>
       </section>
 

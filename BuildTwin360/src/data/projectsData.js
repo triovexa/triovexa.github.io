@@ -157,8 +157,8 @@ export const CLIENT_PROJECTS = [
     clientName: 'Sree Vaarahi Amman Transports',
     tagPill: 'Primary Client Project',
     tagIcon: 'ri-truck-line',
-    badgeText: 'Live Web Platform',
-    badgeVariant: 'live',
+    badgeText: '🔒 Internal Freight Platform',
+    badgeVariant: 'protected',
     themeColor: '#06b6d4',
     cardBg: '#0c1e28',
     summary: 'Official commercial logistics web portal for Sree Vaarahi Amman Transports. Features interstate heavy transport services, booking inquiries, vehicle fleet showcase, and route network operations.',
@@ -173,9 +173,9 @@ export const CLIENT_PROJECTS = [
       '/assets/images/projects/sree-vaarahi.jpg',
       '/assets/images/projects/sree-vaarahi-web.jpg'
     ],
-    hasLiveLink: true,
-    liveUrl: 'https://sreevaarahiammantransports.com/',
-    actionText: 'Live Demo'
+    hasLiveLink: false,
+    portalDomain: 'sreevaarahiammantransports.com',
+    actionText: 'Authorized Software'
   }
 ];
 
