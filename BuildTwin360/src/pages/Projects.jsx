@@ -5,6 +5,7 @@ import ProjectsOverviewGrid from '../components/ProjectsOverviewGrid';
 import CTASection from '../components/CTASection';
 import ServicesFooter from '../components/ServicesFooter';
 import InquiryModal from '../components/InquiryModal';
+import StudentInteractiveOrbs from '../components/StudentInteractiveOrbs';
 import {
   PROJECT_CATEGORIES,
   CLIENT_PROJECTS,
@@ -147,7 +148,12 @@ export default function Projects() {
         onOpenInquiry={handleOpenInquiry}
       />
 
-      {/* 3. CTA Section - View Our Projects button is hidden on projects page per user request */}
+      {/* 3. Yellow.ai NEXUS Interactive Floating Orbs Showcase (Academic Projects R&D Pillars) */}
+      {activeTab === 'academic' && (
+        <StudentInteractiveOrbs onOpenInquiry={handleOpenInquiry} />
+      )}
+
+      {/* 4. CTA Section - View Our Projects button is hidden on projects page per user request */}
       <CTASection onOpenInquiry={handleOpenInquiry} showProjectsButton={false} />
 
       {/* 4. Footer */}

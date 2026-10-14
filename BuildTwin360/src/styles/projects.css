@@ -1404,3 +1404,577 @@
     gap: 1.5rem;
   }
 }
+
+/* ==========================================================================
+   YELLOW.AI NEXUS INSPIRED STUDENT INTERACTIVE ORBS SHOWCASE
+   Floating animated circular nodes with hover expansion into glowing content spheres
+   ========================================================================== */
+
+.student-nexus-showcase-section {
+  position: relative;
+  background-color: #06070a;
+  padding: 6.5rem 1.5rem 7.5rem 1.5rem;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 3rem;
+}
+
+/* Dot Grid Background */
+.student-nexus-dot-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px);
+  background-size: 26px 26px;
+  pointer-events: none;
+  z-index: 1;
+  mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 45%, rgba(0, 0, 0, 0.15) 85%);
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 45%, rgba(0, 0, 0, 0.15) 85%);
+}
+
+/* Ambient Purple Glow at bottom/center (matches Yellow.ai screenshot) */
+.student-nexus-ambient-purple {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 520px;
+  height: 280px;
+  background: radial-gradient(ellipse, rgba(147, 51, 234, 0.28) 0%, rgba(99, 102, 241, 0.1) 45%, transparent 70%);
+  filter: blur(48px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.student-nexus-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Top Intro Pill */
+.student-nexus-intro-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.45rem 1.15rem;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #e2e8f0;
+  margin-bottom: 2.2rem;
+  backdrop-filter: blur(8px);
+}
+
+.pulsing-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulseLiveDot 2s infinite;
+}
+
+@keyframes pulseLiveDot {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1.15); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* The Central Stage with giant typography & floating orbs */
+.student-nexus-stage {
+  position: relative;
+  width: 100%;
+  max-width: 1050px;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Giant Bold Typography */
+.student-nexus-hero-wordmark {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(3.8rem, 11vw, 9.5rem);
+  font-weight: 900;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  text-transform: uppercase;
+  user-select: none;
+  margin: 0;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 0 45px rgba(255, 255, 255, 0.08);
+}
+
+.nexus-char {
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.student-nexus-stage:hover .nexus-char {
+  text-shadow: 0 0 50px rgba(255, 255, 255, 0.18);
+}
+
+/* Orbs Layer */
+.student-nexus-orbs-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Individual Floating Orb Node */
+.student-orb-node {
+  position: absolute;
+  top: var(--orb-top);
+  left: var(--orb-left);
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  width: 52px;
+  height: 52px;
+  background: var(--orb-bg);
+  color: var(--orb-text);
+  box-shadow: 0 0 24px var(--orb-glow), 0 4px 16px rgba(0, 0, 0, 0.4);
+  transition: width 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease,
+              opacity 0.35s ease,
+              filter 0.35s ease;
+  user-select: none;
+  overflow: hidden;
+}
+
+/* Floating animation variations for idle state */
+@keyframes orbFloat1 {
+  0% { transform: translate(-50%, -50%) translateY(0px) translateX(0px); }
+  50% { transform: translate(-50%, -50%) translateY(-11px) translateX(5px); }
+  100% { transform: translate(-50%, -50%) translateY(0px) translateX(0px); }
+}
+
+@keyframes orbFloat2 {
+  0% { transform: translate(-50%, -50%) translateY(0px) translateX(0px); }
+  50% { transform: translate(-50%, -50%) translateY(13px) translateX(-6px); }
+  100% { transform: translate(-50%, -50%) translateY(0px) translateX(0px); }
+}
+
+@keyframes orbFloat3 {
+  0% { transform: translate(-50%, -50%) translateY(0px) translateX(0px); }
+  50% { transform: translate(-50%, -50%) translateY(-9px) translateX(-4px); }
+  100% { transform: translate(-50%, -50%) translateY(0px) translateX(0px); }
+}
+
+@keyframes orbFloat4 {
+  0% { transform: translate(-50%, -50%) translateY(0px) translateX(0px); }
+  50% { transform: translate(-50%, -50%) translateY(11px) translateX(7px); }
+  100% { transform: translate(-50%, -50%) translateY(0px) translateX(0px); }
+}
+
+@keyframes orbFloat5 {
+  0% { transform: translate(-50%, -50%) translateY(0px) translateX(0px); }
+  50% { transform: translate(-50%, -50%) translateY(-13px) translateX(4px); }
+  100% { transform: translate(-50%, -50%) translateY(0px) translateX(0px); }
+}
+
+.float-anim-1 { animation: orbFloat1 6.5s ease-in-out infinite; }
+.float-anim-2 { animation: orbFloat2 5.8s ease-in-out infinite; }
+.float-anim-3 { animation: orbFloat3 7.2s ease-in-out infinite; }
+.float-anim-4 { animation: orbFloat4 6.0s ease-in-out infinite; }
+.float-anim-5 { animation: orbFloat5 5.5s ease-in-out infinite; }
+
+/* Idle Icon inside small circle */
+.orb-icon-idle {
+  font-size: 1.45rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--orb-text);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Expanded Content Container (Hidden by default, shown when expanded) */
+.orb-expanded-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.2rem 1.7rem;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.75);
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.orb-expanded-icon {
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+  color: var(--orb-text);
+}
+
+.orb-expanded-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--orb-tag-color);
+  background: rgba(255, 255, 255, 0.25);
+  padding: 0.18rem 0.55rem;
+  border-radius: 9999px;
+  margin-bottom: 0.45rem;
+}
+
+.orb-expanded-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 0 0.5rem 0;
+  color: var(--orb-text);
+  letter-spacing: -0.01em;
+}
+
+.orb-expanded-desc {
+  font-size: 0.81rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--orb-text);
+  margin: 0;
+  max-width: 250px;
+  opacity: 0.95;
+}
+
+/* ==========================================================================
+   HOVER & ACTIVE EXPANDED STATE (Yellow.ai Image 3 & 4 style)
+   ========================================================================== */
+
+.student-orb-node:hover,
+.student-orb-node.is-expanded {
+  width: 320px;
+  height: 320px;
+  z-index: 100;
+  animation-play-state: paused;
+  box-shadow: 0 0 75px 16px var(--orb-glow), 0 25px 60px rgba(0, 0, 0, 0.65);
+}
+
+.student-orb-node:hover .orb-icon-idle,
+.student-orb-node.is-expanded .orb-icon-idle {
+  opacity: 0;
+  transform: scale(0.5);
+  pointer-events: none;
+  display: none;
+}
+
+.student-orb-node:hover .orb-expanded-content,
+.student-orb-node.is-expanded .orb-expanded-content {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+/* Dimmed state when another orb is active */
+.student-orb-node.is-dimmed {
+  opacity: 0.28;
+  filter: blur(0.5px);
+  pointer-events: auto;
+}
+
+/* Subtitle Beneath the Letters */
+.student-nexus-tagline {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  margin: 0 0 2rem 0;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.tagline-highlight {
+  color: #f1f5f9;
+  font-weight: 600;
+}
+
+/* Quick-Pill Indicator Buttons */
+.student-nexus-quick-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-bottom: 2.5rem;
+}
+
+.nexus-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(6px);
+}
+
+.nexus-pill-btn i {
+  font-size: 1rem;
+  color: var(--pill-accent);
+}
+
+.nexus-pill-btn:hover,
+.nexus-pill-btn.active {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--pill-accent);
+  color: #ffffff;
+  box-shadow: 0 0 20px var(--pill-glow);
+  transform: translateY(-2px);
+}
+
+/* Bottom Action Bar */
+.student-nexus-action-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+  width: 100%;
+}
+
+.student-nexus-action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.student-nexus-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #ffffff;
+  color: #090d16;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.8rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+}
+
+.student-nexus-btn-primary:hover {
+  background: #f1f5f9;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.35);
+}
+
+.student-nexus-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #e2e8f0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.student-nexus-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+}
+
+/* Mentor Chat Card (Inspired by Yellow.ai Alex speech card) */
+.student-nexus-mentor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.mentor-speech-bubble {
+  background: rgba(255, 255, 255, 0.95);
+  color: #0f172a;
+  padding: 0.55rem 1.25rem;
+  border-radius: 18px 18px 18px 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  animation: floatBubble 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatBubble {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-4px); }
+}
+
+.mentor-contact-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.45rem 1.2rem 0.45rem 0.6rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.mentor-avatar {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.mentor-online-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  border: 2px solid #0f172a;
+}
+
+.mentor-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.mentor-action-text {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.mentor-response-time {
+  font-size: 0.68rem;
+  color: #94a3b8;
+}
+
+.mentor-voice-icon {
+  font-size: 1.2rem;
+  color: #a855f7;
+  margin-left: 0.25rem;
+}
+
+.mentor-contact-pill:hover {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: rgba(168, 85, 247, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(168, 85, 247, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .student-nexus-stage {
+    height: 380px;
+  }
+
+  .student-orb-node:hover,
+  .student-orb-node.is-expanded {
+    width: 290px;
+    height: 290px;
+  }
+
+  .orb-expanded-content {
+    padding: 1.8rem 1.4rem;
+  }
+
+  .orb-expanded-title {
+    font-size: 1.05rem;
+  }
+
+  .orb-expanded-desc {
+    font-size: 0.76rem;
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 640px) {
+  .student-nexus-showcase-section {
+    padding: 4.5rem 1rem 5.5rem 1rem;
+  }
+
+  .student-nexus-stage {
+    height: 320px;
+  }
+
+  .student-orb-node {
+    width: 44px;
+    height: 44px;
+  }
+
+  .orb-icon-idle {
+    font-size: 1.25rem;
+  }
+
+  .student-orb-node:hover,
+  .student-orb-node.is-expanded {
+    width: min(270px, 86vw);
+    height: min(270px, 86vw);
+  }
+
+  .orb-expanded-content {
+    padding: 1.5rem 1.1rem;
+  }
+
+  .orb-expanded-title {
+    font-size: 0.98rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .orb-expanded-desc {
+    font-size: 0.72rem;
+    line-height: 1.4;
+    max-width: 200px;
+  }
+
+  .student-nexus-tagline {
+    font-size: 0.95rem;
+  }
+}
+
