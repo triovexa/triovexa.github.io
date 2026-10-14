@@ -1978,3 +1978,319 @@
   }
 }
 
+/* ==========================================================================
+   UNIVERSAL WHY CHOOSE TRIOVEXA HERO (Yellow.ai Nexus Reference Style)
+   ========================================================================== */
+
+.why-choose-hero-section {
+  position: relative;
+  background-color: #06070a;
+  padding: 5.5rem 1.5rem 5rem 1.5rem;
+  overflow: hidden;
+  border-bottom: none;
+}
+
+.why-choose-dot-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px);
+  background-size: 26px 26px;
+  pointer-events: none;
+  z-index: 1;
+  mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 45%, rgba(0, 0, 0, 0.15) 85%);
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 45%, rgba(0, 0, 0, 0.15) 85%);
+}
+
+.why-choose-ambient-purple {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 580px;
+  height: 290px;
+  background: radial-gradient(ellipse, rgba(147, 51, 234, 0.28) 0%, rgba(99, 102, 241, 0.1) 45%, transparent 70%);
+  filter: blur(48px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.why-choose-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Animated Top Glowing Badge */
+.why-choose-top-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 0.48rem 1.25rem;
+  border-radius: 9999px;
+  margin-bottom: 2.2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.why-choose-badge-text {
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #f1f5f9;
+  text-transform: uppercase;
+}
+
+/* Central Stage with Big Typography & Floating Orbs */
+.why-choose-stage {
+  position: relative;
+  width: 100%;
+  max-width: 1050px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.why-choose-hero-wordmark {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(3.8rem, 11vw, 9.5rem);
+  font-weight: 900;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  text-transform: uppercase;
+  user-select: none;
+  margin: 0;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 0 50px rgba(255, 255, 255, 0.12);
+}
+
+.why-choose-orbs-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Tagline beneath wordmark */
+.why-choose-tagline {
+  font-size: 1.05rem;
+  color: #94a3b8;
+  margin: 0 0 2rem 0;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* Category Switcher Tabs */
+.why-choose-category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.why-choose-tab-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #94a3b8;
+  padding: 0.6rem 1.35rem;
+  border-radius: 9999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(10px);
+}
+
+.why-choose-tab-pill i {
+  font-size: 1.1rem;
+}
+
+.why-choose-tab-pill:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.why-choose-tab-pill.active {
+  background: #ffffff;
+  color: #070b13;
+  border-color: #ffffff;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.why-choose-tab-pill.active i {
+  color: #00f2fe;
+}
+
+/* ==========================================================================
+   YELLOW.AI NEXUS CHEVRON TRANSITION & WHITE CANVAS SHOWCASE
+   ========================================================================== */
+
+.nexus-chevron-divider {
+  position: relative;
+  width: 100%;
+  height: 90px;
+  margin-bottom: -1px;
+  z-index: 10;
+  overflow: hidden;
+  background-color: #06070a;
+}
+
+.nexus-chevron-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* The White Background Section */
+.nexus-white-showcase-section {
+  background-color: #ffffff;
+  color: #0f172a;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding: 3rem 0 6rem 0;
+}
+
+.nexus-white-container {
+  width: 100%;
+  max-width: 1420px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.nexus-white-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.nexus-white-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  padding: 0.42rem 1.1rem;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 0.85rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.nexus-white-title {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 900;
+  color: #090d16;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.15;
+}
+
+.nexus-white-title-gradient {
+  background: linear-gradient(135deg, #0284c7, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nexus-white-subtitle {
+  font-size: 1.05rem;
+  color: #475569;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* High-contrast Dock Controls on White Background */
+.nexus-white-showcase-section .nexus-dock-controls {
+  background: rgba(15, 23, 42, 0.94);
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.2);
+}
+
+.nexus-white-showcase-section .nexus-dock-pill {
+  color: #cbd5e1;
+}
+
+.nexus-white-showcase-section .nexus-dock-pill.active {
+  background: #00f2fe;
+  color: #070b13;
+}
+
+/* High-contrast Stacking Card shadows on White Background */
+.nexus-white-showcase-section .nexus-stack-card {
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+/* Overview Grid adjustments on White Canvas */
+.nexus-white-showcase-section .grid-overview-header {
+  margin-top: 5rem;
+}
+
+.nexus-white-showcase-section .grid-overview-badge {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+}
+
+.nexus-white-showcase-section .grid-overview-title {
+  color: #090d16;
+}
+
+.nexus-white-showcase-section .grid-overview-subtitle {
+  color: #475569;
+}
+
+.nexus-white-showcase-section .project-grid-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+}
+
+.nexus-white-showcase-section .project-grid-card:hover {
+  border-color: #00f2fe;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12), 0 0 25px rgba(0, 242, 254, 0.18);
+}
+
+.nexus-white-showcase-section .grid-card-title {
+  color: #090d16;
+}
+
+.nexus-white-showcase-section .grid-card-bullets li {
+  color: #334155;
+}
+
+.nexus-white-showcase-section .grid-tech-chip {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #1e293b;
+}
+
+.nexus-white-showcase-section .grid-live-btn {
+  background: #090d16;
+  color: #ffffff;
+}
+
+.nexus-white-showcase-section .grid-details-btn {
+  background: #f1f5f9;
+  color: #0f172a;
+  border-color: #e2e8f0;
+}
+
+

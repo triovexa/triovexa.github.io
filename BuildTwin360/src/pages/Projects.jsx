@@ -5,7 +5,7 @@ import ProjectsOverviewGrid from '../components/ProjectsOverviewGrid';
 import CTASection from '../components/CTASection';
 import ServicesFooter from '../components/ServicesFooter';
 import InquiryModal from '../components/InquiryModal';
-import StudentInteractiveOrbs from '../components/StudentInteractiveOrbs';
+import WhyChooseInteractiveHero from '../components/WhyChooseInteractiveHero';
 import {
   PROJECT_CATEGORIES,
   CLIENT_PROJECTS,
@@ -98,60 +98,53 @@ export default function Projects() {
         onOpenInquiry={handleOpenInquiry}
       />
 
-      {/* Hero Header Section - Clean & Focused per user image red-line removals */}
-      <section className="projects-hero-clean" id="projects-hero">
-        <div className="nexus-full-container">
-          <h1 className="projects-clean-title">
-            The Innovation Pillars of <span className="nexus-brand-text">TRIOVEXA</span>
-          </h1>
-
-          {/* Clean Category Switcher Tabs */}
-          <div className="projects-category-tabs-container">
-            <div className="projects-category-tabs">
-              {PROJECT_CATEGORIES.map((cat) => {
-                const isActive = activeTab === cat.id;
-                return (
-                  <button
-                    key={cat.id}
-                    type="button"
-                    className={`projects-tab-btn ${isActive ? 'active' : ''}`}
-                    onClick={() => handleTabChange(cat.id)}
-                  >
-                    <div className="tab-btn-icon">
-                      <i className={cat.icon}></i>
-                    </div>
-                    <div className="tab-btn-text">
-                      <span className="tab-btn-label">{cat.label}</span>
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 1. Yellow.ai Nexus Interactive Stacking & Zoom-Out Cards Showcase */}
-      <section className="nexus-cards-showcase-section" id="nexus-cards-showcase">
-        <NexusStackingCards
-          key={activeTab}
-          projects={currentProjects}
-          onOpenInquiry={handleOpenInquiry}
-          onScrollToGrid={handleScrollToGrid}
-        />
-      </section>
-
-      {/* 2. All Projects Grid Overview (Appears immediately after cards deck per user instruction) */}
-      <ProjectsOverviewGrid
-        category={currentCategory}
-        projects={currentProjects}
-        onOpenInquiry={handleOpenInquiry}
+      {/* 1. Yellow.ai Nexus Interactive Floating Orbs Hero (Top of Page for All 3 Categories) */}
+      <WhyChooseInteractiveHero
+        activeTab={activeTab}
+        onSelectTab={handleTabChange}
       />
 
-      {/* 3. Yellow.ai NEXUS Interactive Floating Orbs Showcase (Academic Projects R&D Pillars) */}
-      {activeTab === 'academic' && (
-        <StudentInteractiveOrbs onOpenInquiry={handleOpenInquiry} />
-      )}
+      {/* 2. Step-by-Step White Chevron Transition (Yellow.ai Nexus Reference Style) */}
+      <div className="nexus-chevron-divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none" className="nexus-chevron-svg">
+          <path d="M0,120 L720,0 L1440,120 L1440,120 L0,120 Z" fill="#ffffff" />
+        </svg>
+      </div>
+
+      {/* 3. White Background Showcase Section (Holding Stacking Cards & Overview Grid) */}
+      <section className="nexus-white-showcase-section" id="nexus-cards-showcase">
+        <div className="nexus-white-container">
+          {/* Clean Heading on White Canvas */}
+          <div className="nexus-white-header">
+            <span className="nexus-white-pill">
+              <i className={currentCategory.icon}></i> {currentCategory.label}
+            </span>
+            <h2 className="nexus-white-title">
+              Featured Innovation <span className="nexus-white-title-gradient">Projects</span>
+            </h2>
+            <p className="nexus-white-subtitle">
+              Engineered with industrial precision, zero emulation, and production-grade architectures. Scroll to explore each milestone.
+            </p>
+          </div>
+
+          {/* Yellow.ai Nexus Interactive Stacking & Zoom-Out Cards Showcase */}
+          <div className="nexus-cards-showcase-section">
+            <NexusStackingCards
+              key={activeTab}
+              projects={currentProjects}
+              onOpenInquiry={handleOpenInquiry}
+              onScrollToGrid={handleScrollToGrid}
+            />
+          </div>
+
+          {/* All Projects Grid Overview */}
+          <ProjectsOverviewGrid
+            category={currentCategory}
+            projects={currentProjects}
+            onOpenInquiry={handleOpenInquiry}
+          />
+        </div>
+      </section>
 
       {/* 4. CTA Section - View Our Projects button is hidden on projects page per user request */}
       <CTASection onOpenInquiry={handleOpenInquiry} showProjectsButton={false} />
