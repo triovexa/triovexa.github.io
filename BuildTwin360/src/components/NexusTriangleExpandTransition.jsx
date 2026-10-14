@@ -73,27 +73,7 @@ export default function NexusTriangleExpandTransition({ currentCategory }) {
         <div
           className="nexus-expanding-triangle-canvas"
           style={{ clipPath: clipPathString }}
-        >
-          {/* Content revealed inside the growing white triangle */}
-          <div
-            className="nexus-triangle-content"
-            style={{
-              opacity: Math.min(1, Math.max(0, (progress - 0.12) * 2.2)),
-              transform: `translateY(${Math.max(0, 35 - progress * 35)}px)`,
-            }}
-          >
-            <div className="nexus-white-pill">
-              <i className={currentCategory.icon}></i>
-              <span>{currentCategory.label}</span>
-            </div>
-            <h2 className="nexus-white-title">
-              Featured Innovation <span className="nexus-white-title-gradient">Projects</span>
-            </h2>
-            <p className="nexus-white-subtitle">
-              Engineered with industrial precision, zero emulation, and production-grade architectures. Scroll to inspect each milestone.
-            </p>
-          </div>
-        </div>
+        />
 
         {/* Floating speech card on triangle tip when small (Yellow.ai Image 1 reference) */}
         {progress < 0.45 && (

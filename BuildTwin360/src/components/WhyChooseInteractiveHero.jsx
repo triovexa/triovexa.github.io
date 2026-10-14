@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { PROJECT_CATEGORIES } from '../data/projectsData';
+import InteractiveMatrixCanvas from './InteractiveMatrixCanvas';
 
 /**
  * WhyChooseInteractiveHero Component
@@ -276,8 +277,8 @@ export default function WhyChooseInteractiveHero({ activeTab, onSelectTab }) {
 
   return (
     <section className="why-choose-hero-section" ref={stageRef} id="why-choose-hero">
-      {/* Matrix Dot Grid Background */}
-      <div className="why-choose-dot-grid"></div>
+      {/* Interactive Cyber Dot Grid with Mouse-Tracking Blue Pixel Morph (User Image 5) */}
+      <InteractiveMatrixCanvas />
       <div className="why-choose-ambient-purple"></div>
 
       <div className="why-choose-container">

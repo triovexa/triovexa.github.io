@@ -6,6 +6,7 @@ import ServicesFooter from '../components/ServicesFooter';
 import InquiryModal from '../components/InquiryModal';
 import WhyChooseInteractiveHero from '../components/WhyChooseInteractiveHero';
 import NexusTriangleExpandTransition from '../components/NexusTriangleExpandTransition';
+import NexusMetricsShowcase from '../components/NexusMetricsShowcase';
 import {
   PROJECT_CATEGORIES,
   CLIENT_PROJECTS,
@@ -103,6 +104,20 @@ export default function Projects() {
       {/* 3. White Background Showcase Section (Holding Stacking Cards Deck) */}
       <section className="nexus-white-showcase-section" id="nexus-cards-showcase">
         <div className="nexus-white-container">
+          {/* Clean Focused Header directly above the cards deck */}
+          <div className="nexus-white-header">
+            <div className="nexus-white-pill">
+              <i className={currentCategory.icon}></i>
+              <span>{currentCategory.label}</span>
+            </div>
+            <h2 className="nexus-white-title">
+              Featured Innovation <span className="nexus-white-title-gradient">Projects</span>
+            </h2>
+            <p className="nexus-white-subtitle">
+              Engineered with industrial precision, zero emulation, and production-grade architectures. Scroll to inspect each milestone.
+            </p>
+          </div>
+
           {/* Yellow.ai Nexus Interactive Stacking & Zoom-Out Cards Showcase */}
           <div className="nexus-cards-showcase-section">
             <NexusStackingCards
@@ -114,7 +129,13 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* 4. CTA Section - View Our Projects button is hidden on projects page per user request */}
+      {/* 4. The Nexus Effect / TrioVexa Impact Showcase (Scroll-Driven Central Morphing Metrics) */}
+      <NexusMetricsShowcase
+        activeTab={activeTab}
+        onOpenInquiry={handleOpenInquiry}
+      />
+
+      {/* 5. CTA Section - View Our Projects button is hidden on projects page per user request */}
       <CTASection onOpenInquiry={handleOpenInquiry} showProjectsButton={false} />
 
       {/* 4. Footer */}
