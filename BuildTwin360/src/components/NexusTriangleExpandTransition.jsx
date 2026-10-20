@@ -1,99 +1,163 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
+import NexusStackingCards from './NexusStackingCards';
 
 /**
- * NexusTriangleExpandTransition Component
- * Replicates the Yellow.ai NEXUS scroll-driven expanding triangle transition.
- * Starts as a small sharp white triangle peak at the bottom of the dark hero,
- * and smoothly zooms/expands into a full-width white canvas as the user scrolls down.
+ * NexusTriangleExpandTransition Component (Yellow.ai NEXUS Exact Architecture)
+ * Unified single-UI section:
+ * - All project details, heading, and stacking cards live in ONE white-background layer
+ * - The white layer is directly clipped by the expanding triangle polygon
+ * - Zero separate canvas layers, zero opacity ghosting, zero duplicate headings
+ * - Starts immediately below the hero with zero empty black gap
  */
 
-export default function NexusTriangleExpandTransition({ currentCategory }) {
-  const containerRef = useRef(null);
-  const [progress, setProgress] = useState(0);
+export default function NexusTriangleExpandTransition({
+  activeTab,
+  currentCategory,
+  currentProjects,
+  onOpenInquiry,
+}) {
+  const sectionRef = useRef(null);
+  const whiteLayerRef = useRef(null);
 
   useEffect(() => {
     let animId = null;
+    let targetProgress = 0;
+    let currentProgress = 0;
+    let isAnimating = false;
+
+    const updateFrame = () => {
+      // Responsive lerp interpolation for buttery smooth scroll
+      const diff = targetProgress - currentProgress;
+      currentProgress += diff * 0.35;
+
+      if (Math.abs(diff) < 0.001) {
+        currentProgress = targetProgress;
+        isAnimating = false;
+      }
+
+      const p = currentProgress;
+
+      if (p >= 0.98) {
+        // Full screen expansion: On mobile, bottom is straight to avoid cutting metrics heading.
+        // On desktop, right-side slant smoothly straightens out as user reaches The Triovexa Effect.
+        if (whiteLayerRef.current) {
+          if (window.innerWidth <= 880) {
+            whiteLayerRef.current.style.clipPath = 'none';
+          } else {
+            const rect = sectionRef.current?.getBoundingClientRect();
+            const windowHeight = window.innerHeight || 800;
+            const distFromBottom = rect ? rect.bottom - windowHeight : 1000;
+            if (distFromBottom < 450) {
+              const factor = Math.max(0, Math.min(1, distFromBottom / 450));
+              const slant = Math.round(150 * factor);
+              whiteLayerRef.current.style.clipPath = slant > 4
+                ? `polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - ${slant}px))`
+                : 'none';
+            } else {
+              whiteLayerRef.current.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 150px))';
+            }
+          }
+        }
+      } else {
+        // Geometry calculations for expanding triangle (Yellow.ai Nexus Reference)
+        // Apex is locked at top-center of white layer (0px), while width and side slopes expand
+        const peakY = 0;
+        let leftX = 40;
+        let rightX = 60;
+        const baseSideY = Math.min(650, (window.innerHeight || 800) * 0.72);
+        let sideY = baseSideY;
+
+        if (p <= 0.72) {
+          const p1 = p / 0.72;
+          // Widens from 20% (40-60) to 100% (0-100)
+          const halfWidth = 10 + p1 * 42;
+          leftX = Math.max(0, 50 - halfWidth);
+          rightX = Math.min(100, 50 + halfWidth);
+          sideY = baseSideY;
+        } else {
+          // Progress > 0.72: width is 100%, side slopes rise up to 0px to form full rectangular canvas
+          const p2 = (p - 0.72) / 0.28;
+          leftX = 0;
+          rightX = 100;
+          sideY = Math.max(0, baseSideY - p2 * baseSideY);
+        }
+
+        const clipPathString = `polygon(50% ${peakY}px, ${rightX.toFixed(1)}% ${sideY.toFixed(1)}px, 100% 100%, 0% 100%, ${leftX.toFixed(1)}% ${sideY.toFixed(1)}px)`;
+
+        if (whiteLayerRef.current) {
+          whiteLayerRef.current.style.clipPath = clipPathString;
+        }
+      }
+
+      if (isAnimating) {
+        animId = requestAnimationFrame(updateFrame);
+      }
+    };
 
     const handleScroll = () => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight || 800;
 
-      // Start transition as soon as track enters viewport and completes when pinned stage scrolls through
-      const totalScrollable = rect.height;
-      const currentScroll = windowHeight - rect.top;
-      const rawProgress = currentScroll / totalScrollable;
-      const clamped = Math.max(0, Math.min(1, rawProgress));
+      // Starts only when section scrolls into viewport from below
+      // Completes in ~480px of natural scroll as section meets navbar
+      const travel = Math.min(500, windowHeight * 0.65);
+      const scrolled = windowHeight - rect.top;
+      const rawProgress = Math.max(0, Math.min(1, scrolled / travel));
+      targetProgress = rawProgress;
 
-      animId = requestAnimationFrame(() => {
-        setProgress(clamped);
-      });
+      if (!isAnimating) {
+        isAnimating = true;
+        animId = requestAnimationFrame(updateFrame);
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
     handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
       if (animId) cancelAnimationFrame(animId);
     };
   }, []);
 
-  // Geometry calculations for expanding triangle
-  let peakY = 88;
-  let leftX = 42;
-  let rightX = 58;
-  let sideY = 100;
-
-  if (progress <= 0.75) {
-    const p1 = progress / 0.75;
-    peakY = Math.max(2, Math.round(88 - p1 * 86)); // from 88% down to 2%
-    const halfWidth = 8 + p1 * 44; // from 8% up to 52%
-    leftX = Math.max(0, Math.round(50 - halfWidth));
-    rightX = Math.min(100, Math.round(50 + halfWidth));
-    sideY = 100;
-  } else {
-    // When progress > 0.75, width has hit 100%, and side vertices rise up to 0% to form full canvas
-    const p2 = (progress - 0.75) / 0.25;
-    peakY = 0;
-    leftX = 0;
-    rightX = 100;
-    sideY = Math.max(0, Math.round(100 - p2 * 100));
-  }
-
-  const clipPathString = `polygon(50% ${peakY}%, ${rightX}% ${sideY}%, 100% 100%, 0% 100%, ${leftX}% ${sideY}%)`;
-
   return (
-    <div ref={containerRef} className="nexus-triangle-scroll-track" id="triangle-transition-zone">
-      <div className="nexus-triangle-sticky-viewport">
-        {/* Background Dot Grid for the surrounding space outside the triangle */}
-        <div className="nexus-triangle-bg-grid" aria-hidden="true"></div>
+    <section ref={sectionRef} className="nexus-showcase-unified-section" id="nexus-cards-showcase">
+      {/* Background Cyber Dot Grid outside the triangle */}
+      <div className="nexus-unified-bg-grid" aria-hidden="true"></div>
 
-        {/* The White Canvas Layer masked by the dynamically expanding triangle polygon */}
-        <div
-          className="nexus-expanding-triangle-canvas"
-          style={{ clipPath: clipPathString }}
-        />
+      {/* The ONE White Layer containing heading & cards, clipped by the expanding triangle */}
+      <div
+        ref={whiteLayerRef}
+        className="nexus-unified-white-layer"
+        style={{ clipPath: 'polygon(50% 0px, 60% 500px, 100% 100%, 0% 100%, 40% 500px)' }}
+      >
 
-        {/* Floating speech card on triangle tip when small (Yellow.ai Image 1 reference) */}
-        {progress < 0.45 && (
-          <div
-            className="nexus-triangle-tip-badge"
-            style={{
-              top: `${Math.max(20, peakY - 14)}%`,
-              opacity: Math.max(0, 1 - progress * 2.8),
-            }}
-          >
-            <div className="triangle-tip-speech">
-              <span>Scroll down to inspect our production systems</span>
+        {/* All Project Details and Heading inside the ONE white UI */}
+        <div className="nexus-white-container">
+          <div className="nexus-white-header">
+            <div className="nexus-white-pill">
+              <i className={currentCategory.icon}></i>
+              <span>{currentCategory.label}</span>
             </div>
-            <div className="triangle-tip-pill">
-              <i className="ri-arrow-down-double-line"></i>
-              <span>Interactive Architecture Deck</span>
-            </div>
+            <h2 className="nexus-white-title">
+              Featured Innovation <span className="nexus-white-title-gradient">Projects</span>
+            </h2>
+
           </div>
-        )}
+
+          {/* Stacking Cards Deck directly inside the white UI */}
+          <div className="nexus-cards-showcase-section">
+            <NexusStackingCards
+              key={activeTab}
+              projects={currentProjects}
+              onOpenInquiry={onOpenInquiry}
+            />
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

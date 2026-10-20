@@ -132,33 +132,25 @@ export default function NexusStackingCards({ projects, onOpenInquiry, onScrollTo
   const trackHeightStyle = `${100 + numTransitions * 70}vh`;
 
   // Hardware-accelerated direct DOM transform applicator (zero React re-render lag during scroll)
+  // Universal multi-card cascading deck physics: EVERY card from 0 to N-1 follows the exact same continuous mapping
   const applyCardTransforms = useCallback(
     (progressVal) => {
+      // currentFloatIndex ranges smoothly from 0.0 (Card 0 active) to numTransitions (Card N-1 active)
+      const currentFloatIndex = progressVal * numTransitions;
+
       cardsRef.current.forEach((cardEl, index) => {
         if (!cardEl) return;
         const dimOverlayEl = dimOverlayRefs.current[index];
 
-        if (index === 0) {
-          // Card 0: Base card. Scales down gently from 1.0 to 0.94 as Card 1 slides in.
-          const trans0Progress = Math.min(1, progressVal / step);
-          const scale = 1 - trans0Progress * 0.06;
-          const translateY = -trans0Progress * 12;
-          const dimOpacity = trans0Progress * 0.16;
+        // rel: relative position of current scroll point to this card
+        // rel < 0: card is in future (has not arrived or is sliding up)
+        // rel == 0: card is active in center
+        // rel > 0: card has been passed and is stacked behind
+        const rel = currentFloatIndex - index;
 
-          cardEl.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
-          cardEl.style.opacity = '1';
-          cardEl.style.visibility = 'visible';
-          cardEl.style.pointerEvents = 'auto';
-          if (dimOverlayEl) dimOverlayEl.style.opacity = `${dimOpacity}`;
-          return;
-        }
-
-        const enterStart = (index - 1) * step;
-        const enterEnd = index * step;
-
-        if (progressVal < enterStart) {
-          // Card has not arrived yet: cleanly parked off-stage below with visibility: hidden to bypass GPU work
-          cardEl.style.transform = 'translate3d(0, 115%, 0) scale(1)';
+        if (rel <= -1.0) {
+          // Card has not reached entrance window yet: cleanly parked off-stage below
+          cardEl.style.transform = 'translate3d(0, 105%, 0) scale(1)';
           cardEl.style.opacity = '0';
           cardEl.style.visibility = 'hidden';
           cardEl.style.pointerEvents = 'none';
@@ -166,13 +158,16 @@ export default function NexusStackingCards({ projects, onOpenInquiry, onScrollTo
           return;
         }
 
-        if (progressVal >= enterStart && progressVal <= enterEnd) {
-          // Card is currently sliding UP directly over previous card
-          const localProgress = (progressVal - enterStart) / step;
-          const easeProgress = Math.sin((localProgress * Math.PI) / 2);
-          const translateY = (1 - easeProgress) * 105;
+        if (rel < 0) {
+          // Card is currently sliding UP directly over the previous card
+          // enterProgress goes from 0.0 (at rel = -1) to 1.0 (at rel = 0)
+          const enterProgress = rel + 1.0;
+          
+          // Silky smooth sine ease-out curve ensuring momentum matches natural wheel scroll
+          const easeProgress = Math.sin((enterProgress * Math.PI) / 2);
+          const translateY = (1 - easeProgress) * 104;
 
-          cardEl.style.transform = `translate3d(0, ${translateY}%, 0) scale(1)`;
+          cardEl.style.transform = `translate3d(0, ${translateY.toFixed(2)}%, 0) scale(1)`;
           cardEl.style.opacity = '1';
           cardEl.style.visibility = 'visible';
           cardEl.style.pointerEvents = 'auto';
@@ -180,20 +175,29 @@ export default function NexusStackingCards({ projects, onOpenInquiry, onScrollTo
           return;
         }
 
-        // progressVal > enterEnd: Card is stacked and peeking out at top
-        const subsequentProgress = Math.min(1, (progressVal - enterEnd) / step);
-        const scale = 1 - subsequentProgress * 0.06;
-        const translateY = -subsequentProgress * 12;
-        const dimOpacity = subsequentProgress * 0.16;
+        // rel >= 0: Card is active (rel = 0) or stacked behind newer cards (rel > 0)
+        // Multi-card physical deck cascade:
+        // Each stacked card shifts UP progressively (-22px, -44px, -66px) and scales down gently (0.96, 0.92, 0.88)
+        // This ensures the top colored edge of EVERY previous card is always clearly visible behind newer cards!
+        const clampedRel = Math.min(3.5, rel);
+        const translateY = -clampedRel * 22;
+        const scale = Math.max(0.88, 1 - clampedRel * 0.04);
+        const dimOpacity = Math.min(0.35, clampedRel * 0.11);
 
-        cardEl.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
-        cardEl.style.opacity = '1';
-        cardEl.style.visibility = 'visible';
-        cardEl.style.pointerEvents = 'auto';
-        if (dimOverlayEl) dimOverlayEl.style.opacity = `${dimOpacity}`;
+        // Older cards beyond 3 layers back gracefully fade out to avoid top-edge clutter
+        let opacity = 1;
+        if (rel > 3.0) {
+          opacity = Math.max(0, 1 - (rel - 3.0) * 1.5);
+        }
+
+        cardEl.style.transform = `translate3d(0, ${translateY.toFixed(1)}px, 0) scale(${scale.toFixed(3)})`;
+        cardEl.style.opacity = `${opacity.toFixed(2)}`;
+        cardEl.style.visibility = opacity > 0.01 ? 'visible' : 'hidden';
+        cardEl.style.pointerEvents = rel < 0.85 ? 'auto' : 'none';
+        if (dimOverlayEl) dimOverlayEl.style.opacity = `${dimOpacity.toFixed(2)}`;
       });
     },
-    [step]
+    [numTransitions]
   );
 
   // 60-120 FPS requestAnimationFrame Scroll Listener
@@ -205,6 +209,10 @@ export default function NexusStackingCards({ projects, onOpenInquiry, onScrollTo
       const rect = trackRef.current.getBoundingClientRect();
       const trackHeight = rect.height;
       const windowHeight = window.innerHeight;
+
+      // Early exit if completely off-screen to save GPU/CPU cycles
+      if (rect.bottom < -120 || rect.top > windowHeight + 120) return;
+
       const totalScrollable = trackHeight - windowHeight;
 
       if (totalScrollable <= 0) {
@@ -226,7 +234,7 @@ export default function NexusStackingCards({ projects, onOpenInquiry, onScrollTo
       // Determine active primary card for the bottom dock button pills
       const currentIdx = Math.min(
         totalCards - 1,
-        Math.floor(clamped * numTransitions + 0.35)
+        Math.max(0, Math.round(clamped * numTransitions))
       );
 
       if (currentIdx !== activeCardIndexRef.current) {
@@ -522,6 +530,7 @@ export default function NexusStackingCards({ projects, onOpenInquiry, onScrollTo
                 type="button"
                 className="nexus-arrow-btn"
                 onClick={handleNext}
+                disabled={activeCardIndex === totalCards - 1}
                 aria-label="Next Project"
               >
                 <i className="ri-arrow-right-s-line"></i>

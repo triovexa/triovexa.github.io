@@ -298,7 +298,8 @@
   min-height: 480px;
   max-height: 680px;
   display: flex;
-  align-items: flex-start; /* Compact vertical positioning brings cards close to heading */
+  align-items: flex-start;
+  /* Compact vertical positioning brings cards close to heading */
   justify-content: center;
   z-index: 20;
   padding: 0.5rem 0;
@@ -329,7 +330,7 @@
   width: 100%;
   height: 100%;
   border-radius: 28px;
-  box-shadow: 
+  box-shadow:
     0 25px 60px rgba(0, 0, 0, 0.65),
     0 0 0 1px rgba(255, 255, 255, 0.08);
   overflow: hidden;
@@ -553,7 +554,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain !important; /* CRITICAL: Never crop portrait mobile screens or hardware photos */
+  object-fit: contain !important;
+  /* CRITICAL: Never crop portrait mobile screens or hardware photos */
   object-position: center center;
   opacity: 0;
   transition: opacity 0.35s ease-in-out, transform 0.35s ease;
@@ -706,8 +708,13 @@
 }
 
 @keyframes lightboxFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .slideshow-lightbox-content {
@@ -737,6 +744,7 @@
     opacity: 0;
     transform: scale(0.92);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -823,9 +831,11 @@
   .slideshow-lightbox-arrow.prev {
     left: 8px;
   }
+
   .slideshow-lightbox-arrow.next {
     right: 8px;
   }
+
   .slideshow-lightbox-close {
     top: 8px;
     right: 8px;
@@ -1484,9 +1494,20 @@
 }
 
 @keyframes pulseLiveDot {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-  70% { transform: scale(1.15); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+
+  70% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
 }
 
 /* The Central Stage with giant typography & floating orbs */
@@ -1553,50 +1574,34 @@
   color: var(--orb-text);
   box-shadow: 0 0 24px var(--orb-glow), 0 4px 16px rgba(0, 0, 0, 0.4);
   transition: width 0.42s cubic-bezier(0.16, 1, 0.3, 1),
-              height 0.42s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.35s ease,
-              opacity 0.35s ease,
-              filter 0.35s ease;
+    height 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease,
+    opacity 0.35s ease,
+    filter 0.35s ease;
   user-select: none;
   overflow: hidden;
 }
 
-/* Floating animation variations for idle state */
-@keyframes orbFloat1 {
-  0% { transform: translate(-50%, -50%) translateY(0px) translateX(0px); }
-  50% { transform: translate(-50%, -50%) translateY(-11px) translateX(5px); }
-  100% { transform: translate(-50%, -50%) translateY(0px) translateX(0px); }
+/* Slow-motion synchronized vertical floating animation (Yellow.ai Image 2 Reference) */
+@keyframes orbVerticalSlowFloat {
+
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) translateY(-14px);
+  }
 }
 
-@keyframes orbFloat2 {
-  0% { transform: translate(-50%, -50%) translateY(0px) translateX(0px); }
-  50% { transform: translate(-50%, -50%) translateY(13px) translateX(-6px); }
-  100% { transform: translate(-50%, -50%) translateY(0px) translateX(0px); }
+.float-anim-1,
+.float-anim-2,
+.float-anim-3,
+.float-anim-4,
+.float-anim-5 {
+  animation: orbVerticalSlowFloat 4.8s ease-in-out infinite;
 }
-
-@keyframes orbFloat3 {
-  0% { transform: translate(-50%, -50%) translateY(0px) translateX(0px); }
-  50% { transform: translate(-50%, -50%) translateY(-9px) translateX(-4px); }
-  100% { transform: translate(-50%, -50%) translateY(0px) translateX(0px); }
-}
-
-@keyframes orbFloat4 {
-  0% { transform: translate(-50%, -50%) translateY(0px) translateX(0px); }
-  50% { transform: translate(-50%, -50%) translateY(11px) translateX(7px); }
-  100% { transform: translate(-50%, -50%) translateY(0px) translateX(0px); }
-}
-
-@keyframes orbFloat5 {
-  0% { transform: translate(-50%, -50%) translateY(0px) translateX(0px); }
-  50% { transform: translate(-50%, -50%) translateY(-13px) translateX(4px); }
-  100% { transform: translate(-50%, -50%) translateY(0px) translateX(0px); }
-}
-
-.float-anim-1 { animation: orbFloat1 6.5s ease-in-out infinite; }
-.float-anim-2 { animation: orbFloat2 5.8s ease-in-out infinite; }
-.float-anim-3 { animation: orbFloat3 7.2s ease-in-out infinite; }
-.float-anim-4 { animation: orbFloat4 6.0s ease-in-out infinite; }
-.float-anim-5 { animation: orbFloat5 5.5s ease-in-out infinite; }
 
 /* Idle Icon inside small circle */
 .orb-icon-idle {
@@ -1834,8 +1839,13 @@
 }
 
 @keyframes floatBubble {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-4px); }
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-4px);
+  }
 }
 
 .mentor-contact-pill {
@@ -1985,9 +1995,15 @@
 .why-choose-hero-section {
   position: relative;
   background-color: #06070a;
-  padding: 5.5rem 1.5rem 5rem 1.5rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5.5rem 1.5rem 3.5rem 1.5rem;
   overflow: hidden;
   border-bottom: none;
+  box-sizing: border-box;
 }
 
 .why-choose-dot-grid {
@@ -2016,6 +2032,7 @@
 
 .why-choose-container {
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   position: relative;
   z-index: 2;
@@ -2025,43 +2042,35 @@
   text-align: center;
 }
 
-/* Animated Top Glowing Badge */
-.why-choose-top-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  padding: 0.48rem 1.25rem;
-  border-radius: 9999px;
-  margin-bottom: 2.2rem;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
-}
-
-.why-choose-badge-text {
-  font-size: 0.84rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: #f1f5f9;
-  text-transform: uppercase;
+/* Category-Tailored Title matching Yellow.ai Image 1 Reference */
+.why-choose-intro-title {
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 300;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  margin-bottom: 0.8rem;
+  text-align: center;
+  line-height: 1.25;
+  display: block;
+  user-select: none;
 }
 
 /* Central Stage with Big Typography & Floating Orbs */
 .why-choose-stage {
   position: relative;
   width: 100%;
-  max-width: 1050px;
-  height: 400px;
+  max-width: 1100px;
+  height: clamp(300px, 38vh, 420px);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
 }
 
 .why-choose-hero-wordmark {
   font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(3.8rem, 11vw, 9.5rem);
+  font-size: clamp(4.2rem, 12vw, 10.5rem);
   font-weight: 900;
   letter-spacing: -0.015em;
   color: #ffffff;
@@ -2081,87 +2090,78 @@
   pointer-events: none;
 }
 
-/* Tagline beneath wordmark */
-.why-choose-tagline {
-  font-size: 1.05rem;
-  color: #94a3b8;
-  margin: 0 0 2rem 0;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-}
-
-/* Category Switcher Tabs */
+/* Category Switcher Tabs matching Image 1 clean aesthetic */
 .why-choose-category-tabs {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 0.9rem;
+  margin-top: 0.6rem;
 }
 
 .why-choose-tab-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #94a3b8;
-  padding: 0.6rem 1.35rem;
+  gap: 0.55rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #cbd5e1;
+  padding: 0.58rem 1.45rem;
   border-radius: 9999px;
-  font-size: 0.88rem;
-  font-weight: 700;
+  font-size: 0.92rem;
+  font-weight: 400;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: 0.01em;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   backdrop-filter: blur(10px);
 }
 
 .why-choose-tab-pill i {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  color: #94a3b8;
+  transition: color 0.25s ease;
 }
 
 .why-choose-tab-pill:hover {
   background: rgba(255, 255, 255, 0.12);
   color: #ffffff;
   border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.why-choose-tab-pill:hover i {
+  color: #00f2fe;
 }
 
 .why-choose-tab-pill.active {
   background: #ffffff;
   color: #070b13;
   border-color: #ffffff;
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
-  transform: translateY(-2px);
+  font-weight: 600;
+  box-shadow: 0 6px 22px rgba(255, 255, 255, 0.28);
+  transform: translateY(-1px);
 }
 
 .why-choose-tab-pill.active i {
-  color: #00f2fe;
+  color: #0284c7;
 }
 
 /* ==========================================================================
-   SCROLL-DRIVEN EXPANDING TRIANGLE TRANSITION (Yellow.ai Nexus Reference)
+   UNIFIED WHITE SHOWCASE SECTION (Yellow.ai Nexus Reference Architecture)
    ========================================================================== */
 
-.nexus-triangle-scroll-track {
+.nexus-showcase-unified-section {
   position: relative;
   width: 100%;
-  height: 30vh; /* Swift, responsive aperture opening into white showcase */
   background-color: #06070a;
+  overflow: visible;
   z-index: 10;
 }
 
-.nexus-triangle-sticky-viewport {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: 30vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Background Dot Grid for space outside the triangle */
-.nexus-triangle-bg-grid {
+/* Background Cyber Dot Grid for surrounding dark area */
+.nexus-unified-bg-grid {
   position: absolute;
   inset: 0;
   background-color: #06070a;
@@ -2171,113 +2171,16 @@
   z-index: 1;
 }
 
-/* The White Canvas Layer masked by the dynamically expanding triangle polygon */
-.nexus-expanding-triangle-canvas {
-  position: absolute;
-  inset: 0;
-  background-color: #ffffff;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  will-change: clip-path;
-  transition: clip-path 0.04s linear;
-}
-
-/* Teaser revealed inside the growing white triangle */
-.nexus-triangle-teaser {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.65rem;
-  z-index: 6;
-  text-align: center;
-  will-change: transform, opacity;
-  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
-}
-
-.nexus-triangle-scroll-hint {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #0284c7;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.nexus-triangle-scroll-hint i {
-  font-size: 1.1rem;
-  animation: bounceDown 1.5s infinite;
-}
-
-/* Floating speech card on triangle tip when small (Yellow.ai Image 1 reference) */
-.nexus-triangle-tip-badge {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 20;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  pointer-events: none;
-  will-change: top, opacity;
-  transition: opacity 0.2s ease;
-}
-
-.triangle-tip-speech {
-  background: rgba(255, 255, 255, 0.95);
-  color: #0f172a;
-  padding: 0.5rem 1.15rem;
-  border-radius: 16px 16px 16px 4px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
-  white-space: nowrap;
-  animation: tipSpeechFloat 3s ease-in-out infinite alternate;
-}
-
-@keyframes tipSpeechFloat {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-4px); }
-}
-
-.triangle-tip-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(15, 23, 42, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  padding: 0.4rem 1rem;
-  border-radius: 9999px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-  white-space: nowrap;
-}
-
-.triangle-tip-pill i {
-  color: #00f2fe;
-  font-size: 1rem;
-  animation: bounceDown 1.6s infinite;
-}
-
-@keyframes bounceDown {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(3px); }
-}
-
-/* The White Background Section */
-.nexus-white-showcase-section {
-  background-color: #ffffff;
-  color: #0f172a;
+/* The ONE Solid White Layer containing heading & cards */
+.nexus-unified-white-layer {
   position: relative;
-  z-index: 10;
   width: 100%;
-  padding: 1.5rem 0 3rem 0; /* Compact padding keeps cards connected directly to heading */
+  background-color: #ffffff;
+  color: #0f172a;
+  z-index: 5;
+  padding: 3rem 0 13rem 0;
+  will-change: clip-path;
+  min-height: 100vh;
 }
 
 .nexus-white-container {
@@ -2289,7 +2192,8 @@
 
 .nexus-white-header {
   text-align: center;
-  margin-bottom: 1.25rem; /* Tight spacing between subtitle and card deck */
+  margin-bottom: 1.25rem;
+  /* Tight spacing between subtitle and card deck */
 }
 
 .nexus-white-pill {
@@ -2414,17 +2318,18 @@
 .nexus-metrics-section {
   position: relative;
   background-color: #06070a;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   width: 100%;
   overflow: visible;
-  z-index: 10;
+  z-index: 4;
+  margin-top: 0;
 }
 
 .nexus-metrics-track {
   position: relative;
   width: 100%;
-  height: 250vh; /* Smooth, spacious scroll range so user comfortably inspects each metric */
+  height: 250vh;
+  /* Smooth, spacious scroll range so user comfortably inspects each metric */
 }
 
 .nexus-metrics-sticky-stage {
@@ -2464,41 +2369,30 @@
   z-index: 5;
 }
 
-/* Header */
+/* Header - Exact Yellow.ai Nexus Typography */
 .nexus-metrics-header {
-  margin-bottom: 2.2rem;
-}
-
-.nexus-metrics-eyebrow {
-  display: inline-block;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  color: #a855f7;
-  text-transform: uppercase;
-  margin-bottom: 0.6rem;
-  background: rgba(168, 85, 247, 0.1);
-  border: 1px solid rgba(168, 85, 247, 0.25);
-  padding: 0.35rem 0.95rem;
-  border-radius: 9999px;
+  margin-bottom: 2.8rem;
+  text-align: center;
 }
 
 .nexus-metrics-main-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: clamp(2.2rem, 4.4vw, 3.5rem);
-  font-weight: 900;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(2.4rem, 4.5vw, 3.2rem);
+  font-weight: 700;
   color: #ffffff;
-  letter-spacing: -0.025em;
-  margin: 0 0 0.65rem 0;
-  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.85rem 0;
+  line-height: 1.2;
 }
 
 .nexus-metrics-subtitle {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 1.05rem;
-  color: #94a3b8;
-  max-width: 640px;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 720px;
   margin: 0 auto;
-  line-height: 1.55;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
 /* The 3-Column Metrics Row */
@@ -2523,37 +2417,41 @@
 }
 
 .nexus-metric-title {
-  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
-  font-weight: 800;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(1.7rem, 2.5vw, 2.5rem);
+  font-weight: 700;
   color: #ffffff;
   line-height: 1.18;
   letter-spacing: -0.015em;
 }
 
 .nexus-metric-scope {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 0.95rem;
   color: #94a3b8;
-  font-weight: 500;
+  font-weight: 400;
 }
 
-/* Center Column: Signature Tilted Neon Lozenge Card */
+/* Center Column: Signature Tilted Neon Card + Agent Interactive Pill */
 .nexus-metric-col-center {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  gap: 0.85rem;
 }
 
 .nexus-metric-lozenge {
-  width: clamp(280px, 28vw, 350px);
-  height: clamp(180px, 20vw, 225px);
+  width: clamp(280px, 28vw, 360px);
+  height: clamp(185px, 20vw, 235px);
   border-radius: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
-              background-color 0.4s ease, 
-              box-shadow 0.4s ease;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.4s ease,
+    box-shadow 0.4s ease;
   animation: lozengePop 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   will-change: transform;
 }
@@ -2563,15 +2461,16 @@
     opacity: 0.6;
     transform: scale(0.92) rotate(0deg);
   }
+
   to {
     opacity: 1;
   }
 }
 
 .nexus-metric-number {
-  font-family: 'Outfit', sans-serif;
-  font-size: clamp(4.2rem, 6.8vw, 6.4rem);
-  font-weight: 900;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(4.4rem, 7.2vw, 6.8rem);
+  font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1;
   user-select: none;
@@ -2587,182 +2486,211 @@
 }
 
 .nexus-metric-desc {
-  font-size: 0.98rem;
-  color: #cbd5e1;
-  line-height: 1.55;
-  font-weight: 500;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
+  font-weight: 400;
   margin: 0;
 }
 
-/* Step Switcher Pills */
-.nexus-metrics-pills {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.65rem;
-  margin-bottom: 2rem;
-}
-
-.nexus-metric-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #94a3b8;
-  padding: 0.45rem 1.05rem;
-  border-radius: 9999px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.nexus-metric-pill:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-}
-
-.nexus-metric-pill.active {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.35);
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-}
-
-.metric-pill-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-/* Bottom Mentor Consultation Bar (Yellow.ai Alex speech card style) */
-.nexus-metrics-mentor-bar {
+/* Sleek Agent Interactive Element directly attached below center card (User Image 2 exact replica) */
+.nexus-agent-interactive-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
 }
 
-.metrics-speech-bubble {
-  background: rgba(255, 255, 255, 0.96);
+.nexus-agent-speech-bubble {
+  background: #ffffff;
   color: #0f172a;
-  padding: 0.5rem 1.15rem;
-  border-radius: 16px 16px 16px 4px;
-  font-size: 0.84rem;
-  font-weight: 700;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-  animation: floatBubble 4s ease-in-out infinite alternate;
+  padding: 0.45rem 1.1rem;
+  border-radius: 14px 14px 14px 4px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  animation: agentBubbleFloat 3.5s ease-in-out infinite alternate;
 }
 
-.metrics-mentor-pill {
+@keyframes agentBubbleFloat {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-3px);
+  }
+}
+
+.nexus-agent-action-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.85rem;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  padding: 0.45rem 1.25rem 0.45rem 0.65rem;
+  gap: 0.6rem;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  color: #2563eb;
+  padding: 0.42rem 1.25rem 0.42rem 0.55rem;
   border-radius: 9999px;
   cursor: pointer;
+  font-size: 0.84rem;
+  font-weight: 700;
   transition: all 0.25s ease;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(12px);
-  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
 }
 
-.metrics-mentor-pill:hover {
-  background: rgba(30, 41, 59, 0.96);
-  border-color: rgba(0, 242, 254, 0.4);
+.nexus-agent-action-pill:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(0, 242, 254, 0.2);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.3);
+  background: #f8fafc;
 }
 
-.metrics-mentor-avatar {
+.nexus-agent-avatar {
   position: relative;
-  width: 34px;
-  height: 34px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   background: linear-gradient(135deg, #0284c7, #6366f1);
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
-  font-size: 1.1rem;
+  font-size: 0.85rem;
 }
 
-.avatar-live-status {
+.agent-status-dot {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 9px;
-  height: 9px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: #10b981;
-  border: 2px solid #0f172a;
+  border: 1.5px solid #ffffff;
 }
 
-.metrics-mentor-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+.nexus-agent-sound-icon {
+  font-size: 0.95rem;
+  color: #2563eb;
 }
 
-.mentor-primary-action {
-  font-size: 0.84rem;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.2;
-}
-
-.mentor-secondary-note {
-  font-size: 0.7rem;
-  color: #94a3b8;
-}
-
-.mentor-action-arrow {
-  font-size: 1.15rem;
-  color: #00f2fe;
+.nexus-agent-btn-text {
+  letter-spacing: -0.01em;
 }
 
 /* Tablet & Mobile Responsiveness for Metrics Stage */
 @media (max-width: 880px) {
+  /* Ensure the white layer bottom is 100% straight and does not cut metrics on mobile */
+  .nexus-unified-white-layer {
+    clip-path: none !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  .nexus-metrics-section {
+    margin-top: 0 !important;
+    padding-top: 2rem !important;
+    position: relative;
+    z-index: 10;
+  }
+
   .nexus-metrics-track {
     height: 180vh;
   }
 
+  .nexus-metrics-sticky-stage {
+    height: 100vh;
+    min-height: unset;
+    padding: 4.5rem 1rem 1rem 1rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .nexus-metrics-container {
+    padding: 0;
+    max-width: 100%;
+    gap: 0.35rem;
+  }
+
+  .nexus-metrics-header {
+    margin-bottom: 1.1rem;
+    padding: 0 0.5rem;
+  }
+
+  .nexus-metrics-main-title {
+    font-size: clamp(1.8rem, 6.2vw, 2.25rem);
+    font-weight: 700;
+    margin: 0 0 0.45rem 0;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .nexus-metrics-subtitle {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    max-width: 360px;
+    padding: 0 0.5rem;
+    color: rgba(255, 255, 255, 0.82);
+  }
+
   .nexus-metrics-row {
     grid-template-columns: 1fr;
-    gap: 1.4rem;
-    margin-bottom: 1.5rem;
+    gap: 0.85rem;
+    margin-bottom: 0.5rem;
   }
 
   .nexus-metric-col-left {
     align-items: center;
     text-align: center;
+    gap: 0.15rem;
+  }
+
+  .nexus-metric-title {
+    font-size: 1.35rem;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  .nexus-metric-scope {
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+
+  .nexus-metric-col-center {
+    gap: 0.5rem;
+  }
+
+  .nexus-metric-lozenge {
+    width: 215px;
+    height: 125px;
+    border-radius: 22px;
+  }
+
+  .nexus-metric-number {
+    font-size: 3.2rem;
+    font-weight: 700;
+  }
+
+  .nexus-agent-interactive-container {
+    margin-top: 0.2rem;
+  }
+
+  .nexus-agent-action-pill {
+    padding: 0.35rem 1.1rem;
+    font-size: 0.8rem;
   }
 
   .nexus-metric-col-right {
     align-items: center;
     text-align: center;
-    max-width: 440px;
+    max-width: 340px;
   }
 
-  .nexus-metric-lozenge {
-    width: 260px;
-    height: 165px;
-    border-radius: 28px;
-  }
-
-  .nexus-metric-number {
-    font-size: 3.8rem;
-  }
-
-  .nexus-metrics-main-title {
-    font-size: 2rem;
+  .nexus-metric-desc {
+    font-size: 0.85rem;
+    line-height: 1.45;
   }
 }
-
-

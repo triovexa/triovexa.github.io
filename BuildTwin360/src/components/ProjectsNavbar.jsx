@@ -6,11 +6,17 @@ export default function ProjectsNavbar({ activeTab, onSelectTab, onOpenInquiry }
   const [projectsDropdownOpen, setProjectsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
+  const isScrolledRef = useRef(false);
+
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      const scrolled = window.scrollY > 40;
+      if (scrolled !== isScrolledRef.current) {
+        isScrolledRef.current = scrolled;
+        setIsScrolled(scrolled);
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

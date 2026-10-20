@@ -52,12 +52,6 @@ export default function Projects() {
       const url = new URL(window.location.href);
       url.searchParams.set('tab', tabId);
       window.history.pushState(null, '', url.pathname + url.search);
-
-      // Scroll smoothly to top of cards
-      const cardsEl = document.getElementById('nexus-cards-showcase');
-      if (cardsEl) {
-        cardsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
     }
   };
 
@@ -98,36 +92,14 @@ export default function Projects() {
         onSelectTab={handleTabChange}
       />
 
-      {/* 2. Scroll-Driven Expanding Triangle Transition (Yellow.ai Nexus Reference Style) */}
-      <NexusTriangleExpandTransition currentCategory={currentCategory} />
-
-      {/* 3. White Background Showcase Section (Holding Stacking Cards Deck) */}
-      <section className="nexus-white-showcase-section" id="nexus-cards-showcase">
-        <div className="nexus-white-container">
-          {/* Clean Focused Header directly above the cards deck */}
-          <div className="nexus-white-header">
-            <div className="nexus-white-pill">
-              <i className={currentCategory.icon}></i>
-              <span>{currentCategory.label}</span>
-            </div>
-            <h2 className="nexus-white-title">
-              Featured Innovation <span className="nexus-white-title-gradient">Projects</span>
-            </h2>
-            <p className="nexus-white-subtitle">
-              Engineered with industrial precision, zero emulation, and production-grade architectures. Scroll to inspect each milestone.
-            </p>
-          </div>
-
-          {/* Yellow.ai Nexus Interactive Stacking & Zoom-Out Cards Showcase */}
-          <div className="nexus-cards-showcase-section">
-            <NexusStackingCards
-              key={activeTab}
-              projects={currentProjects}
-              onOpenInquiry={handleOpenInquiry}
-            />
-          </div>
-        </div>
-      </section>
+      {/* 2. Unified Expanding Triangle White Showcase Section (Exact Yellow.ai Nexus Single UI) */}
+      <NexusTriangleExpandTransition
+        key={activeTab}
+        activeTab={activeTab}
+        currentCategory={currentCategory}
+        currentProjects={currentProjects}
+        onOpenInquiry={handleOpenInquiry}
+      />
 
       {/* 4. The Nexus Effect / TrioVexa Impact Showcase (Scroll-Driven Central Morphing Metrics) */}
       <NexusMetricsShowcase

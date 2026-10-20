@@ -247,9 +247,9 @@ const CATEGORY_ORBS = {
 };
 
 const CATEGORY_TITLES = {
-  academic: 'WHY FUTURE ENGINEERS CHOOSE',
-  client: 'WHY INDUSTRY CLIENTS CHOOSE',
-  products: 'WHY SCALE-UPS CHOOSE',
+  academic: 'Why Future Engineers Choose',
+  client: 'Why Industry Clients Choose',
+  products: 'Why Scale-Ups & Enterprises Choose',
 };
 
 export default function WhyChooseInteractiveHero({ activeTab, onSelectTab }) {
@@ -259,7 +259,7 @@ export default function WhyChooseInteractiveHero({ activeTab, onSelectTab }) {
 
   const activeOrbId = hoveredOrb || pinnedOrb;
   const currentOrbs = CATEGORY_ORBS[activeTab] || CATEGORY_ORBS.client;
-  const introTitle = CATEGORY_TITLES[activeTab] || 'WHY CHOOSE';
+  const introTitle = CATEGORY_TITLES[activeTab] || 'Why Choose';
 
   const handleOrbClick = (id) => {
     setPinnedOrb((prev) => (prev === id ? null : id));
@@ -282,11 +282,8 @@ export default function WhyChooseInteractiveHero({ activeTab, onSelectTab }) {
       <div className="why-choose-ambient-purple"></div>
 
       <div className="why-choose-container">
-        {/* Animated Glowing Top Badge */}
-        <div className="why-choose-top-badge">
-          <span className="pulsing-live-dot"></span>
-          <span className="why-choose-badge-text">{introTitle} TRIOVEXA</span>
-        </div>
+        {/* Dynamic Category-Tailored Title in Outfit font matching Yellow.ai Reference */}
+        <span className="why-choose-intro-title">{introTitle}</span>
 
         {/* The Central Wordmark & Floating Interactive Orbs */}
         <div className="why-choose-stage">
@@ -352,13 +349,7 @@ export default function WhyChooseInteractiveHero({ activeTab, onSelectTab }) {
           </div>
         </div>
 
-        {/* Clean, Focused Tagline */}
-        <p className="why-choose-tagline">
-          The intelligence is the interface.{' '}
-          <span className="tagline-highlight">Hover any floating node to inspect our engineering standard.</span>
-        </p>
-
-        {/* Integrated Category Switcher Tabs */}
+        {/* Integrated Category Switcher Tabs (Tagline removed per user request) */}
         <div className="why-choose-category-tabs">
           {PROJECT_CATEGORIES.map((cat) => {
             const isActive = activeTab === cat.id;

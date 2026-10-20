@@ -19,8 +19,8 @@ const CATEGORY_METRICS = {
       title: 'Production SLA',
       scope: 'across all deployed systems',
       desc: 'Zero-downtime microservices, real-time WebSocket data streaming, and edge CDN cloud infrastructure.',
-      bg: '#84cc16', // Neon Lime
-      textColor: '#0f291e',
+      bg: '#84cc16', // Neon Lime (User Image 2 reference)
+      textColor: '#070b13',
       glow: 'rgba(132, 204, 22, 0.45)',
       rotation: '-4deg',
     },
@@ -29,9 +29,9 @@ const CATEGORY_METRICS = {
       number: '45k+',
       title: 'Daily Concurrency',
       scope: 'handled with sub-second latency',
-      desc: 'High-throughput road logistics transactions, tonnage calculators, and automated GST invoicing.',
+      desc: 'High-throughput logistics transactions, automated calculations, and multi-tenant isolated storage.',
       bg: '#38bdf8', // Electric Cyan
-      textColor: '#082f49',
+      textColor: '#070b13',
       glow: 'rgba(56, 189, 248, 0.45)',
       rotation: '3deg',
     },
@@ -40,9 +40,9 @@ const CATEGORY_METRICS = {
       number: '180+',
       title: 'Enterprise Releases',
       scope: 'commercial production handoffs',
-      desc: 'Custom software actively powering commercial road logistics, textile mills, and manufacturing ERPs.',
+      desc: 'Custom software actively powering commercial road logistics, manufacturing ERPs, and textile mills.',
       bg: '#fde047', // Cyber Yellow
-      textColor: '#422006',
+      textColor: '#070b13',
       glow: 'rgba(253, 224, 71, 0.45)',
       rotation: '-3deg',
     },
@@ -55,7 +55,7 @@ const CATEGORY_METRICS = {
       scope: 'sub-millisecond indexing',
       desc: 'Optimized full-text search, barcode scanning, and multi-vehicle routing calculated in microseconds.',
       bg: '#84cc16',
-      textColor: '#0f291e',
+      textColor: '#070b13',
       glow: 'rgba(132, 204, 22, 0.45)',
       rotation: '-4deg',
     },
@@ -64,9 +64,9 @@ const CATEGORY_METRICS = {
       number: '100%',
       title: 'Offline Reliability',
       scope: 'zero downtime field capture',
-      desc: 'Operate smoothly in low-connectivity textile mills and remote freight routes with conflict-free cloud sync.',
+      desc: 'Operate smoothly in low-connectivity mills and remote freight routes with conflict-free cloud sync.',
       bg: '#38bdf8',
-      textColor: '#082f49',
+      textColor: '#070b13',
       glow: 'rgba(56, 189, 248, 0.45)',
       rotation: '3deg',
     },
@@ -75,9 +75,9 @@ const CATEGORY_METRICS = {
       number: '12+',
       title: 'Proprietary SaaS',
       scope: 'purpose-built vertical engines',
-      desc: 'Specialized enterprise ERPs and logistics automation platforms engineered with multi-tenant isolated storage.',
+      desc: 'Specialized enterprise ERPs and logistics automation platforms engineered with multi-tenant storage.',
       bg: '#fde047',
-      textColor: '#422006',
+      textColor: '#070b13',
       glow: 'rgba(253, 224, 71, 0.45)',
       rotation: '-3deg',
     },
@@ -88,20 +88,20 @@ const CATEGORY_METRICS = {
       number: '100%',
       title: 'Student IP Rights',
       scope: 'zero claim institutional policy',
-      desc: 'You retain full ownership of every line of code, schematic, and patent draft. We mentor IEEE papers and viva defense.',
+      desc: 'You retain full ownership of every line of code, schematic, and patent draft with IEEE paper guidance.',
       bg: '#84cc16',
-      textColor: '#0f291e',
+      textColor: '#070b13',
       glow: 'rgba(132, 204, 22, 0.45)',
       rotation: '-4deg',
     },
     {
-      id: 'silicon',
+      id: 'hardware',
       number: 'Zero',
-      title: 'Breadboard Emulation',
+      title: 'Toy Emulation',
       scope: 'real physical hardware rigs',
       desc: 'No toy simulations. Built on real ESP32-S3, STM32 Nucleo, and factory-grade industrial sensor rigs ready for real deployment.',
       bg: '#38bdf8',
-      textColor: '#082f49',
+      textColor: '#070b13',
       glow: 'rgba(56, 189, 248, 0.45)',
       rotation: '3deg',
     },
@@ -109,10 +109,10 @@ const CATEGORY_METRICS = {
       id: 'trials',
       number: '15+',
       title: 'Field-Tested Trials',
-      scope: 'validated with real human subjects',
-      desc: 'Benchmarked in real physical environments—tested with actual visually impaired testers and live clinical vitals.',
+      scope: 'validated with real subjects',
+      desc: 'Benchmarked in real physical environments—tested with visually impaired testers and live clinical vitals.',
       bg: '#fde047',
-      textColor: '#422006',
+      textColor: '#070b13',
       glow: 'rgba(253, 224, 71, 0.45)',
       rotation: '-3deg',
     },
@@ -122,6 +122,7 @@ const CATEGORY_METRICS = {
 export default function NexusMetricsShowcase({ activeTab, onOpenInquiry }) {
   const containerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const activeIndexRef = useRef(0);
 
   const metricsList = CATEGORY_METRICS[activeTab] || CATEGORY_METRICS.client;
   const currentMetric = metricsList[activeIndex] || metricsList[0];
@@ -133,6 +134,10 @@ export default function NexusMetricsShowcase({ activeTab, onOpenInquiry }) {
       if (!containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
+
+      // Early exit if off-screen to save CPU
+      if (rect.bottom < -100 || rect.top > windowHeight + 100) return;
+
       const totalDist = rect.height - windowHeight;
       if (totalDist <= 0) return;
 
@@ -144,9 +149,10 @@ export default function NexusMetricsShowcase({ activeTab, onOpenInquiry }) {
       const count = metricsList.length;
       const newIndex = Math.min(count - 1, Math.floor(clamped * count));
 
-      animId = requestAnimationFrame(() => {
+      if (newIndex !== activeIndexRef.current) {
+        activeIndexRef.current = newIndex;
         setActiveIndex(newIndex);
-      });
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -166,16 +172,15 @@ export default function NexusMetricsShowcase({ activeTab, onOpenInquiry }) {
           <div className="nexus-metrics-dot-grid" aria-hidden="true"></div>
 
           <div className="nexus-metrics-container">
-            {/* Header: The Nexus Effect style */}
+            {/* Header: Exact font style and size from Yellow.ai Image 2 */}
             <div className="nexus-metrics-header">
-              <span className="nexus-metrics-eyebrow">THE TRIOVEXA IMPACT</span>
-              <h2 className="nexus-metrics-main-title">Real Numbers. Production Proof.</h2>
+              <h2 className="nexus-metrics-main-title">The Triovexa Effect</h2>
               <p className="nexus-metrics-subtitle">
-                Built for teams who need real-world production engineering. Here are the verified numbers showing our impact.
+                Built for teams that engineer high-performance production systems—and demand real-world reliability. Here are some real numbers showing the impact.
               </p>
             </div>
 
-            {/* Morphing Metrics Showcase Row (User Images 3 & 4 Reference) */}
+            {/* Clean 3-Column Metrics Showcase Row (Image 2 Reference) */}
             <div className="nexus-metrics-row">
               {/* Left Column: Scope & Title */}
               <div className="nexus-metric-col-left">
@@ -183,7 +188,7 @@ export default function NexusMetricsShowcase({ activeTab, onOpenInquiry }) {
                 <span className="nexus-metric-scope">{currentMetric.scope}</span>
               </div>
 
-              {/* Center Column: The Signature Tilted Neon Lozenge / Card */}
+              {/* Center Column: The Signature Tilted Neon Card + Attached Agent Pill */}
               <div className="nexus-metric-col-center">
                 <div
                   className="nexus-metric-lozenge"
@@ -197,55 +202,32 @@ export default function NexusMetricsShowcase({ activeTab, onOpenInquiry }) {
                 >
                   <span className="nexus-metric-number">{currentMetric.number}</span>
                 </div>
+
+                {/* Sleek Agent Pill directly beneath the tilted card (User Image 2 exact match) */}
+                <div className="nexus-agent-interactive-container">
+                  
+                  <button
+                    type="button"
+                    className="nexus-agent-action-pill"
+                    onClick={() =>
+                      onOpenInquiry &&
+                      onOpenInquiry({
+                        name: 'The Triovexa Effect Consultation',
+                        type: activeTab,
+                      })
+                    }
+                  >
+                    
+                    <i className="ri-volume-up-line nexus-agent-sound-icon"></i>
+                    <span className="nexus-agent-btn-text">Talk to our team</span>
+                  </button>
+                </div>
               </div>
 
               {/* Right Column: Clear Concise Explanation */}
               <div className="nexus-metric-col-right">
                 <p className="nexus-metric-desc">{currentMetric.desc}</p>
               </div>
-            </div>
-
-            {/* Interactive Step Switcher Pills */}
-            <div className="nexus-metrics-pills">
-              {metricsList.map((m, idx) => (
-                <button
-                  key={m.id}
-                  type="button"
-                  className={`nexus-metric-pill ${idx === activeIndex ? 'active' : ''}`}
-                  onClick={() => setActiveIndex(idx)}
-                >
-                  <span className="metric-pill-dot" style={{ backgroundColor: m.bg }}></span>
-                  <span>{m.title}</span>
-                </button>
-              ))}
-            </div>
-
-            {/* Floating Mentor / Consultation Pill (Yellow.ai Image 3 & 4 style) */}
-            <div className="nexus-metrics-mentor-bar">
-              <div className="metrics-speech-bubble">
-                <span>Hi, have custom architectural specifications or milestone goals?</span>
-              </div>
-              <button
-                type="button"
-                className="metrics-mentor-pill"
-                onClick={() =>
-                  onOpenInquiry &&
-                  onOpenInquiry({
-                    name: 'Project Architecture & Metric Consultation',
-                    type: activeTab,
-                  })
-                }
-              >
-                <div className="metrics-mentor-avatar">
-                  <i className="ri-user-star-line"></i>
-                  <span className="avatar-live-status"></span>
-                </div>
-                <div className="metrics-mentor-text">
-                  <span className="mentor-primary-action">Consult TrioVexa Engineering Team</span>
-                  <span className="mentor-secondary-note">Direct response within 2 hours</span>
-                </div>
-                <i className="ri-arrow-right-up-line mentor-action-arrow"></i>
-              </button>
             </div>
           </div>
         </div>
