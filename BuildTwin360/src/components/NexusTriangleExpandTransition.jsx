@@ -38,25 +38,12 @@ export default function NexusTriangleExpandTransition({
       const p = currentProgress;
 
       if (p >= 0.98) {
-        // Full screen expansion: On mobile, bottom is straight to avoid cutting metrics heading.
-        // On desktop, right-side slant smoothly straightens out as user reaches The Triovexa Effect.
+        // Full screen expansion:
+        // Slant stays permanently slanted on both desktop and mobile (no straightening animation on scroll)
+        // Right side is slanted down (100% 100%), left side is lifted up (0 calc(100% - slantOffset))
         if (whiteLayerRef.current) {
-          if (window.innerWidth <= 880) {
-            whiteLayerRef.current.style.clipPath = 'none';
-          } else {
-            const rect = sectionRef.current?.getBoundingClientRect();
-            const windowHeight = window.innerHeight || 800;
-            const distFromBottom = rect ? rect.bottom - windowHeight : 1000;
-            if (distFromBottom < 450) {
-              const factor = Math.max(0, Math.min(1, distFromBottom / 450));
-              const slant = Math.round(150 * factor);
-              whiteLayerRef.current.style.clipPath = slant > 4
-                ? `polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - ${slant}px))`
-                : 'none';
-            } else {
-              whiteLayerRef.current.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 150px))';
-            }
-          }
+          const slant = window.innerWidth <= 768 ? 90 : 140;
+          whiteLayerRef.current.style.clipPath = `polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - ${slant}px))`;
         }
       } else {
         // Geometry calculations for expanding triangle (Yellow.ai Nexus Reference)
@@ -82,10 +69,13 @@ export default function NexusTriangleExpandTransition({
           sideY = Math.max(0, baseSideY - p2 * baseSideY);
         }
 
-        const clipPathString = `polygon(50% ${peakY}px, ${rightX.toFixed(1)}% ${sideY.toFixed(1)}px, 100% 100%, 0% 100%, ${leftX.toFixed(1)}% ${sideY.toFixed(1)}px)`;
-
         if (whiteLayerRef.current) {
-          whiteLayerRef.current.style.clipPath = clipPathString;
+          if (p >= 0.99) {
+            whiteLayerRef.current.style.clipPath = 'none';
+          } else {
+            const clipPathString = `polygon(50% ${peakY}px, ${rightX.toFixed(1)}% ${sideY.toFixed(1)}px, 100% 100%, 0% 100%, ${leftX.toFixed(1)}% ${sideY.toFixed(1)}px)`;
+            whiteLayerRef.current.style.clipPath = clipPathString;
+          }
         }
       }
 

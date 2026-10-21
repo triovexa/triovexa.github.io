@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import InteractiveMatrixCanvas from './InteractiveMatrixCanvas';
 
 /**
  * NexusMetricsShowcase Component
@@ -14,33 +15,30 @@ import React, { useState, useEffect, useRef } from 'react';
 const CATEGORY_METRICS = {
   client: [
     {
-      id: 'sla',
-      number: '99.4%',
-      title: 'Production SLA',
-      scope: 'across all deployed systems',
-      desc: 'Zero-downtime microservices, real-time WebSocket data streaming, and edge CDN cloud infrastructure.',
+      id: 'projects-delivered',
+      number: '250+',
+      title: 'Projects Delivered',
+      desc: 'Websites, business software and custom digital solutions.',
       bg: '#84cc16', // Neon Lime (User Image 2 reference)
       textColor: '#070b13',
       glow: 'rgba(132, 204, 22, 0.45)',
       rotation: '-4deg',
     },
     {
-      id: 'concurrency',
-      number: '45k+',
-      title: 'Daily Concurrency',
-      scope: 'handled with sub-second latency',
-      desc: 'High-throughput logistics transactions, automated calculations, and multi-tenant isolated storage.',
+      id: 'business-sectors',
+      number: '10+',
+      title: 'Business Sectors',
+      desc: 'Solutions tailored to different industries and business needs.',
       bg: '#38bdf8', // Electric Cyan
       textColor: '#070b13',
       glow: 'rgba(56, 189, 248, 0.45)',
       rotation: '3deg',
     },
     {
-      id: 'deployments',
-      number: '180+',
-      title: 'Enterprise Releases',
-      scope: 'commercial production handoffs',
-      desc: 'Custom software actively powering commercial road logistics, manufacturing ERPs, and textile mills.',
+      id: 'client-focused',
+      number: '100%',
+      title: 'Client-Focused Approach',
+      desc: "Every project starts by understanding the client's requirements.",
       bg: '#fde047', // Cyber Yellow
       textColor: '#070b13',
       glow: 'rgba(253, 224, 71, 0.45)',
@@ -49,33 +47,30 @@ const CATEGORY_METRICS = {
   ],
   products: [
     {
-      id: 'latency',
-      number: '< 12ms',
-      title: 'Processing Latency',
-      scope: 'sub-millisecond indexing',
-      desc: 'Optimized full-text search, barcode scanning, and multi-vehicle routing calculated in microseconds.',
+      id: 'digital-products',
+      number: '10+',
+      title: 'Digital Products',
+      desc: 'Practical tools and software built to solve everyday problems.',
       bg: '#84cc16',
       textColor: '#070b13',
       glow: 'rgba(132, 204, 22, 0.45)',
       rotation: '-4deg',
     },
     {
-      id: 'offline',
-      number: '100%',
-      title: 'Offline Reliability',
-      scope: 'zero downtime field capture',
-      desc: 'Operate smoothly in low-connectivity mills and remote freight routes with conflict-free cloud sync.',
+      id: 'tech-areas',
+      number: '5+',
+      title: 'Technology Areas',
+      desc: 'Web, mobile, automation, AI and business software.',
       bg: '#38bdf8',
       textColor: '#070b13',
       glow: 'rgba(56, 189, 248, 0.45)',
       rotation: '3deg',
     },
     {
-      id: 'engines',
-      number: '12+',
-      title: 'Proprietary SaaS',
-      scope: 'purpose-built vertical engines',
-      desc: 'Specialized enterprise ERPs and logistics automation platforms engineered with multi-tenant storage.',
+      id: 'access-24-7',
+      number: '24/7',
+      title: 'Access When You Need It',
+      desc: 'Suitable for products designed for online, always-available access.',
       bg: '#fde047',
       textColor: '#070b13',
       glow: 'rgba(253, 224, 71, 0.45)',
@@ -84,33 +79,30 @@ const CATEGORY_METRICS = {
   ],
   academic: [
     {
-      id: 'ip',
-      number: '100%',
-      title: 'Student IP Rights',
-      scope: 'zero claim institutional policy',
-      desc: 'You retain full ownership of every line of code, schematic, and patent draft with IEEE paper guidance.',
+      id: 'student-projects',
+      number: '120+',
+      title: 'Student Projects',
+      desc: 'Academic ideas developed into practical project implementations.',
       bg: '#84cc16',
       textColor: '#070b13',
       glow: 'rgba(132, 204, 22, 0.45)',
       rotation: '-4deg',
     },
     {
-      id: 'hardware',
-      number: 'Zero',
-      title: 'Toy Emulation',
-      scope: 'real physical hardware rigs',
-      desc: 'No toy simulations. Built on real ESP32-S3, STM32 Nucleo, and factory-grade industrial sensor rigs ready for real deployment.',
+      id: 'tech-domains',
+      number: '10+',
+      title: 'Technology Domains',
+      desc: 'Java, web development, AI/ML, IoT and embedded systems.',
       bg: '#38bdf8',
       textColor: '#070b13',
       glow: 'rgba(56, 189, 248, 0.45)',
       rotation: '3deg',
     },
     {
-      id: 'trials',
-      number: '15+',
-      title: 'Field-Tested Trials',
-      scope: 'validated with real subjects',
-      desc: 'Benchmarked in real physical environments—tested with visually impaired testers and live clinical vitals.',
+      id: 'project-support',
+      number: '3-in-1',
+      title: 'Complete Project Support',
+      desc: 'Development, documentation and demonstration preparation.',
       bg: '#fde047',
       textColor: '#070b13',
       glow: 'rgba(253, 224, 71, 0.45)',
@@ -169,15 +161,15 @@ export default function NexusMetricsShowcase({ activeTab, onOpenInquiry }) {
       <div className="nexus-metrics-track">
         {/* Sticky Stage: Locks in viewport while user scrolls through metrics */}
         <div className="nexus-metrics-sticky-stage">
-          <div className="nexus-metrics-dot-grid" aria-hidden="true"></div>
+          {/* Interactive Cyber Dot Grid with Mouse-Tracking Blue Pixel Morph (Same as Top Hero) */}
+          <InteractiveMatrixCanvas />
+          <div className="why-choose-ambient-purple"></div>
 
           <div className="nexus-metrics-container">
             {/* Header: Exact font style and size from Yellow.ai Image 2 */}
             <div className="nexus-metrics-header">
               <h2 className="nexus-metrics-main-title">The Triovexa Effect</h2>
-              <p className="nexus-metrics-subtitle">
-                Built for teams that engineer high-performance production systems—and demand real-world reliability. Here are some real numbers showing the impact.
-              </p>
+              
             </div>
 
             {/* Clean 3-Column Metrics Showcase Row (Image 2 Reference) */}

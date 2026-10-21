@@ -1,126 +1,125 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import ProjectImageSlideshow from './ProjectImageSlideshow';
 
-export default function NexusStackingCards({ projects, onOpenInquiry, onScrollToGrid }) {
+export default function NexusStackingCards({ projects, onOpenInquiry }) {
   const trackRef = useRef(null);
   const cardsRef = useRef([]);
   const dimOverlayRefs = useRef([]);
-  const [activeCardIndex, setActiveCardIndex] = useState(0);
-  const activeCardIndexRef = useRef(0);
 
-  // Expanded theme palettes matching the Yellow.ai Nexus reference aesthetic
+  // Settled, soft light pastel themes matching Yellow.ai Nexus reference aesthetic (Images 1, 2, 3)
+  // Clean solid dark typography, zero eye-straining high-contrast neon/multicolor
   const cardThemes = [
     {
-      bg: '#E4E815', // Vibrant Lime/Yellow from reference image
+      bg: '#FEF38B', // Soft Pastel Lemon Yellow (Exact Yellow.ai Image 1 Reference)
       textColor: '#070b13',
       pillBg: '#070b13',
       pillColor: '#ffffff',
       descColor: '#1e293b',
       checkColor: '#070b13',
-      chipBg: 'rgba(0, 0, 0, 0.08)',
+      chipBg: 'rgba(0, 0, 0, 0.07)',
       chipColor: '#070b13',
-      badgeBg: 'rgba(0, 0, 0, 0.1)',
+      badgeBg: 'rgba(0, 0, 0, 0.08)',
       badgeColor: '#070b13',
       btnBg: '#070b13',
       btnColor: '#ffffff',
     },
     {
-      bg: '#F5F3E9', // Warm White / Cream from reference image
-      textColor: '#0a0f1d',
-      pillBg: '#0a0f1d',
+      bg: '#F5F3E9', // Warm Oatmeal / Cream (Exact Yellow.ai Image 2 Reference)
+      textColor: '#070b13',
+      pillBg: '#070b13',
       pillColor: '#ffffff',
-      descColor: '#334155',
-      checkColor: '#0a0f1d',
+      descColor: '#1e293b',
+      checkColor: '#070b13',
       chipBg: 'rgba(0, 0, 0, 0.07)',
-      chipColor: '#0f172a',
+      chipColor: '#070b13',
       badgeBg: 'rgba(0, 0, 0, 0.08)',
-      badgeColor: '#0f172a',
-      btnBg: '#0a0f1d',
+      badgeColor: '#070b13',
+      btnBg: '#070b13',
       btnColor: '#ffffff',
     },
     {
-      bg: '#0d1b2a', // Deep Sleek Midnight Navy
-      textColor: '#ffffff',
-      pillBg: '#00f2fe',
-      pillColor: '#070b13',
-      descColor: '#94a3b8',
-      checkColor: '#00f2fe',
-      chipBg: 'rgba(0, 242, 254, 0.12)',
-      chipColor: '#e0f2fe',
-      badgeBg: 'rgba(0, 242, 254, 0.15)',
-      badgeColor: '#00f2fe',
-      btnBg: '#00f2fe',
-      btnColor: '#070b13',
-    },
-    {
-      bg: '#0d2818', // Deep Forest Agro Green
-      textColor: '#ffffff',
-      pillBg: '#10b981',
-      pillColor: '#070b13',
-      descColor: '#a7f3d0',
-      checkColor: '#10b981',
-      chipBg: 'rgba(16, 185, 129, 0.15)',
-      chipColor: '#d1fae5',
-      badgeBg: 'rgba(16, 185, 129, 0.2)',
-      badgeColor: '#10b981',
-      btnBg: '#10b981',
-      btnColor: '#070b13',
-    },
-    {
-      bg: '#1e1136', // Deep Royal Violet
-      textColor: '#ffffff',
-      pillBg: '#a855f7',
+      bg: '#EBE4F9', // Soft Pastel Lavender / Lilac (Exact Yellow.ai Image 3 Reference)
+      textColor: '#070b13',
+      pillBg: '#070b13',
       pillColor: '#ffffff',
-      descColor: '#d8b4fe',
-      checkColor: '#a855f7',
-      chipBg: 'rgba(168, 85, 247, 0.15)',
-      chipColor: '#f3e8ff',
-      badgeBg: 'rgba(168, 85, 247, 0.2)',
-      badgeColor: '#c084fc',
-      btnBg: '#a855f7',
+      descColor: '#1e293b',
+      checkColor: '#070b13',
+      chipBg: 'rgba(0, 0, 0, 0.07)',
+      chipColor: '#070b13',
+      badgeBg: 'rgba(0, 0, 0, 0.08)',
+      badgeColor: '#070b13',
+      btnBg: '#070b13',
       btnColor: '#ffffff',
     },
     {
-      bg: '#23121d', // Deep Berry Rose
-      textColor: '#ffffff',
-      pillBg: '#f43f5e',
+      bg: '#E2F4E9', // Subtle Mint / Sage Mist
+      textColor: '#070b13',
+      pillBg: '#070b13',
       pillColor: '#ffffff',
-      descColor: '#fda4af',
-      checkColor: '#f43f5e',
-      chipBg: 'rgba(244, 63, 94, 0.15)',
-      chipColor: '#ffe4e6',
-      badgeBg: 'rgba(244, 63, 94, 0.2)',
-      badgeColor: '#fb7185',
-      btnBg: '#f43f5e',
+      descColor: '#1e293b',
+      checkColor: '#070b13',
+      chipBg: 'rgba(0, 0, 0, 0.07)',
+      chipColor: '#070b13',
+      badgeBg: 'rgba(0, 0, 0, 0.08)',
+      badgeColor: '#070b13',
+      btnBg: '#070b13',
       btnColor: '#ffffff',
     },
     {
-      bg: '#231707', // Deep Warm Amber
-      textColor: '#ffffff',
-      pillBg: '#f59e0b',
-      pillColor: '#070b13',
-      descColor: '#fde68a',
-      checkColor: '#f59e0b',
-      chipBg: 'rgba(245, 158, 11, 0.15)',
-      chipColor: '#fef3c7',
-      badgeBg: 'rgba(245, 158, 11, 0.2)',
-      badgeColor: '#fbbf24',
-      btnBg: '#f59e0b',
-      btnColor: '#070b13',
+      bg: '#E6F0FA', // Soft Sky / Ice Blue Mist
+      textColor: '#070b13',
+      pillBg: '#070b13',
+      pillColor: '#ffffff',
+      descColor: '#1e293b',
+      checkColor: '#070b13',
+      chipBg: 'rgba(0, 0, 0, 0.07)',
+      chipColor: '#070b13',
+      badgeBg: 'rgba(0, 0, 0, 0.08)',
+      badgeColor: '#070b13',
+      btnBg: '#070b13',
+      btnColor: '#ffffff',
     },
     {
-      bg: '#082026', // Deep Cyber Teal
-      textColor: '#ffffff',
-      pillBg: '#06b6d4',
-      pillColor: '#070b13',
-      descColor: '#a5f3fc',
-      checkColor: '#06b6d4',
-      chipBg: 'rgba(6, 182, 212, 0.15)',
-      chipColor: '#cffafe',
-      badgeBg: 'rgba(6, 182, 212, 0.2)',
-      badgeColor: '#22d3ee',
-      btnBg: '#06b6d4',
-      btnColor: '#070b13',
+      bg: '#FDEEE2', // Subtle Warm Apricot / Peach
+      textColor: '#070b13',
+      pillBg: '#070b13',
+      pillColor: '#ffffff',
+      descColor: '#1e293b',
+      checkColor: '#070b13',
+      chipBg: 'rgba(0, 0, 0, 0.07)',
+      chipColor: '#070b13',
+      badgeBg: 'rgba(0, 0, 0, 0.08)',
+      badgeColor: '#070b13',
+      btnBg: '#070b13',
+      btnColor: '#ffffff',
+    },
+    {
+      bg: '#FCE7F3', // Soft Pastel Rose Blush
+      textColor: '#070b13',
+      pillBg: '#070b13',
+      pillColor: '#ffffff',
+      descColor: '#1e293b',
+      checkColor: '#070b13',
+      chipBg: 'rgba(0, 0, 0, 0.07)',
+      chipColor: '#070b13',
+      badgeBg: 'rgba(0, 0, 0, 0.08)',
+      badgeColor: '#070b13',
+      btnBg: '#070b13',
+      btnColor: '#ffffff',
+    },
+    {
+      bg: '#F1F5F9', // Crisp Pearl / Slate Neutral
+      textColor: '#070b13',
+      pillBg: '#070b13',
+      pillColor: '#ffffff',
+      descColor: '#1e293b',
+      checkColor: '#070b13',
+      chipBg: 'rgba(0, 0, 0, 0.07)',
+      chipColor: '#070b13',
+      badgeBg: 'rgba(0, 0, 0, 0.08)',
+      badgeColor: '#070b13',
+      btnBg: '#070b13',
+      btnColor: '#ffffff',
     },
   ];
 
@@ -200,9 +199,10 @@ export default function NexusStackingCards({ projects, onOpenInquiry, onScrollTo
     [numTransitions]
   );
 
-  // 60-120 FPS requestAnimationFrame Scroll Listener
+  // Buttery-smooth 60-120 FPS requestAnimationFrame Scroll Listener (Zero React re-render overhead)
   useEffect(() => {
-    let animId;
+    let animId = null;
+    let ticking = false;
 
     const handleScroll = () => {
       if (!trackRef.current) return;
@@ -214,13 +214,8 @@ export default function NexusStackingCards({ projects, onOpenInquiry, onScrollTo
       if (rect.bottom < -120 || rect.top > windowHeight + 120) return;
 
       const totalScrollable = trackHeight - windowHeight;
-
       if (totalScrollable <= 0) {
         applyCardTransforms(0);
-        if (activeCardIndexRef.current !== 0) {
-          activeCardIndexRef.current = 0;
-          setActiveCardIndex(0);
-        }
         return;
       }
 
@@ -228,99 +223,31 @@ export default function NexusStackingCards({ projects, onOpenInquiry, onScrollTo
       const rawProgress = scrolled / totalScrollable;
       const clamped = Math.max(0, Math.min(1, rawProgress));
 
-      // Direct GPU transform update without triggering full React component re-render
       applyCardTransforms(clamped);
+    };
 
-      // Determine active primary card for the bottom dock button pills
-      const currentIdx = Math.min(
-        totalCards - 1,
-        Math.max(0, Math.round(clamped * numTransitions))
-      );
-
-      if (currentIdx !== activeCardIndexRef.current) {
-        activeCardIndexRef.current = currentIdx;
-        setActiveCardIndex(currentIdx);
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        animId = requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
       }
     };
 
-    const throttled = () => {
-      cancelAnimationFrame(animId);
-      animId = requestAnimationFrame(handleScroll);
-    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
 
-    window.addEventListener('scroll', throttled, { passive: true });
-    window.addEventListener('resize', throttled, { passive: true });
+    // Initial setup on mount
     handleScroll();
 
     return () => {
-      window.removeEventListener('scroll', throttled);
-      window.removeEventListener('resize', throttled);
-      cancelAnimationFrame(animId);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (animId) cancelAnimationFrame(animId);
     };
-  }, [totalCards, numTransitions, applyCardTransforms]);
-
-  // Jump to specific card smoothly
-  const scrollToCard = useCallback(
-    (index) => {
-      if (!trackRef.current) return;
-      const rect = trackRef.current.getBoundingClientRect();
-      const scrollTop = window.scrollY || window.pageYOffset;
-      const trackTop = rect.top + scrollTop;
-      const trackHeight = rect.height;
-      const windowHeight = window.innerHeight;
-      const totalScrollable = trackHeight - windowHeight;
-
-      const targetProgress = numTransitions > 0 ? index / numTransitions : 0;
-      const targetScroll = trackTop + targetProgress * totalScrollable;
-
-      window.scrollTo({
-        top: targetScroll,
-        behavior: 'smooth',
-      });
-    },
-    [numTransitions]
-  );
-
-  const handleNext = () => {
-    if (activeCardIndex < totalCards - 1) {
-      scrollToCard(activeCardIndex + 1);
-    } else if (onScrollToGrid) {
-      onScrollToGrid();
-    }
-  };
-
-  const handlePrev = () => {
-    if (activeCardIndex > 0) {
-      scrollToCard(activeCardIndex - 1);
-    }
-  };
-
-  const [touchStartX, setTouchStartX] = useState(null);
-  const [touchStartY, setTouchStartY] = useState(null);
-
-  // Touch handlers for mobile swipe
-  const handleTouchStart = (e) => {
-    setTouchStartX(e.touches[0].clientX);
-    setTouchStartY(e.touches[0].clientY);
-  };
-
-  const handleTouchEnd = (e) => {
-    if (touchStartX === null || touchStartY === null) return;
-    const touchEndX = e.changedTouches[0].clientX;
-    const touchEndY = e.changedTouches[0].clientY;
-    const diffX = touchStartX - touchEndX;
-    const diffY = touchStartY - touchEndY;
-
-    if (Math.abs(diffX) > 60 && Math.abs(diffX) > Math.abs(diffY) * 1.5) {
-      if (diffX > 0) {
-        handleNext();
-      } else {
-        handlePrev();
-      }
-    }
-    setTouchStartX(null);
-    setTouchStartY(null);
-  };
+  }, [applyCardTransforms]);
 
   return (
     <div
@@ -329,17 +256,12 @@ export default function NexusStackingCards({ projects, onOpenInquiry, onScrollTo
       style={{ height: trackHeightStyle }}
     >
       {/* Sticky Stage: Locks in viewport while cards stack */}
-      <div
-        className="nexus-sticky-stage"
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-      >
+      <div className="nexus-sticky-stage">
         <div className="nexus-deck-wrapper">
           {/* Deck Container with bounded, responsive height */}
           <div className="nexus-card-deck">
             {projects.map((project, index) => {
               const theme = cardThemes[index % cardThemes.length];
-              const isInitiallyVisible = index === 0;
 
               return (
                 <article
@@ -350,9 +272,6 @@ export default function NexusStackingCards({ projects, onOpenInquiry, onScrollTo
                     backgroundColor: theme.bg,
                     color: theme.textColor,
                     zIndex: 10 + index,
-                    transform: isInitiallyVisible ? 'translate3d(0, 0px, 0) scale(1)' : 'translate3d(0, 115%, 0) scale(1)',
-                    opacity: isInitiallyVisible ? 1 : 0,
-                    visibility: isInitiallyVisible ? 'visible' : 'hidden',
                   }}
                 >
                   {/* Zero-filter GPU dimming overlay replacing heavy brightness() filter */}
@@ -481,7 +400,7 @@ export default function NexusStackingCards({ projects, onOpenInquiry, onScrollTo
                           className="nexus-slideshow-container"
                           imgClassName="nexus-chrome-img"
                           interval={1500}
-                          isActive={index === activeCardIndex}
+                          isActive={true}
                         />
                       </div>
                     </div>
@@ -489,64 +408,6 @@ export default function NexusStackingCards({ projects, onOpenInquiry, onScrollTo
                 </article>
               );
             })}
-          </div>
-
-          {/* Sleek Floating Navigation Dock below deck */}
-          <div className="nexus-dock-controls">
-            <div className="nexus-dock-arrows">
-              <button
-                type="button"
-                className="nexus-arrow-btn"
-                onClick={handlePrev}
-                disabled={activeCardIndex === 0}
-                aria-label="Previous Project"
-              >
-                <i className="ri-arrow-left-s-line"></i>
-              </button>
-            </div>
-
-            <div className="nexus-dock-pills">
-              {projects.map((proj, idx) => {
-                const isActive = idx === activeCardIndex;
-                return (
-                  <button
-                    key={proj.id}
-                    type="button"
-                    className={`nexus-dock-pill ${isActive ? 'active' : ''}`}
-                    onClick={() => scrollToCard(idx)}
-                    title={proj.title}
-                  >
-                    <span className="dock-pill-indicator"></span>
-                    <span className="dock-pill-title">
-                      {proj.title.split(' ')[0]}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-
-            <div className="nexus-dock-arrows">
-              <button
-                type="button"
-                className="nexus-arrow-btn"
-                onClick={handleNext}
-                disabled={activeCardIndex === totalCards - 1}
-                aria-label="Next Project"
-              >
-                <i className="ri-arrow-right-s-line"></i>
-              </button>
-            </div>
-
-            {onScrollToGrid && (
-              <button
-                type="button"
-                className="nexus-dock-grid-btn"
-                onClick={onScrollToGrid}
-              >
-                <span>View All Grid</span>
-                <i className="ri-arrow-down-line"></i>
-              </button>
-            )}
           </div>
         </div>
       </div>

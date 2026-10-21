@@ -331,13 +331,14 @@
   height: 100%;
   border-radius: 28px;
   box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.65),
+    0 20px 50px rgba(0, 0, 0, 0.55),
     0 0 0 1px rgba(255, 255, 255, 0.08);
   overflow: hidden;
-  will-change: transform;
+  will-change: transform, opacity;
   transform-origin: center top;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  contain: paint layout;
 }
 
 /* Zero-filter GPU hardware-accelerated card dimming overlay */
@@ -1191,6 +1192,102 @@
 }
 
 /* ==========================================================================
+   DESKTOP FULL-SCREEN & FULL-WIDTH CARDS LAYOUT (Exact Yellow.ai Nexus UI)
+   Expansive layout, immersive viewport real estate, large punchy typography
+   ========================================================================== */
+@media (min-width: 1025px) {
+  .nexus-white-container {
+    max-width: 96vw !important;
+    padding: 0 1.5vw !important;
+  }
+
+  .nexus-deck-wrapper {
+    max-width: 100% !important;
+    padding: 0 !important;
+    gap: 1.25rem !important;
+  }
+
+  .nexus-sticky-stage {
+    top: 65px;
+    height: calc(100vh - 65px);
+    max-height: unset;
+    padding: 0;
+  }
+
+  .nexus-card-deck {
+    height: clamp(560px, 78vh, 760px) !important;
+    width: 100%;
+  }
+
+  .nexus-stack-card {
+    border-radius: 32px;
+  }
+
+  .nexus-card-inner {
+    grid-template-columns: 1fr 1.18fr !important;
+    padding: clamp(2.2rem, 3.2vw, 3.8rem) !important;
+    gap: clamp(2rem, 3.5vw, 4.5rem) !important;
+    height: 100%;
+    align-items: center;
+  }
+
+  .nexus-card-left {
+    justify-content: center;
+    gap: 0.65rem;
+  }
+
+  .nexus-card-title {
+    font-size: clamp(2.1rem, 2.7vw, 3.2rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.025em !important;
+    margin: 0.6rem 0 1rem 0 !important;
+  }
+
+  .nexus-card-bullets {
+    gap: 0.6rem !important;
+    margin-bottom: 1.2rem !important;
+  }
+
+  .nexus-card-bullets li {
+    font-size: 1.05rem !important;
+    line-height: 1.48 !important;
+    gap: 0.75rem !important;
+  }
+
+  .nexus-bullet-dot {
+    font-size: 1.25rem !important;
+  }
+
+  .nexus-card-chips {
+    gap: 0.5rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .nexus-tech-chip {
+    font-size: 0.82rem !important;
+    padding: 0.28rem 0.78rem !important;
+    border-radius: 10px !important;
+  }
+
+  .nexus-card-actions {
+    padding-top: 0.4rem !important;
+  }
+
+  .nexus-btn-action,
+  .nexus-private-badge {
+    padding: 0.8rem 1.85rem !important;
+    font-size: 0.95rem !important;
+  }
+
+  .nexus-card-device {
+    max-height: clamp(400px, 60vh, 580px) !important;
+    height: 100% !important;
+    border-radius: 24px !important;
+  }
+}
+
+/* ==========================================================================
    RESPONSIVE DESIGN (TABLET & MOBILE)
    Smooth Hardware-Accelerated Stacking & Zoom-Out Animation on Mobile
    Desktop View Unchanged
@@ -1573,6 +1670,7 @@
   background: var(--orb-bg);
   color: var(--orb-text);
   box-shadow: 0 0 24px var(--orb-glow), 0 4px 16px rgba(0, 0, 0, 0.4);
+  touch-action: manipulation;
   transition: width 0.42s cubic-bezier(0.16, 1, 0.3, 1),
     height 0.42s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.35s ease,
@@ -1672,7 +1770,86 @@
    HOVER & ACTIVE EXPANDED STATE (Yellow.ai Image 3 & 4 style)
    ========================================================================== */
 
-.student-orb-node:hover,
+/* Screen Backdrop Dismiss: tap anywhere outside an expanded circle to close it cleanly */
+.why-choose-backdrop-dismiss {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  background: transparent;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Close button inside expanded circular card */
+.orb-close-pill-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.15);
+  color: var(--orb-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+  z-index: 10;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.orb-close-pill-btn:hover,
+.orb-close-pill-btn:active {
+  transform: scale(1.12);
+  background: rgba(0, 0, 0, 0.28);
+}
+
+/* Idle / Closed Orb State: strictly hide expanded text to avoid any layout glitch or lingering text */
+.student-orb-node:not(.is-expanded) .orb-expanded-content {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.student-orb-node:not(.is-expanded) .orb-icon-idle {
+  display: flex !important;
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  visibility: visible !important;
+}
+
+/* On desktop with real mouse, allow hover preview */
+@media (hover: hover) and (pointer: fine) {
+  .student-orb-node:hover {
+    width: 320px;
+    height: 320px;
+    z-index: 100;
+    animation-play-state: paused;
+    box-shadow: 0 0 75px 16px var(--orb-glow), 0 25px 60px rgba(0, 0, 0, 0.65);
+  }
+
+  .student-orb-node:hover .orb-icon-idle {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  .student-orb-node:hover .orb-expanded-content {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: scale(1) !important;
+  }
+}
+
+/* Explicit class-based expansion works on ALL devices via state */
 .student-orb-node.is-expanded {
   width: 320px;
   height: 320px;
@@ -1681,19 +1858,18 @@
   box-shadow: 0 0 75px 16px var(--orb-glow), 0 25px 60px rgba(0, 0, 0, 0.65);
 }
 
-.student-orb-node:hover .orb-icon-idle,
 .student-orb-node.is-expanded .orb-icon-idle {
-  opacity: 0;
-  transform: scale(0.5);
-  pointer-events: none;
-  display: none;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
-.student-orb-node:hover .orb-expanded-content,
 .student-orb-node.is-expanded .orb-expanded-content {
-  opacity: 1;
-  pointer-events: auto;
-  transform: scale(1);
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: scale(1) !important;
 }
 
 /* Dimmed state when another orb is active */
@@ -1918,20 +2094,35 @@
   box-shadow: 0 12px 35px rgba(168, 85, 247, 0.2);
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for Interactive Orbs */
 @media (max-width: 900px) {
-  .student-nexus-stage {
+  .student-nexus-stage,
+  .why-choose-stage {
     height: 380px;
   }
 
-  .student-orb-node:hover,
+  .student-orb-node {
+    transition: width 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+      height 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+      left 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+      top 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.35s ease,
+      opacity 0.35s ease,
+      filter 0.35s ease;
+  }
+
+  /* Center the expanded circular lens on mobile/tablet so left/right corner icons never clip off-screen */
   .student-orb-node.is-expanded {
-    width: 290px;
-    height: 290px;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: min(295px, 86vw) !important;
+    height: min(295px, 86vw) !important;
+    z-index: 250 !important;
   }
 
   .orb-expanded-content {
-    padding: 1.8rem 1.4rem;
+    padding: 1.6rem 1.3rem;
   }
 
   .orb-expanded-title {
@@ -1940,7 +2131,7 @@
 
   .orb-expanded-desc {
     font-size: 0.76rem;
-    max-width: 220px;
+    max-width: 225px;
   }
 }
 
@@ -1949,8 +2140,9 @@
     padding: 4.5rem 1rem 5.5rem 1rem;
   }
 
-  .student-nexus-stage {
-    height: 320px;
+  .student-nexus-stage,
+  .why-choose-stage {
+    height: 330px;
   }
 
   .student-orb-node {
@@ -1962,14 +2154,28 @@
     font-size: 1.25rem;
   }
 
-  .student-orb-node:hover,
   .student-orb-node.is-expanded {
-    width: min(270px, 86vw);
-    height: min(270px, 86vw);
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: min(285px, 86vw) !important;
+    height: min(285px, 86vw) !important;
+    z-index: 250 !important;
   }
 
   .orb-expanded-content {
-    padding: 1.5rem 1.1rem;
+    padding: 1.4rem 1.15rem;
+  }
+
+  .orb-expanded-icon {
+    font-size: 1.7rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .orb-expanded-tag {
+    font-size: 0.6rem;
+    padding: 0.15rem 0.5rem;
+    margin-bottom: 0.35rem;
   }
 
   .orb-expanded-title {
@@ -1978,9 +2184,9 @@
   }
 
   .orb-expanded-desc {
-    font-size: 0.72rem;
+    font-size: 0.74rem;
     line-height: 1.4;
-    max-width: 200px;
+    max-width: 220px;
   }
 
   .student-nexus-tagline {
@@ -2581,10 +2787,9 @@
 
 /* Tablet & Mobile Responsiveness for Metrics Stage */
 @media (max-width: 880px) {
-  /* Ensure the white layer bottom is 100% straight and does not cut metrics on mobile */
+  /* Allow triangle expansion and permanent static slant on mobile, with plenty of bottom padding */
   .nexus-unified-white-layer {
-    clip-path: none !important;
-    padding-bottom: 2.5rem !important;
+    padding-bottom: 7.5rem !important;
   }
 
   .nexus-metrics-section {
@@ -2601,7 +2806,7 @@
   .nexus-metrics-sticky-stage {
     height: 100vh;
     min-height: unset;
-    padding: 4.5rem 1rem 1rem 1rem;
+    padding: 5.5rem 1rem 1rem 1rem;
     box-sizing: border-box;
     display: flex;
     align-items: center;

@@ -170,7 +170,7 @@ export const CLIENT_PROJECTS = [
     techStack: ['React.js', 'Vite', 'Tailored UI', 'Cloud CDN', 'Modern CSS'],
     image: '/assets/images/projects/sree-vaarahi.jpg',
     images: [
-      '/assets/images/projects/sree-vaarahi.jpg',
+      
       '/assets/images/projects/sree-vaarahi-web.jpg'
     ],
     hasLiveLink: false,
@@ -467,8 +467,9 @@ export const ACADEMIC_PROJECTS = [
     actionText: 'Request Live Demo'
   },
   {
-    id: 'smart-ring',
+    id: 'smaarrt-ring',
     title: 'Smart Ring Application for Health Monitoring',
+    dockLabel: 'Ring',
     category: 'Embedded Node',
     tagPill: 'Embedded Node',
     tagIcon: 'ri-wireless-charging-line',
@@ -548,6 +549,7 @@ export const ACADEMIC_PROJECTS = [
   {
     id: 'smart-plant',
     title: 'Smart Plant Monitoring system using Raspberry pi and ESP32',
+    dockLabel: 'Plant',
     category: 'Embedded Node',
     tagPill: 'Embedded Node',
     tagIcon: 'ri-plant-line',
@@ -584,6 +586,7 @@ export const ACADEMIC_PROJECTS = [
   {
     id: 'traffic-accident',
     title: 'Smart Traffic Accident Hotspot Prediction and Prevention System',
+    dockLabel: 'Traffic',
     category: 'Embedded Node',
     tagPill: 'Embedded Node',
     tagIcon: 'ri-alarm-warning-line',
