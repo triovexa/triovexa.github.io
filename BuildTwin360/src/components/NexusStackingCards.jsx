@@ -125,30 +125,36 @@ export default function NexusStackingCards({ projects, onOpenInquiry }) {
 
   const totalCards = projects.length;
   const numTransitions = Math.max(1, totalCards - 1);
-  const step = 1 / numTransitions;
 
-  // Track height calculation: Each transition gets 70vh of scroll distance
-  const trackHeightStyle = `${100 + numTransitions * 70}vh`;
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' ? window.innerWidth <= 768 : false
+  );
 
-  // Hardware-accelerated direct DOM transform applicator (zero React re-render lag during scroll)
-  // Universal multi-card cascading deck physics: EVERY card from 0 to N-1 follows the exact same continuous mapping
+  useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile((prev) => (prev !== mobile ? mobile : prev));
+    };
+    window.addEventListener('resize', handleResize, { passive: true });
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Mobile: tight 35vh per card (100% UNTOUCHED, exactly as user loved)
+  const vhPerCard = 35;
+  const trackHeightStyle = `${100 + numTransitions * vhPerCard}vh`;
+
+  // Mobile Hardware-accelerated direct DOM transform applicator (100% UNTOUCHED for mobile)
   const applyCardTransforms = useCallback(
     (progressVal) => {
-      // currentFloatIndex ranges smoothly from 0.0 (Card 0 active) to numTransitions (Card N-1 active)
       const currentFloatIndex = progressVal * numTransitions;
 
       cardsRef.current.forEach((cardEl, index) => {
         if (!cardEl) return;
         const dimOverlayEl = dimOverlayRefs.current[index];
 
-        // rel: relative position of current scroll point to this card
-        // rel < 0: card is in future (has not arrived or is sliding up)
-        // rel == 0: card is active in center
-        // rel > 0: card has been passed and is stacked behind
         const rel = currentFloatIndex - index;
 
         if (rel <= -1.0) {
-          // Card has not reached entrance window yet: cleanly parked off-stage below
           cardEl.style.transform = 'translate3d(0, 105%, 0) scale(1)';
           cardEl.style.opacity = '0';
           cardEl.style.visibility = 'hidden';
@@ -158,11 +164,7 @@ export default function NexusStackingCards({ projects, onOpenInquiry }) {
         }
 
         if (rel < 0) {
-          // Card is currently sliding UP directly over the previous card
-          // enterProgress goes from 0.0 (at rel = -1) to 1.0 (at rel = 0)
           const enterProgress = rel + 1.0;
-          
-          // Silky smooth sine ease-out curve ensuring momentum matches natural wheel scroll
           const easeProgress = Math.sin((enterProgress * Math.PI) / 2);
           const translateY = (1 - easeProgress) * 104;
 
@@ -174,16 +176,11 @@ export default function NexusStackingCards({ projects, onOpenInquiry }) {
           return;
         }
 
-        // rel >= 0: Card is active (rel = 0) or stacked behind newer cards (rel > 0)
-        // Multi-card physical deck cascade:
-        // Each stacked card shifts UP progressively (-22px, -44px, -66px) and scales down gently (0.96, 0.92, 0.88)
-        // This ensures the top colored edge of EVERY previous card is always clearly visible behind newer cards!
         const clampedRel = Math.min(3.5, rel);
         const translateY = -clampedRel * 22;
         const scale = Math.max(0.88, 1 - clampedRel * 0.04);
         const dimOpacity = Math.min(0.35, clampedRel * 0.11);
 
-        // Older cards beyond 3 layers back gracefully fade out to avoid top-edge clutter
         let opacity = 1;
         if (rel > 3.0) {
           opacity = Math.max(0, 1 - (rel - 3.0) * 1.5);
@@ -199,8 +196,9 @@ export default function NexusStackingCards({ projects, onOpenInquiry }) {
     [numTransitions]
   );
 
-  // Buttery-smooth 60-120 FPS requestAnimationFrame Scroll Listener (Zero React re-render overhead)
+  // Mobile: Buttery-smooth 60-120 FPS requestAnimationFrame Scroll Listener (100% UNTOUCHED)
   useEffect(() => {
+    if (!isMobile) return;
     let animId = null;
     let ticking = false;
 
@@ -210,7 +208,6 @@ export default function NexusStackingCards({ projects, onOpenInquiry }) {
       const trackHeight = rect.height;
       const windowHeight = window.innerHeight;
 
-      // Early exit if completely off-screen to save GPU/CPU cycles
       if (rect.bottom < -120 || rect.top > windowHeight + 120) return;
 
       const totalScrollable = trackHeight - windowHeight;
@@ -238,8 +235,6 @@ export default function NexusStackingCards({ projects, onOpenInquiry }) {
 
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
-
-    // Initial setup on mount
     handleScroll();
 
     return () => {
@@ -247,18 +242,171 @@ export default function NexusStackingCards({ projects, onOpenInquiry }) {
       window.removeEventListener('resize', onScroll);
       if (animId) cancelAnimationFrame(animId);
     };
-  }, [applyCardTransforms]);
+  }, [applyCardTransforms, isMobile]);
 
+  // ========================================================================
+  // DESKTOP VIEW: SHOW ALL PROJECTS ONE BY ONE (Simple, Unique, Zero Lag)
+  // Per user request: no formal slider/carousel with arrows, all projects flow down
+  // naturally one by one at native 120 FPS momentum with zero scroll-jacking!
+  // ========================================================================
+  if (!isMobile) {
+    return (
+      <div className="nexus-desktop-cards-stream">
+        {projects.map((project, index) => {
+          const theme = cardThemes[index % cardThemes.length];
+
+          return (
+            <article
+              key={project.id}
+              className="nexus-desktop-stream-card"
+              style={{
+                backgroundColor: theme.bg,
+                color: theme.textColor,
+              }}
+            >
+              <div className="nexus-card-inner">
+                {/* Left Column: Clean Project Details per Yellow.ai Reference */}
+                <div className="nexus-card-left">
+                  {/* Single Clean Tag Pill */}
+                  <div className="nexus-pill-row">
+                    <span
+                      className="nexus-tag-pill"
+                      style={{
+                        backgroundColor: theme.pillBg,
+                        color: theme.pillColor,
+                      }}
+                    >
+                      {project.tagPill}
+                    </span>
+                  </div>
+
+                  {/* Project Heading */}
+                  <h2
+                    className="nexus-card-title"
+                    style={{ color: theme.textColor }}
+                  >
+                    {project.title}
+                  </h2>
+
+                  {/* What is What: Clean Bullet Points with Round Dots */}
+                  {project.features && (
+                    <ul className="nexus-card-bullets">
+                      {project.features.map((feat, fIdx) => (
+                        <li key={fIdx} style={{ color: theme.textColor }}>
+                          <span
+                            className="nexus-bullet-dot"
+                            style={{ color: theme.checkColor }}
+                          >
+                            •
+                          </span>
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {/* Tech Stack Chips */}
+                  {project.techStack && (
+                    <div className="nexus-card-chips">
+                      {project.techStack.map((tech, tIdx) => (
+                        <span
+                          key={tIdx}
+                          className="nexus-tech-chip"
+                          style={{
+                            backgroundColor: theme.chipBg,
+                            color: theme.chipColor,
+                          }}
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Action: Live Demo / Authorized Software */}
+                  <div className="nexus-card-actions">
+                    {project.hasLiveLink && project.liveUrl ? (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn nexus-btn-action"
+                        style={{
+                          backgroundColor: theme.btnBg,
+                          color: theme.btnColor,
+                        }}
+                      >
+                        <span>Live Demo</span>
+                        <i className="ri-external-link-line"></i>
+                      </a>
+                    ) : project.portalDomain ? (
+                      <div
+                        className="nexus-private-badge"
+                        style={{
+                          backgroundColor: theme.badgeBg,
+                          color: theme.badgeColor,
+                        }}
+                      >
+                        <i className="ri-shield-keyhole-line"></i>
+                        <span>Authorized Software</span>
+                      </div>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() =>
+                          onOpenInquiry &&
+                          onOpenInquiry({
+                            name: project.title,
+                            type: project.demoModalTag || 'project-demo-request',
+                          })
+                        }
+                        className="btn nexus-btn-action"
+                        style={{
+                          backgroundColor: theme.btnBg,
+                          color: theme.btnColor,
+                        }}
+                      >
+                        <span>Request Live Demo</span>
+                        <i className="ri-arrow-right-up-line"></i>
+                      </button>
+                    )}
+                  </div>
+                </div>
+
+                {/* Right Column: Clean Photo Preview with 1.5-second Auto-Slideshow */}
+                <div className="nexus-card-right">
+                  <div className="nexus-card-device">
+                    <ProjectImageSlideshow
+                      images={project.images || (project.image ? [project.image] : [])}
+                      fallback={project.image || '/assets/images/projects/lithin-transport.jpg'}
+                      alt={project.title}
+                      className="nexus-slideshow-container"
+                      imgClassName="nexus-chrome-img"
+                      interval={1500}
+                      isActive={true}
+                    />
+                  </div>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    );
+  }
+
+  // ========================================================================
+  // MOBILE VIEW: 100% UNTOUCHED ORIGINAL TOUCH-DRIVEN STACKED CARDS DECK
+  // ========================================================================
   return (
     <div
       ref={trackRef}
       className="nexus-track-container"
       style={{ height: trackHeightStyle }}
     >
-      {/* Sticky Stage: Locks in viewport while cards stack */}
+      {/* Sticky Stage: Locks in viewport while cards stack on mobile */}
       <div className="nexus-sticky-stage">
         <div className="nexus-deck-wrapper">
-          {/* Deck Container with bounded, responsive height */}
           <div className="nexus-card-deck">
             {projects.map((project, index) => {
               const theme = cardThemes[index % cardThemes.length];
@@ -274,7 +422,7 @@ export default function NexusStackingCards({ projects, onOpenInquiry }) {
                     zIndex: 10 + index,
                   }}
                 >
-                  {/* Zero-filter GPU dimming overlay replacing heavy brightness() filter */}
+                  {/* Zero-filter GPU dimming overlay */}
                   <div
                     ref={(el) => (dimOverlayRefs.current[index] = el)}
                     className="nexus-card-dim-overlay"
@@ -282,9 +430,8 @@ export default function NexusStackingCards({ projects, onOpenInquiry }) {
                   />
 
                   <div className="nexus-card-inner">
-                    {/* Left Column: Clean Project Details per Yellow.ai Reference */}
+                    {/* Left Column */}
                     <div className="nexus-card-left">
-                      {/* Single Clean Tag Pill */}
                       <div className="nexus-pill-row">
                         <span
                           className="nexus-tag-pill"
@@ -297,7 +444,6 @@ export default function NexusStackingCards({ projects, onOpenInquiry }) {
                         </span>
                       </div>
 
-                      {/* Project Heading */}
                       <h2
                         className="nexus-card-title"
                         style={{ color: theme.textColor }}
@@ -305,7 +451,6 @@ export default function NexusStackingCards({ projects, onOpenInquiry }) {
                         {project.title}
                       </h2>
 
-                      {/* What is What: Clean Bullet Points with Round Dots */}
                       {project.features && (
                         <ul className="nexus-card-bullets">
                           {project.features.map((feat, fIdx) => (
@@ -322,7 +467,6 @@ export default function NexusStackingCards({ projects, onOpenInquiry }) {
                         </ul>
                       )}
 
-                      {/* Tech Stack Chips */}
                       {project.techStack && (
                         <div className="nexus-card-chips">
                           {project.techStack.map((tech, tIdx) => (
@@ -340,7 +484,6 @@ export default function NexusStackingCards({ projects, onOpenInquiry }) {
                         </div>
                       )}
 
-                      {/* Action: Live Demo / Authorized Software */}
                       <div className="nexus-card-actions">
                         {project.hasLiveLink && project.liveUrl ? (
                           <a
@@ -390,7 +533,7 @@ export default function NexusStackingCards({ projects, onOpenInquiry }) {
                       </div>
                     </div>
 
-                    {/* Right Column: Clean Photo Preview with 1.5-second Auto-Slideshow */}
+                    {/* Right Column */}
                     <div className="nexus-card-right">
                       <div className="nexus-card-device">
                         <ProjectImageSlideshow

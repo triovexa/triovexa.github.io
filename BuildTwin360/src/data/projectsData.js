@@ -31,8 +31,39 @@ export const PROJECT_CATEGORIES = [
 
 export const CLIENT_PROJECTS = [
   {
+    id: 'saraswathy-traders',
+    title: 'Saraswathy Traders (SARAL-X Agro-Tech Platform)',
+    dockLabel: 'Saraswathy',
+    category: 'Agro-Biotech & Direct-to-Farmer Commerce',
+    clientName: 'Saraswathy Traders',
+    tagPill: 'Client Agro-Tech E-Commerce',
+    tagIcon: 'ri-plant-line',
+    badgeText: 'Live Web Platform',
+    badgeVariant: 'live',
+    themeColor: '#22c55e', // Vibrant Green
+    cardBg: '#0f2316',
+    summary: 'Direct-to-farmer bio-fertilizer and organic nutrient platform built for Saraswathy Traders under the SARAL-X brand. Features catalog showcase, crop dosage guides, and direct dealer inquiry channels.',
+    features: [
+      'Bio-Stimulant & Organic Fertilizer Product Catalog',
+      'Crop-Specific Dosage & Soil Treatment Calculator',
+      'Direct WhatsApp Order & Regional Dealer Inquiries'
+    ],
+    techStack: ['React.js', 'Vite', 'Modern CSS', 'Agro Catalog', 'WhatsApp Direct API', 'Cloud CDN'],
+    image: '/assets/images/projects/saraswathy-traders.jpg',
+    images: [
+      '/assets/images/projects/saraswathy-traders.jpg',
+      '/assets/images/projects/saraswathy-traders-2.jpg',
+      '/assets/images/projects/saraswathy-traders-3.jpg',
+      '/assets/images/projects/saraswathy-traders-4.jpg'
+    ],
+    hasLiveLink: true,
+    liveUrl: 'https://saraswathytraders.com/',
+    actionText: 'Live Demo'
+  },
+  {
     id: 'lithin-transport',
     title: 'Lithin Transport Logistics Platform',
+    dockLabel: 'Lithin',
     category: 'Commercial Logistics & Fleet Web',
     clientName: 'Lithin Transport Ltd.',
     tagPill: 'Primary Client Project',
@@ -61,8 +92,41 @@ export const CLIENT_PROJECTS = [
     actionText: 'Live Demo'
   },
   {
+    id: 'oxplow-marketplace',
+    title: 'Oxplow Multi-Vendor Marketplace Ecosystem',
+    dockLabel: 'Oxplow',
+    category: 'E-Commerce & Multi-Vendor Marketplace',
+    clientName: 'Oxplow (formerly Zhopingo)',
+    tagPill: 'Multi-Vendor Ecosystem',
+    tagIcon: 'ri-shopping-bag-3-line',
+    badgeText: 'Live Platform Ecosystem',
+    badgeVariant: 'live',
+    themeColor: '#059669', // Emerald Green matching oxplow.in
+    cardBg: '#092117',
+    summary: 'Comprehensive multi-vendor marketplace ecosystem (formerly Zhopingo). Integrates a centralized Super Admin Dashboard, dedicated Seller Web Management Portal, Customer Shopping Mobile App, and Seller Store Application for end-to-end commerce.',
+    features: [
+      'Centralized Multi-Vendor Super Admin Dashboard',
+      'Dedicated Seller Web Management Portal & Product Catalog',
+      'Native Customer Shopping Mobile Application (Android & iOS)',
+      'Real-Time Seller Order Fulfillment & Store Management App'
+    ],
+    techStack: ['React.js', 'React Native', 'Node.js', 'REST API', 'PostgreSQL', 'Multi-Vendor Architecture'],
+    image: '/assets/images/projects/oxplow-1.jpg',
+    images: [
+      '/assets/images/projects/oxplow-1.jpg',
+      '/assets/images/projects/oxplow-2.jpg',
+      '/assets/images/projects/oxplow-3.jpg',
+      '/assets/images/projects/oxplow-4.jpg',
+      '/assets/images/projects/oxplow-5.jpg'
+    ],
+    hasLiveLink: true,
+    liveUrl: 'https://oxplow.in',
+    actionText: 'Live Demo'
+  },
+  {
     id: 'lithin-billing',
     title: 'Lithin Transport Enterprise Billing & Fuel Audit',
+    dockLabel: 'Billing',
     category: 'Logistics ERP & Financial Automation',
     clientName: 'Lithin Transport Accounts Division',
     tagPill: 'Internal Financial ERP',
@@ -87,13 +151,14 @@ export const CLIENT_PROJECTS = [
       '/assets/images/projects/lithin-billing-4.jpg',
       '/assets/images/projects/lithin-billing-5.jpg'
     ],
-    hasLiveLink: false, // Rule: No external link button
+    hasLiveLink: false,
     portalDomain: 'billing.lithintransport.in',
     actionText: 'Authorized Software'
   },
   {
     id: 'sree-vaarahi-billing',
     title: 'Sree Vaarahi Amman Road Freight Billing Engine',
+    dockLabel: 'Vaarahi Bill',
     category: 'Road Freight Accounting Engine',
     clientName: 'Sree Vaarahi Amman Transports',
     tagPill: 'Commercial Transport Billing',
@@ -117,42 +182,14 @@ export const CLIENT_PROJECTS = [
       '/assets/images/projects/sree-vaarahi-billing-3.jpg',
       '/assets/images/projects/sree-vaarahi-billing-4.jpg'
     ],
-    hasLiveLink: false, // Rule: No external link button
+    hasLiveLink: false,
     portalDomain: 'sreevaarahiammantransportsbilling.netlify.app',
     actionText: 'Authorized Software'
   },
   {
-    id: 'saraswathy-traders',
-    title: 'Saraswathy Traders (SARAL-X Agro-Tech Platform)',
-    category: 'Agro-Biotech & Direct-to-Farmer Commerce',
-    clientName: 'Saraswathy Traders',
-    tagPill: 'Client Agro-Tech E-Commerce',
-    tagIcon: 'ri-plant-line',
-    badgeText: 'Live Web Platform',
-    badgeVariant: 'live',
-    themeColor: '#22c55e', // Vibrant Green
-    cardBg: '#0f2316',
-    summary: 'Direct-to-farmer bio-fertilizer and organic nutrient platform built for Saraswathy Traders under the SARAL-X brand. Features catalog showcase, crop dosage guides, and direct dealer inquiry channels.',
-    features: [
-      'Bio-Stimulant & Organic Fertilizer Product Catalog',
-      'Crop-Specific Dosage & Soil Treatment Calculator',
-      'Direct WhatsApp Order & Regional Dealer Inquiries'
-    ],
-    techStack: ['React.js', 'Vite', 'Modern CSS', 'Agro Catalog', 'WhatsApp Direct API', 'Cloud CDN'],
-    image: '/assets/images/projects/saraswathy-traders.jpg',
-    images: [
-      '/assets/images/projects/saraswathy-traders.jpg',
-      '/assets/images/projects/saraswathy-traders-2.jpg',
-      '/assets/images/projects/saraswathy-traders-3.jpg',
-      '/assets/images/projects/saraswathy-traders-4.jpg'
-    ],
-    hasLiveLink: true,
-    liveUrl: 'https://saraswathytraders.com/',
-    actionText: 'Live Demo'
-  },
-  {
     id: 'sree-vaarahi-transports',
     title: 'Sree Vaarahi Amman Transports Logistics Platform',
+    dockLabel: 'Vaarahi Fleet',
     category: 'Commercial Road Freight & Interstate Fleet Web',
     clientName: 'Sree Vaarahi Amman Transports',
     tagPill: 'Primary Client Project',
@@ -170,7 +207,6 @@ export const CLIENT_PROJECTS = [
     techStack: ['React.js', 'Vite', 'Tailored UI', 'Cloud CDN', 'Modern CSS'],
     image: '/assets/images/projects/sree-vaarahi.jpg',
     images: [
-      
       '/assets/images/projects/sree-vaarahi-web.jpg'
     ],
     hasLiveLink: false,

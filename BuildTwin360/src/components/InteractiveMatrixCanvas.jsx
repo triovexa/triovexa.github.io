@@ -92,9 +92,14 @@ export default function InteractiveMatrixCanvas({ className = '' }) {
     );
     observer.observe(canvas);
 
+    let scrollTicking = false;
     const updateCachedRect = () => {
-      if (canvas && isVisible) {
-        cachedRect = canvas.getBoundingClientRect();
+      if (!scrollTicking && canvas && isVisible) {
+        scrollTicking = true;
+        requestAnimationFrame(() => {
+          if (canvas) cachedRect = canvas.getBoundingClientRect();
+          scrollTicking = false;
+        });
       }
     };
     window.addEventListener('scroll', updateCachedRect, { passive: true });

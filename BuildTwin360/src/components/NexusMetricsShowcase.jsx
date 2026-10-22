@@ -121,6 +121,7 @@ export default function NexusMetricsShowcase({ activeTab, onOpenInquiry }) {
 
   useEffect(() => {
     let animId = null;
+    let ticking = false;
 
     const handleScroll = () => {
       if (!containerRef.current) return;
@@ -147,11 +148,21 @@ export default function NexusMetricsShowcase({ activeTab, onOpenInquiry }) {
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        animId = requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
     handleScroll();
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', onScroll);
       if (animId) cancelAnimationFrame(animId);
     };
   }, [metricsList.length]);
