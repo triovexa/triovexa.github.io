@@ -1,0 +1,90 @@
+/* Background and basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #f7f6f1; /* Video-la irukka antha light cream/beige color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.ui-container {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.learn-more {
+  text-decoration: none;
+  color: #0066cc;
+  font-weight: 600;
+  font-size: 14px;
+  margin-left: 20px;
+  display: inline-block;
+}
+
+.learn-more:hover {
+  text-decoration: underline;
+}
+
+/* Edge Fade Effect using Mask Image */
+.grid-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 20px 0;
+  overflow: hidden;
+  /* Left and Right edge-la fade aagurathukkana trick */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.app-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 20px;
+}
+
+/* Card Design */
+.app-card {
+  background-color: #ffffff;
+  width: 130px;
+  height: 130px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); /* Light aana shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
+}
+
+/* Hover Effect - Video-la irukka mathiri mela pogum */
+.app-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.08);
+}
+
+.icon {
+  font-size: 36px;
+  /* Icons-kaga emoji use panniruken, ungalukku thevayana SVG images-ai neenga replace pannikalam */
+}
+
+.app-name {
+  font-size: 13px;
+  color: #333333;
+  font-weight: 500;
+  text-align: center;
+}

@@ -5,6 +5,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initParticlesCanvas();
   initTypewriter();
+  
   initHeaderScroll();
   initEstimator();
   initPortfolioFilter();
