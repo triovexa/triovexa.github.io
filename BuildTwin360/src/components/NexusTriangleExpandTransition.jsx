@@ -24,6 +24,7 @@ export default function NexusTriangleExpandTransition({
     let targetProgress = 0;
     let currentProgress = 0;
     let isAnimating = false;
+    let lastClipPath = '';
 
     const updateFrame = () => {
       // Responsive lerp interpolation for buttery smooth scroll
@@ -36,14 +37,17 @@ export default function NexusTriangleExpandTransition({
       }
 
       const p = currentProgress;
+      const isMobile = window.innerWidth <= 768;
+      const slant = isMobile ? 90 : 140;
 
       if (p >= 0.98) {
         // Full screen expansion:
         // Slant stays permanently slanted on both desktop and mobile (no straightening animation on scroll)
         // Right side is slanted down (100% 100%), left side is lifted up (0 calc(100% - slantOffset))
-        if (whiteLayerRef.current) {
-          const slant = window.innerWidth <= 768 ? 90 : 140;
-          whiteLayerRef.current.style.clipPath = `polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - ${slant}px))`;
+        const clipPathString = `polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - ${slant}px))`;
+        if (whiteLayerRef.current && lastClipPath !== clipPathString) {
+          lastClipPath = clipPathString;
+          whiteLayerRef.current.style.clipPath = clipPathString;
         }
       } else {
         // Geometry calculations for expanding triangle (Yellow.ai Nexus Reference)
@@ -69,13 +73,14 @@ export default function NexusTriangleExpandTransition({
           sideY = Math.max(0, baseSideY - p2 * baseSideY);
         }
 
-        if (whiteLayerRef.current) {
-          if (p >= 0.99) {
-            whiteLayerRef.current.style.clipPath = 'none';
-          } else {
-            const clipPathString = `polygon(50% ${peakY}px, ${rightX.toFixed(1)}% ${sideY.toFixed(1)}px, 100% 100%, 0% 100%, ${leftX.toFixed(1)}% ${sideY.toFixed(1)}px)`;
-            whiteLayerRef.current.style.clipPath = clipPathString;
-          }
+        // On both mobile and desktop, keep bottom slant pinned at 0% calc(100% - slant)
+        // so the bottom never jumps 140px in and out when crossing the threshold
+        const bottomPoint = `0% calc(100% - ${slant}px)`;
+        const clipPathString = `polygon(50% ${peakY}px, ${rightX.toFixed(1)}% ${sideY.toFixed(1)}px, 100% 100%, ${bottomPoint}, ${leftX.toFixed(1)}% ${sideY.toFixed(1)}px)`;
+
+        if (whiteLayerRef.current && lastClipPath !== clipPathString) {
+          lastClipPath = clipPathString;
+          whiteLayerRef.current.style.clipPath = clipPathString;
         }
       }
 
@@ -88,6 +93,15 @@ export default function NexusTriangleExpandTransition({
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight || 800;
+
+      // On Desktop: when user has already fully expanded the triangle and is scrolling
+      // deeper down through the project cards (rect.top <= 0), stop RAF updates so
+      // clipPath isn't repeatedly re-applied on every scroll pixel. This prevents GPU tile
+      // thrashing and stops the black background from jumping in and out!
+      const isMobile = window.innerWidth <= 768;
+      if (!isMobile && rect.top <= 0 && targetProgress >= 0.99 && currentProgress >= 0.99) {
+        return;
+      }
 
       // Starts only when section scrolls into viewport from below
       // Completes in ~480px of natural scroll as section meets navbar
@@ -122,7 +136,7 @@ export default function NexusTriangleExpandTransition({
       <div
         ref={whiteLayerRef}
         className="nexus-unified-white-layer"
-        style={{ clipPath: 'polygon(50% 0px, 60% 500px, 100% 100%, 0% 100%, 40% 500px)' }}
+        style={{ clipPath: 'polygon(50% 0px, 60% 500px, 100% 100%, 0 calc(100% - 140px), 40% 500px)' }}
       >
         {/* All Project Details and Heading inside the ONE white UI */}
         <div className="nexus-white-container">
