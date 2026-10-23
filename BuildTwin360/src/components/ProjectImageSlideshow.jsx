@@ -70,7 +70,7 @@ const ProjectImageSlideshow = React.memo(function ProjectImageSlideshow({
       if (e.key === 'ArrowLeft') handlePrev(e);
       if (e.key === 'ArrowRight') handleNext(e);
     };
-//ghhguyyu
+
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isLightboxOpen, imageList.length]);
