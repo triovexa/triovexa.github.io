@@ -42,7 +42,7 @@ export default function NexusTriangleExpandTransition({
         // Slant stays permanently slanted on both desktop and mobile (no straightening animation on scroll)
         // Right side is slanted down (100% 100%), left side is lifted up (0 calc(100% - slantOffset))
         if (whiteLayerRef.current) {
-          const slant = window.innerWidth <= 768 ? 70 : 85;
+          const slant = window.innerWidth <= 768 ? 90 : 140;
           whiteLayerRef.current.style.clipPath = `polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - ${slant}px))`;
         }
       } else {
@@ -89,12 +89,6 @@ export default function NexusTriangleExpandTransition({
       const rect = sectionRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight || 800;
 
-      // Performance: if fully expanded and scrolled deeper down into project cards (rect.top <= 0),
-      // avoid recalculating triangle math or triggering RAF
-      if (rect.top <= 0 && targetProgress >= 0.99 && currentProgress >= 0.99) {
-        return;
-      }
-
       // Starts only when section scrolls into viewport from below
       // Completes in ~480px of natural scroll as section meets navbar
       const travel = Math.min(500, windowHeight * 0.65);
@@ -130,7 +124,6 @@ export default function NexusTriangleExpandTransition({
         className="nexus-unified-white-layer"
         style={{ clipPath: 'polygon(50% 0px, 60% 500px, 100% 100%, 0% 100%, 40% 500px)' }}
       >
-
         {/* All Project Details and Heading inside the ONE white UI */}
         <div className="nexus-white-container">
           <div className="nexus-white-header">
@@ -141,7 +134,6 @@ export default function NexusTriangleExpandTransition({
             <h2 className="nexus-white-title">
               Featured Innovation <span className="nexus-white-title-gradient">Projects</span>
             </h2>
-
           </div>
 
           {/* Stacking Cards Deck directly inside the white UI */}
