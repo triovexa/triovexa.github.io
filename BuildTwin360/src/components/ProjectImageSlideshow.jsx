@@ -215,4 +215,3 @@ const ProjectImageSlideshow = React.memo(function ProjectImageSlideshow({
 });
 
 export default ProjectImageSlideshow;
-//dhs
