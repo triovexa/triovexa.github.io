@@ -740,7 +740,7 @@
 .faq-answer-collapse {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: grid-template-rows 0.38s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .faq-answer-collapse.show {
@@ -749,6 +749,14 @@
 
 .faq-answer-inner {
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-answer-collapse.show .faq-answer-inner {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .faq-answer-inner p {
