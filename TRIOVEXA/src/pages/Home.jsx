@@ -131,120 +131,117 @@ export default function Home() {
     {
       name: 'Transport & Logistics',
       icon: 'ri-truck-line',
-      desc: 'Fleet tracking, consignment billing, and dispatch management.',
-      image: '/assets/images/industries/transport.jpg',
+      desc: 'AI fleet telemetry, real-time GPS tracking, and intelligent dispatch hubs.',
+      image: '/assets/images/industries/transport.jpg?v=2',
     },
     {
       name: 'Travel & Tourism',
       icon: 'ri-compass-3-line',
-      desc: 'Booking portals, itinerary management, and client inquiry engines.',
-      image: '/assets/images/industries/travel.jpg',
+      desc: 'Next-gen booking engines, dynamic itinerary planners, and global reservation portals.',
+      image: '/assets/images/industries/travel.jpg?v=2',
     },
     {
       name: 'Textile & Apparel',
       icon: 'ri-t-shirt-air-line',
-      desc: 'ERP, production tracking, and supply chain management for textile units.',
-      image: '/assets/images/industries/garments.jpg',
+      desc: 'Smart factory ERP, automated loom telemetry, and end-to-end supply chain control.',
+      image: '/assets/images/industries/garments.jpg?v=2',
     },
     {
       name: 'Manufacturing',
       icon: 'ri-settings-4-line',
-      desc: 'Production scheduling, material inventory, and process telemetry.',
-      image: '/assets/images/industries/manufacturing.jpg',
+      desc: 'Industry 4.0 IoT automation, digital twin telemetry, and robotic assembly management.',
+      image: '/assets/images/industries/manufacturing.jpg?v=2',
     },
     {
       name: 'Healthcare',
       icon: 'ri-heart-pulse-line',
-      desc: 'Clinical workflows, patient portals, and operational management systems.',
-      image: '/assets/images/industries/healthcare.jpg',
+      desc: 'Next-gen telemedicine, diagnostic AI intelligence, and electronic health record systems.',
+      image: '/assets/images/industries/healthcare.jpg?v=2',
     },
     {
       name: 'Education & E-Learning',
       icon: 'ri-graduation-cap-line',
-      desc: 'Student management systems, institutional portals, and learning suites.',
-      image: '/assets/images/industries/education.jpg',
+      desc: 'Smart virtual campus suites, interactive LMS portals, and academic analytics engines.',
+      image: '/assets/images/industries/education.jpg?v=2',
     },
     {
       name: 'Retail & E-Commerce',
       icon: 'ri-store-2-line',
-      desc: 'Omnichannel POS billing, inventory synchronization, and digital storefronts.',
-      image: '/assets/images/industries/retail.jpg',
+      desc: 'Omnichannel cloud POS, autonomous warehouse fulfillment, and dynamic digital commerce.',
+      image: '/assets/images/industries/retail.jpg?v=2',
     },
     {
       name: 'Finance & Banking',
       icon: 'ri-bank-card-line',
-      desc: 'Secure financial workflows, billing ledgers, and transaction management.',
-      image: '/assets/images/industries/finance.jpg',
+      desc: 'High-security fintech ledgers, algorithmic financial analytics, and instant transaction engines.',
+      image: '/assets/images/industries/finance.jpg?v=2',
     },
   ];
 
-  const processSteps = [
-    {
-      step: '01',
-      title: 'Discovery & Blueprinting',
-      badge: 'Requirements Phase',
-      desc: 'In-depth analysis of your business workflows, functional specifications, system architecture design, and interactive UI wireframes.',
-      icon: 'ri-compass-discover-line',
-      tags: ['SRS Blueprint', 'Gap Analysis', 'UI Wireframes'],
-    },
-    {
-      step: '02',
-      title: 'Agile Sprints & Engineering',
-      badge: 'Development Phase',
-      desc: 'Rapid bi-weekly milestone sprints, clean modular codebases, microservices architecture, and scalable database schemas.',
-      icon: 'ri-code-box-line',
-      tags: ['Clean Modular Code', 'Bi-Weekly Sprints', 'RESTful APIs'],
-    },
-    {
-      step: '03',
-      title: 'Multi-Tier QA & Security',
-      badge: 'Quality Assurance',
-      desc: 'Comprehensive automated regression tests, cross-device compatibility, security vulnerability scans, and stress load testing.',
-      icon: 'ri-shield-check-line',
-      tags: ['Zero-Bug Delivery', 'Security Audits', 'Load Testing'],
-    },
-    {
-      step: '04',
-      title: 'Cloud Launch & 24/7 AMC',
-      badge: 'Deployment & AMC',
-      desc: 'Zero-downtime AWS cloud deployment, CI/CD automated rollout, production telemetry, and dedicated technical AMC support after launch.',
-      icon: 'ri-rocket-2-line',
-      tags: ['AWS Deployment', 'CI/CD Rollout', '24/7 AMC Support'],
-    },
-  ];
+
 
   const techStackCards = [
-    // Core Engineering
-    { name: 'React', category: 'core', iconType: 'class', icon: 'ri-reactjs-line', color: '#00d8ff' },
-    { name: 'Node.js', category: 'core', iconType: 'class', icon: 'ri-nodejs-line', color: '#539e43' },
-    { name: 'Java', category: 'core', iconType: 'class', icon: 'ri-cup-line', color: '#e76f00' },
-    { name: 'Spring Boot', category: 'core', iconType: 'class', icon: 'ri-leaf-line', color: '#6cb52d' },
-    { name: 'Python', category: 'core', iconType: 'class', icon: 'ri-terminal-box-line', color: '#3776ab' },
-    { name: 'TypeScript', category: 'core', iconType: 'class', icon: 'ri-code-s-slash-line', color: '#3178c6' },
-    // Cloud & Data
+    // Frontend & Mobile
+    { name: 'React', category: 'frontend', iconType: 'class', icon: 'ri-reactjs-line', color: '#00d8ff' },
+    { name: 'Next.js', category: 'frontend', iconType: 'class', icon: 'ri-window-line', color: '#111827' },
+    { name: 'TypeScript', category: 'frontend', iconType: 'class', icon: 'ri-code-s-slash-line', color: '#3178c6' },
+    { name: 'JavaScript', category: 'frontend', iconType: 'class', icon: 'ri-javascript-line', color: '#eab308' },
+    { name: 'Flutter', category: 'frontend', iconType: 'class', icon: 'ri-flutter-line', color: '#02569b' },
+    { name: 'Android', category: 'frontend', iconType: 'class', icon: 'ri-android-line', color: '#3ddc84' },
+    { name: 'iOS App', category: 'frontend', iconType: 'class', icon: 'ri-apple-line', color: '#111827' },
+    { name: 'HTML5 & CSS3', category: 'frontend', iconType: 'class', icon: 'ri-html5-line', color: '#e34f26' },
+
+    // Backend & APIs
+    { name: 'Node.js', category: 'backend', iconType: 'class', icon: 'ri-nodejs-line', color: '#539e43' },
+    { name: 'Express.js', category: 'backend', iconType: 'class', icon: 'ri-server-line', color: '#374151' },
+    { name: 'Java', category: 'backend', iconType: 'class', icon: 'ri-cup-line', color: '#e76f00' },
+    { name: 'Spring Boot', category: 'backend', iconType: 'class', icon: 'ri-leaf-line', color: '#6cb52d' },
+    { name: 'Python', category: 'backend', iconType: 'class', icon: 'ri-terminal-box-line', color: '#3776ab' },
+    { name: 'RESTful APIs', category: 'backend', iconType: 'class', icon: 'ri-node-tree', color: '#009688' },
+
+    // Cloud & Databases
     { name: 'AWS Cloud', category: 'cloud', iconType: 'class', icon: 'ri-cloud-line', color: '#ff9900' },
     { name: 'Docker', category: 'cloud', iconType: 'class', icon: 'ri-inbox-archive-line', color: '#2496ed' },
     { name: 'PostgreSQL', category: 'cloud', iconType: 'class', icon: 'ri-database-2-line', color: '#336791' },
     { name: 'MongoDB', category: 'cloud', iconType: 'class', icon: 'ri-hard-drive-2-line', color: '#13aa52' },
-    { name: 'MySQL', category: 'cloud', iconType: 'class', icon: 'ri-server-line', color: '#00758f' },
-    { name: 'Power BI', category: 'cloud', iconType: 'class', icon: 'ri-bar-chart-2-line', color: '#f2c811' },
+    { name: 'MySQL', category: 'cloud', iconType: 'class', icon: 'ri-database-line', color: '#00758f' },
     { name: 'Firebase', category: 'cloud', iconType: 'class', icon: 'ri-fire-line', color: '#ffa611' },
-    // Enterprise & Zoho Suite (Exact from user's template)
-    { name: 'Zoho Social', category: 'enterprise', iconType: 'emoji', icon: '👥', color: '#2c7be5' },
-    { name: 'Zoho SalesIQ', category: 'enterprise', iconType: 'emoji', icon: '🎯', color: '#e60000' },
-    { name: 'Zoho Desk', category: 'enterprise', iconType: 'emoji', icon: '🎧', color: '#00b300' },
-    { name: 'Zoho Projects', category: 'enterprise', iconType: 'emoji', icon: '📊', color: '#0066cc' },
-    { name: 'Zoho CRM', category: 'enterprise', iconType: 'emoji', icon: '🔗', color: '#0066cc' },
-    { name: 'Radar - Desk', category: 'enterprise', iconType: 'emoji', icon: '📱', color: '#009933' },
-    { name: 'CRM Analytics', category: 'enterprise', iconType: 'emoji', icon: '🤝', color: '#0066cc' },
-    { name: 'Zoho Analytics', category: 'enterprise', iconType: 'emoji', icon: '📈', color: '#cc0000' },
-    { name: 'Zoho Survey', category: 'enterprise', iconType: 'emoji', icon: '📋', color: '#f59e0b' },
+    { name: 'Linux', category: 'cloud', iconType: 'class', icon: 'ri-computer-line', color: '#f59e0b' },
+
+    // AI & Analytics
+    { name: 'Power BI', category: 'ai-tools', iconType: 'class', icon: 'ri-bar-chart-2-line', color: '#f2c811' },
+    { name: 'AI & ML', category: 'ai-tools', iconType: 'class', icon: 'ri-brain-line', color: '#8b5cf6' },
+    { name: 'Data Analytics', category: 'ai-tools', iconType: 'class', icon: 'ri-line-chart-line', color: '#06b6d4' },
+    { name: 'Git & GitHub', category: 'ai-tools', iconType: 'class', icon: 'ri-git-branch-line', color: '#f05032' },
+    { name: 'Postman', category: 'ai-tools', iconType: 'class', icon: 'ri-send-plane-2-line', color: '#ff6c37' },
   ];
+
+  // Split filtered tech stack cards for dual-direction continuous marquee flow
+  const filteredTechCards = activeTechTab === 'all'
+    ? techStackCards
+    : techStackCards.filter((item) => item.category === activeTechTab);
+
+  // Helper to ensure enough cards for smooth continuous flow on wide screens
+  const getPaddedCards = (cards) => {
+    if (!cards.length) return [];
+    let list = [...cards];
+    while (list.length < 12) {
+      list = [...list, ...cards];
+    }
+    return list;
+  };
+
+  const halfIndex = Math.ceil(filteredTechCards.length / 2);
+  const rawRow1 = filteredTechCards.slice(0, halfIndex);
+  const rawRow2 = filteredTechCards.slice(halfIndex);
+
+  const row1Cards = getPaddedCards(rawRow1.length > 0 ? rawRow1 : filteredTechCards);
+  const row2Cards = getPaddedCards(rawRow2.length > 0 ? rawRow2 : filteredTechCards.slice().reverse());
 
   return (
     <div className="home-page-view">
       {/* Hero Section */}
-      <section className="hero-section" id="hero" style={{ paddingTop: '9.5rem' }}>
+      <section className="hero-section" id="hero">
         <div className="container">
           <div className="hero-content">
             <h1 className="hero-title">
@@ -258,13 +255,7 @@ export default function Home() {
               Empowering enterprises and fast-growing businesses with custom software, scalable cloud architecture, mobile apps, and intelligent data systems built to scale.
             </p>
 
-            {/* Electric Sky CTA Group: Single Prominent 'Our Services' Button */}
-            <div className="hero-cta-group" style={{ justifyContent: 'center' }}>
-              <Link to="/services" className="hero-btn-primary">
-                <span>Our Services</span>
-                <i className="ri-arrow-right-line" style={{ fontSize: '1.15rem' }}></i>
-              </Link>
-            </div>
+
 
             {/* Radiant Continuous Flow Showcase: Central TRIOVEXA Core with Boxes Continuously Flowing In & Out */}
             <div className="stats-radiant-wrapper">
@@ -359,7 +350,7 @@ export default function Home() {
       </section>
 
       {/* Who We Are Section with Cyber Glassmorphic Background */}
-      <section className="who-we-are-section" style={{ padding: '6rem 0', position: 'relative', overflow: 'hidden' }}>
+      <section className="who-we-are-section">
         {/* Background Ambient Glass Light Orbs */}
         <div className="who-we-are-ambient-orb orb-1" aria-hidden="true"></div>
         <div className="who-we-are-ambient-orb orb-2" aria-hidden="true"></div>
@@ -372,18 +363,10 @@ export default function Home() {
             <div className="home-section-accent-line" aria-hidden="true"></div>
           </div>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1.15fr 1fr',
-              gap: '4rem',
-              alignItems: 'center',
-            }}
-            className="who-we-are-grid"
-          >
+          <div className="who-we-are-grid">
             {/* Left Column: Authentic Company Story */}
             <div>
-              <h3 style={{ fontSize: '1.9rem', color: '#fff', marginBottom: '1.25rem', lineHeight: '1.3' }}>
+              <h3 className="who-we-are-heading">
                 Engineering Intelligent Software Solutions for Enterprise Growth
               </h3>
 
@@ -396,14 +379,7 @@ export default function Home() {
               </p>
 
               {/* 4 Core Value Badges */}
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(2, 1fr)',
-                  gap: '0.9rem',
-                  marginBottom: '2rem',
-                }}
-              >
+              <div className="who-we-are-values-grid">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--text-main)', fontSize: '0.88rem', fontWeight: 600 }}>
                   <i className="ri-checkbox-circle-fill" style={{ color: 'var(--accent-cyan)', fontSize: '1.1rem' }}></i>
                   <span>Experienced Developers</span>
@@ -446,18 +422,6 @@ export default function Home() {
               <div className="who-we-are-glass-underglow" aria-hidden="true"></div>
 
               <div className="who-we-are-glass-panel">
-                {/* Floating Glass Tech Badge 1 (Top-Right) */}
-                <div className="who-we-are-glass-badge badge-top">
-                  <span className="glass-pulse-dot"></span>
-                  <span>Agile Sprint • Active</span>
-                </div>
-
-                {/* Floating Glass Tech Badge 2 (Bottom-Left) */}
-                <div className="who-we-are-glass-badge badge-bottom">
-                  <i className="ri-code-box-line" style={{ color: 'var(--accent-cyan)' }}></i>
-                  <span>100% Scalable Code</span>
-                </div>
-
                 <div className="who-we-are-image-frame">
                   <img
                     src="/assets/images/triovexa-who-we-are-team.jpg?v=7"
@@ -536,7 +500,7 @@ export default function Home() {
       </section>
 
       {/* Industries We Serve Section */}
-      <section style={{ padding: '5.5rem 0', background: 'rgba(11, 23, 46, 0.35)' }}>
+      <section className="industries-serve-section">
         <div className="container">
           <div className="home-section-header">
             <h2 className="home-section-title">
@@ -571,46 +535,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Engineering Process & How We Work (Replacing Plain Tech Pills) */}
-      <section className="process-section" id="process">
-        <div className="container">
-          <div className="home-section-header">
-            <h2 className="home-section-title">
-              Our Engineering <span className="gradient-sky-text">Process</span>
-            </h2>
-            <div className="home-section-accent-line" aria-hidden="true"></div>
-            <p className="home-section-subtitle">
-              A proven, structured 4-step methodology taking your vision from concept to high-performance production.
-            </p>
-          </div>
-
-          <div className="process-grid">
-            {processSteps.map((item, idx) => (
-              <div key={idx} className="process-card">
-                <div className="process-step-header">
-                  <span className="process-step-num">{item.step}</span>
-                  <div className="process-step-icon">
-                    <i className={item.icon}></i>
-                  </div>
-                </div>
-
-                <span className="process-badge">{item.badge}</span>
-                <h3 className="process-card-title">{item.title}</h3>
-                <p className="process-card-desc">{item.desc}</p>
-
-                <div className="process-tags-list">
-                  {item.tags.map((tag, tIdx) => (
-                    <span key={tIdx} className="process-tag-item">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-      </section>
 
       {/* Technology Stack & Ecosystem Grid Showcase */}
       <section className="tech-stack-section" id="tech-stack">
@@ -621,7 +545,7 @@ export default function Home() {
             </h2>
             <div className="home-section-accent-line" aria-hidden="true"></div>
             <p className="home-section-subtitle">
-              Enterprise platforms, frameworks, cloud architecture, and business productivity suites powering our solutions.
+              Enterprise engineering frameworks, mobile runtimes, cloud infrastructure, and intelligent data systems powering our solutions.
             </p>
           </div>
 
@@ -631,9 +555,10 @@ export default function Home() {
               <div className="tech-filter-tabs">
                 {[
                   { key: 'all', label: 'All Technologies' },
-                  { key: 'core', label: 'Core Engineering' },
-                  { key: 'cloud', label: 'Cloud & Data' },
-                  { key: 'enterprise', label: 'Enterprise & Zoho Suite' },
+                  { key: 'frontend', label: 'Frontend & Mobile' },
+                  { key: 'backend', label: 'Backend & APIs' },
+                  { key: 'cloud', label: 'Cloud & Databases' },
+                  { key: 'ai-tools', label: 'AI & Analytics' },
                 ].map((tab) => (
                   <button
                     key={tab.key}
@@ -652,66 +577,94 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Grid Wrapper with Fade Effect (CSS mask) */}
+            {/* Grid Wrapper with Fade Effect (CSS mask) & Infinite Continuous Flow */}
             <div className="grid-wrapper">
-              <div className="app-grid">
-                {techStackCards
-                  .filter((item) => activeTechTab === 'all' || item.category === activeTechTab)
-                  .map((item, idx) => (
-                    <div key={idx} className="app-card" title={item.name}>
-                      <div className="icon" style={{ color: item.color }}>
-                        {item.iconType === 'emoji' ? (
-                          <span>{item.icon}</span>
-                        ) : (
+              {/* Row 1 - Smooth Flow to Left */}
+              <div className="marquee-row">
+                <div className="marquee-track marquee-left">
+                  <div className="marquee-group">
+                    {row1Cards.map((item, idx) => (
+                      <div key={`r1-a-${idx}`} className="app-card" title={item.name}>
+                        <div className="icon" style={{ color: item.color }}>
                           <i className={item.icon}></i>
-                        )}
+                        </div>
+                        <span className="app-name">{item.name}</span>
                       </div>
-                      <span className="app-name">{item.name}</span>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
+                  <div className="marquee-group" aria-hidden="true">
+                    {row1Cards.map((item, idx) => (
+                      <div key={`r1-b-${idx}`} className="app-card" title={item.name}>
+                        <div className="icon" style={{ color: item.color }}>
+                          <i className={item.icon}></i>
+                        </div>
+                        <span className="app-name">{item.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
+
+              {/* Row 2 - Smooth Flow to Right */}
+              <div className="marquee-row">
+                <div className="marquee-track marquee-right">
+                  <div className="marquee-group">
+                    {row2Cards.map((item, idx) => (
+                      <div key={`r2-a-${idx}`} className="app-card" title={item.name}>
+                        <div className="icon" style={{ color: item.color }}>
+                          <i className={item.icon}></i>
+                        </div>
+                        <span className="app-name">{item.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="marquee-group" aria-hidden="true">
+                    {row2Cards.map((item, idx) => (
+                      <div key={`r2-b-${idx}`} className="app-card" title={item.name}>
+                        <div className="icon" style={{ color: item.color }}>
+                          <i className={item.icon}></i>
+                        </div>
+                        <span className="app-name">{item.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Subtle Interactive Instruction Pill */}
+            <div className="tech-flow-indicator">
+              <span className="flow-dot"></span>
+              <span>Hover over any tech card to pause & explore</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Quick Launch CTA Banner */}
-      <section style={{ padding: '0 0 5.5rem 0' }}>
+      <section className="home-cta-section">
         <div className="container">
-          <div
-            className="glass-card"
-            style={{
-              background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.1) 0%, rgba(11, 23, 46, 0.95) 100%)',
-              border: '2px solid var(--border-glow)',
-              borderRadius: 'var(--radius-lg)',
-              padding: '3.2rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: '2rem',
-              flexWrap: 'wrap',
-            }}
-          >
-            <div style={{ maxWidth: '620px' }}>
-              <span style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--accent-emerald)', textTransform: 'uppercase', letterSpacing: '1px' }}>
+          <div className="home-cta-banner">
+            <div className="home-cta-content">
+              <span className="home-cta-tag">
                 Start Your Project
               </span>
-              <h2 style={{ fontSize: '2.2rem', color: '#fff', marginTop: '0.4rem', marginBottom: '0.7rem' }}>
+              <h2 className="home-cta-title">
                 Ready to Build Smarter Software For Your Business?
               </h2>
-              <p style={{ color: 'var(--text-sky-light)', fontSize: '1.02rem', lineHeight: '1.6', margin: 0 }}>
+              <p className="home-cta-desc">
                 Partner with TRIOVEXA to engineer high-impact digital solutions designed for performance, security, and scale.
               </p>
             </div>
 
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
-              <Link to="/enquiry" className="btn btn-sky">
-                <span>Enquiry Now</span>
-                <i className="ri-arrow-right-line"></i>
+            <div className="home-cta-actions">
+              <Link to="/enquiry" className="enquiry-btn home-cta-btn">
+                <span className="btn-text">Enquiry</span>
+                <span className="btn-icon">&gt;</span>
               </Link>
               <a
                 href="tel:+919500657733"
-                className="btn btn-outline-sky"
+                className="btn btn-outline-sky home-cta-btn"
                 title="Call TRIOVEXA directly"
               >
                 <i className="ri-phone-line"></i>

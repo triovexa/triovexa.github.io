@@ -3,8 +3,10 @@ import React, { useState } from 'react';
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
-    emailOrPhone: '',
-    service: 'web-apps',
+    instituteName: '',
+    email: '',
+    phone: '',
+    enquiryType: '',
     message: '',
   });
 
@@ -17,14 +19,20 @@ export default function Contact() {
 
     setTimeout(() => {
       setToasts((prev) => prev.filter((t) => t.id !== id));
-    }, 4000);
+    }, 4500);
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    if (!formData.name.trim() || !formData.emailOrPhone.trim()) {
-      showToast('Please fill out all required fields.', 'error');
+    if (
+      !formData.name.trim() ||
+      !formData.instituteName.trim() ||
+      !formData.email.trim() ||
+      !formData.phone.trim() ||
+      !formData.enquiryType
+    ) {
+      showToast('Please fill out all required fields (*).', 'error');
       return;
     }
 
@@ -32,26 +40,29 @@ export default function Contact() {
     setTimeout(() => {
       setIsSubmitting(false);
       showToast(
-        `Thank you ${formData.name}! Your request has been sent to TRIOVEXA. Our team will contact you promptly at ${formData.emailOrPhone}.`,
+        `Thank you ${formData.name}! Your enquiry for ${formData.instituteName} has been submitted successfully. Our team will contact you at ${formData.email} / ${formData.phone} shortly.`,
         'success'
       );
 
       setFormData({
         name: '',
-        emailOrPhone: '',
-        service: 'web-apps',
+        instituteName: '',
+        email: '',
+        phone: '',
+        enquiryType: '',
         message: '',
       });
     }, 600);
   };
 
   return (
-    <div className="contact-page-view" style={{ paddingTop: '8.5rem' }}>
-      <section className="contact-section" style={{ paddingBottom: '6rem' }}>
+    <div className="contact-page-view">
+      <section className="contact-section">
         <div className="container">
+          {/* Page Section Header */}
           <div className="section-header">
             <span className="section-tag">
-              <i className="ri-mail-send-line"></i> Official Enquiry
+              <i className="ri-mail-send-line"></i> Contact & Official Enquiry
             </span>
             <h2>
               Let's Build Smarter Software <span className="gradient-sky-text">Together</span>
@@ -61,181 +72,222 @@ export default function Contact() {
             </p>
           </div>
 
-          <div className="contact-grid">
-            {/* Direct Official Contact Channels */}
-            <div>
-              <h3 style={{ fontSize: '1.6rem', color: '#fff', marginBottom: '0.75rem' }}>
-                TRIOVEXA SOFTWARE SOLUTIONS
-              </h3>
-              <p style={{ color: 'var(--text-sky-light)', fontSize: '0.96rem', lineHeight: '1.7', marginBottom: '2rem' }}>
-                Innovate. Integrate. Elevate. Reach out to our engineering team directly via phone, WhatsApp, or email.
-              </p>
+          {/* Main 2-Column Contact Layout */}
+          <div className="contact-grid-pro">
+            {/* Left Column: Contact Cards Stack (Exact Match with Image 2) */}
+            <div className="contact-cards-stack">
+              <div style={{ marginBottom: '0.5rem' }}>
+                <h3 style={{ fontSize: '1.75rem', color: '#fff', marginBottom: '0.5rem', fontWeight: 800 }}>
+                  Get In Touch
+                </h3>
+                <p style={{ color: 'var(--text-sky-light)', fontSize: '0.96rem', lineHeight: '1.7', margin: 0 }}>
+                  Connect with our technical consulting desk directly through official phone and email channels.
+                </p>
+              </div>
 
-              <div className="contact-info-list">
-                {/* Phone & WhatsApp */}
-                <a
-                  href="https://wa.me/919500657733"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="contact-info-item glass-card"
-                  style={{ textDecoration: 'none', padding: '1.25rem' }}
+              {/* Card 1: Phone Number (TRIOVEXA Official) */}
+              <a href="tel:+919500657733" className="contact-card-pro" title="Call TRIOVEXA">
+                <div className="contact-circle-icon">
+                  <i className="ri-phone-fill"></i>
+                </div>
+                <div className="contact-card-content">
+                  <h4 className="contact-card-title">Phone Number</h4>
+                  <div className="contact-card-detail">+91 95006 57733</div>
+                  <div className="contact-card-sub">Direct Technical Consulting & Support (24/7)</div>
+                </div>
+              </a>
+
+              {/* Card 2: Email (TRIOVEXA Official) */}
+              <a href="mailto:triovexa@gmail.com" className="contact-card-pro" title="Email TRIOVEXA">
+                <div className="contact-circle-icon">
+                  <i className="ri-mail-fill"></i>
+                </div>
+                <div className="contact-card-content">
+                  <h4 className="contact-card-title">Email</h4>
+                  <div className="contact-card-detail">triovexa@gmail.com</div>
+                  <div className="contact-card-sub">Official Inquiries & Project Proposals</div>
+                </div>
+              </a>
+
+              {/* Card 3: Location */}
+              <a
+                href="https://maps.google.com/?q=Puravankara+IT+building+Okkiyampettai+Thoraipakkam+Chennai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-card-pro"
+                title="View Office Location on Google Maps"
+              >
+                <div
+                  className="contact-circle-icon"
+                  style={{
+                    background: 'linear-gradient(135deg, #0284c7 0%, #00f2fe 100%)',
+                    boxShadow: '0 6px 18px rgba(0, 242, 254, 0.4)',
+                  }}
                 >
-                  <div
-                    className="contact-icon"
-                    style={{
-                      background: 'rgba(16, 185, 129, 0.1)',
-                      borderColor: 'var(--accent-emerald)',
-                      color: 'var(--accent-emerald)',
-                    }}
-                  >
-                    <i className="ri-whatsapp-line"></i>
+                  <i className="ri-map-pin-2-fill"></i>
+                </div>
+                <div className="contact-card-content">
+                  <h4 className="contact-card-title">Office Location</h4>
+                  <div className="contact-card-detail" style={{ color: '#38bdf8' }}>
+                    Puravankara IT Building
                   </div>
-                  <div>
-                    <div style={{ fontWeight: 700, color: '#fff', fontSize: '1rem' }}>Phone / WhatsApp</div>
-                    <div style={{ color: 'var(--accent-emerald)', fontWeight: 700, fontSize: '1.05rem' }}>
-                      +91 95006 57733
-                    </div>
-                    <div style={{ fontSize: '0.78rem', color: 'var(--text-dim)', marginTop: '2px' }}>
-                      Direct Developer & Support Line
-                    </div>
-                  </div>
-                </a>
-
-                {/* Email */}
-                <a
-                  href="mailto:triovexa@gmail.com"
-                  className="contact-info-item glass-card"
-                  style={{ textDecoration: 'none', padding: '1.25rem' }}
-                >
-                  <div className="contact-icon">
-                    <i className="ri-mail-send-line"></i>
-                  </div>
-                  <div>
-                    <div style={{ fontWeight: 700, color: '#fff', fontSize: '1rem' }}>Official Email</div>
-                    <div style={{ color: 'var(--text-sky-bright)', fontWeight: 700, fontSize: '1.05rem' }}>
-                      triovexa@gmail.com
-                    </div>
-                    <div style={{ fontSize: '0.78rem', color: 'var(--text-dim)', marginTop: '2px' }}>
-                      Project inquiries & RFP submissions
-                    </div>
-                  </div>
-                </a>
-
-                {/* Website */}
-                <a
-                  href="https://triovexa.netlify.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="contact-info-item glass-card"
-                  style={{ textDecoration: 'none', padding: '1.25rem' }}
-                >
-                  <div className="contact-icon">
-                    <i className="ri-global-line"></i>
-                  </div>
-                  <div>
-                    <div style={{ fontWeight: 700, color: '#fff', fontSize: '1rem' }}>Official Website</div>
-                    <div style={{ color: 'var(--text-sky-bright)', fontWeight: 700, fontSize: '1.05rem' }}>
-                      triovexa.netlify.app
-                    </div>
-                    <div style={{ fontSize: '0.78rem', color: 'var(--text-dim)', marginTop: '2px' }}>
-                      Live Production Portal
-                    </div>
-                  </div>
-                </a>
-
-                {/* Guarantees */}
-                <div className="contact-info-item glass-card" style={{ padding: '1.25rem' }}>
-                  <div className="contact-icon">
-                    <i className="ri-shield-check-line"></i>
-                  </div>
-                  <div>
-                    <div style={{ fontWeight: 700, color: '#fff', fontSize: '1rem' }}>Enterprise Standards</div>
-                    <div style={{ color: 'var(--text-sky-light)', fontSize: '0.88rem' }}>
-                      Clean & Scalable Code • On-Time Delivery • Dedicated Support
-                    </div>
+                  <div className="contact-card-sub">
+                    Madha Kovil Street, Okkiyampettai, Thoraipakkam, Chennai
                   </div>
                 </div>
-              </div>
+              </a>
+
+              {/* Card 4: WhatsApp Support */}
+              <a
+                href="https://wa.me/919500657733"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-card-pro"
+                title="Chat on WhatsApp (+91 95006 57733)"
+              >
+                <div
+                  className="contact-circle-icon"
+                  style={{
+                    background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+                    boxShadow: '0 6px 18px rgba(37, 211, 102, 0.45)',
+                  }}
+                >
+                  <i className="ri-whatsapp-fill"></i>
+                </div>
+                <div className="contact-card-content">
+                  <h4 className="contact-card-title">WhatsApp Support</h4>
+                  <div className="contact-card-detail" style={{ color: '#25D366' }}>
+                    +91 95006 57733
+                  </div>
+                  <div className="contact-card-sub">Instant Chat & Technical Consulting</div>
+                </div>
+              </a>
             </div>
 
-            {/* Project Request Form */}
-            <div className="glass-card" style={{ padding: '2.5rem' }}>
-              <h3 style={{ fontSize: '1.5rem', color: '#fff', marginBottom: '0.5rem' }}>
-                Request A Quote & Consultation
-              </h3>
-              <p style={{ color: 'var(--text-sky-light)', fontSize: '0.92rem', marginBottom: '1.75rem' }}>
-                Fill out the details below. Our technical team will get back to you with an exact proposal.
-              </p>
+            {/* Right Column: Contact Form (Exact Match with Image 1) */}
+            <div className="contact-form-card-pro">
+              <div className="form-header-pro">
+                <h3 className="form-title-pro">Enquiry Form</h3>
+                <p className="form-sub-pro">
+                  Please fill out the form below. Our development and advisory team will get in touch promptly.
+                </p>
+              </div>
 
-              <form id="triovexa-contact-form" onSubmit={handleFormSubmit}>
-                <div className="form-group">
-                  <label htmlFor="form-name">Full Name / Company Name *</label>
-                  <input
-                    type="text"
-                    id="form-name"
-                    className="form-control"
-                    placeholder="e.g. Ramesh Kumar / Business Name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    required
-                  />
+              <form id="triovexa-contact-form" onSubmit={handleFormSubmit} className="contact-form-grid-layout">
+                {/* Row 1: Your Name & Institute Name (Exact from Image 1) */}
+                <div className="form-row-2col">
+                  <div className="form-field-group">
+                    <label htmlFor="form-name">
+                      Your Name <span className="req-star">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="form-name"
+                      className="contact-input-pro"
+                      placeholder=""
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      required
+                    />
+                  </div>
+
+                  <div className="form-field-group">
+                    <label htmlFor="form-institute">
+                      Institute Name <span className="req-star">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="form-institute"
+                      className="contact-input-pro"
+                      placeholder=""
+                      value={formData.instituteName}
+                      onChange={(e) => setFormData({ ...formData, instituteName: e.target.value })}
+                      required
+                    />
+                  </div>
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="form-email">Mobile Number / Email Address *</label>
-                  <input
-                    type="text"
-                    id="form-email"
-                    className="form-control"
-                    placeholder="e.g. +91 95006 57733 or yourname@gmail.com"
-                    value={formData.emailOrPhone}
-                    onChange={(e) => setFormData({ ...formData, emailOrPhone: e.target.value })}
-                    required
-                  />
+                {/* Row 2: Email & Phone No (Exact from Image 1) */}
+                <div className="form-row-2col">
+                  <div className="form-field-group">
+                    <label htmlFor="form-email">
+                      Email <span className="req-star">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      id="form-email"
+                      className="contact-input-pro"
+                      placeholder=""
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      required
+                    />
+                  </div>
+
+                  <div className="form-field-group">
+                    <label htmlFor="form-phone">
+                      Phone No <span className="req-star">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      id="form-phone"
+                      className="contact-input-pro"
+                      placeholder=""
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      required
+                    />
+                  </div>
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="form-service">Select Service Required</label>
-                  <select
-                    id="form-service"
-                    className="form-control"
-                    value={formData.service}
-                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                  >
-                    <option value="web-dev">Website Development</option>
-                    <option value="ecommerce">E-Commerce Solutions</option>
-                    <option value="web-apps">Web Applications</option>
-                    <option value="erp-hrms">ERP & HRMS Solutions</option>
-                    <option value="dashboards-bi">Dashboards & BI (Power BI)</option>
-                    <option value="ai-ml">AI & Machine Learning</option>
-                    <option value="mobile-dev">Mobile App Development (Android & iOS)</option>
-                    <option value="cloud-devops">Cloud Deployment & DevOps</option>
-                    <option value="api-dev">API Development</option>
-                    <option value="ui-ux">UI/UX Design</option>
-                    <option value="maintenance">Software Maintenance & Support</option>
-                  </select>
+                {/* Row 3: Enquiry Type Dropdown (Exact from Image 1) */}
+                <div className="form-field-group">
+                  <label htmlFor="form-enquiry-type">
+                    Enquiry Type <span className="req-star">*</span>
+                  </label>
+                  <div className="select-wrapper-pro">
+                    <select
+                      id="form-enquiry-type"
+                      className="contact-select-pro"
+                      value={formData.enquiryType}
+                      onChange={(e) => setFormData({ ...formData, enquiryType: e.target.value })}
+                      required
+                    >
+                      <option value="">Select</option>
+                      <option value="software-dev">Custom Software Development</option>
+                      <option value="web-apps">Web Applications & Web Portals</option>
+                      <option value="mobile-apps">Mobile App Development (Android & iOS)</option>
+                      <option value="erp-hrms">ERP & HRMS Solutions</option>
+                      <option value="institute-system">Institutional & Campus Management</option>
+                      <option value="bi-dashboards">Power BI Dashboards & Business Intelligence</option>
+                      <option value="cloud-devops">Cloud Deployment & DevOps Services</option>
+                      <option value="other">General Consultation & Proposal</option>
+                    </select>
+                    <i className="ri-arrow-down-s-line select-arrow-icon"></i>
+                  </div>
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="form-message">Project Requirements Details</label>
+                {/* Row 4: Message (Exact from Image 1) */}
+                <div className="form-field-group">
+                  <label htmlFor="form-message">Message</label>
                   <textarea
                     id="form-message"
-                    className="form-control"
-                    rows={4}
-                    placeholder="Tell us about your project goals, features needed, or timeline..."
+                    className="contact-textarea-pro"
+                    rows={5}
+                    placeholder=""
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   ></textarea>
                 </div>
 
+                {/* Submit Action Button */}
                 <button
                   type="submit"
-                  className="btn btn-sky"
-                  style={{ width: '100%', padding: '1rem', marginTop: '0.5rem' }}
+                  className="contact-submit-btn-pro"
                   disabled={isSubmitting}
                 >
                   <i className="ri-send-plane-fill"></i>
-                  <span>{isSubmitting ? 'Sending Request...' : 'Send Message'}</span>
+                  <span>{isSubmitting ? 'Submitting Details...' : 'Submit Enquiry'}</span>
                 </button>
               </form>
             </div>
@@ -248,20 +300,18 @@ export default function Contact() {
         <div className="toast-container">
           {toasts.map((toast) => (
             <div key={toast.id} className={`toast toast-${toast.type}`}>
-              <i
-                className={
-                  toast.type === 'error'
-                    ? 'ri-error-warning-fill'
-                    : toast.type === 'info'
-                    ? 'ri-information-fill'
-                    : 'ri-checkbox-circle-fill'
-                }
-                style={{
-                  fontSize: '1.3rem',
-                  color: toast.type === 'error' ? '#ef4444' : 'var(--text-sky-bright)',
-                }}
-              ></i>
-              <span>{toast.message}</span>
+              <div className="toast-content">
+                <i
+                  className={
+                    toast.type === 'success'
+                      ? 'ri-checkbox-circle-fill'
+                      : toast.type === 'error'
+                      ? 'ri-error-warning-fill'
+                      : 'ri-information-fill'
+                  }
+                ></i>
+                <span>{toast.message}</span>
+              </div>
             </div>
           ))}
         </div>

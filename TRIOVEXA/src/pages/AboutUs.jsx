@@ -32,9 +32,7 @@ export default function AboutUs() {
     { name: 'Postman', icon: 'ri-send-plane-2-line' },
   ];
 
-  const industries = [
-    'Transport', 'Healthcare', 'Education', 'Retail', 'Finance', 'Manufacturing'
-  ];
+
 
   return (
     <div className="about-page-view" style={{ paddingTop: '8.5rem' }}>

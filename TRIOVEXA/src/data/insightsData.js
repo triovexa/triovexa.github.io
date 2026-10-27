@@ -14,7 +14,7 @@ export const insightsData = [
     readTime: '4 min read',
     date: 'Oct 2026',
     author: 'TRIOVEXA Enterprise Architecture Team',
-    image: '/assets/images/insight-erp-cloud.jpg',
+    image: '/assets/images/triovexa-enterprise-dashboard.jpg',
     metrics: [
       { label: 'Operational Cost', value: '-40%' },
       { label: 'Payroll Automation', value: '100%' },
@@ -44,7 +44,7 @@ export const insightsData = [
     readTime: '3 min read',
     date: 'Oct 2026',
     author: 'TRIOVEXA Mobile & Telemetry Labs',
-    image: '/assets/images/insight-telemetry-fleet.jpg',
+    image: '/assets/images/transport-app.jpg',
     metrics: [
       { label: 'Telemetry Latency', value: '< 800ms' },
       { label: 'Fuel & Detour Savings', value: '32%' },

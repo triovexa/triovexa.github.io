@@ -8,6 +8,16 @@ export default function Footer() {
   const [subscribed, setSubscribed] = useState(false);
   const [selectedInsight, setSelectedInsight] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeLetterIdx, setActiveLetterIdx] = useState(null);
+
+  const brandLetters = ['T', 'R', 'I', 'O', 'V', 'E', 'X', 'A'];
+
+  const handleLetterClick = (index) => {
+    setActiveLetterIdx(index);
+    setTimeout(() => {
+      setActiveLetterIdx(null);
+    }, 2500);
+  };
 
   const openInsight = (insight) => {
     setSelectedInsight(insight);
@@ -46,14 +56,15 @@ export default function Footer() {
             tabIndex={0}
             aria-label="TRIOVEXA"
           >
-            <span>T</span>
-            <span>R</span>
-            <span>I</span>
-            <span>O</span>
-            <span>V</span>
-            <span>E</span>
-            <span>X</span>
-            <span>A</span>
+            {brandLetters.map((char, index) => (
+              <span
+                key={index}
+                className={activeLetterIdx === index ? 'active-letter' : ''}
+                onClick={() => handleLetterClick(index)}
+              >
+                {char}
+              </span>
+            ))}
           </div>
         </div>
 
@@ -176,50 +187,24 @@ export default function Footer() {
                 <span>triovexa@gmail.com</span>
               </a>
 
-              <div className="footer-contact-link">
+              <a
+                href="https://maps.google.com/?q=Puravankara+IT+building+Okkiyampettai+Thoraipakkam+Chennai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-contact-link"
+                title="View on Google Maps"
+              >
                 <div className="footer-icon-circle">
                   <i className="ri-map-pin-line"></i>
                 </div>
-                <span>Tirupur & Chennai, Tamil Nadu, India</span>
-              </div>
+                <span>Puravankara IT Building, Madha Kovil St, Okkiyampettai, Thoraipakkam, Chennai</span>
+              </a>
             </div>
           </div>
 
-          {/* Column 2: Site Map */}
+          {/* Column 2: Site Map (Exact Company Website Pages) */}
           <div className="footer-col">
             <h4 className="footer-col-title">Site Map</h4>
-            <ul className="footer-nav-list">
-              <li>
-                <Link to="/about" onClick={scrollToTop}>
-                  Our Vision & Mission
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" onClick={scrollToTop}>
-                  Our Engineering Team
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" onClick={scrollToTop}>
-                  Why Partner with Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/achievements" onClick={scrollToTop}>
-                  Media & Testimonials
-                </Link>
-              </li>
-              <li>
-                <a href="/assets/images/company-poster.jpg" target="_blank" rel="noopener noreferrer">
-                  Download Brochure
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3: Quick Links */}
-          <div className="footer-col">
-            <h4 className="footer-col-title">Quick Links</h4>
             <ul className="footer-nav-list">
               <li>
                 <Link to="/" onClick={scrollToTop}>
@@ -233,7 +218,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/services" onClick={scrollToTop}>
-                  Our Services
+                  Services
                 </Link>
               </li>
               <li>
@@ -247,8 +232,45 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/contact" onClick={scrollToTop}>
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Our Services */}
+          <div className="footer-col">
+            <h4 className="footer-col-title">Our Services</h4>
+            <ul className="footer-nav-list">
+              <li>
+                <Link to="/services" onClick={scrollToTop}>
+                  Web Applications
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" onClick={scrollToTop}>
+                  Mobile App Development
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" onClick={scrollToTop}>
+                  Enterprise ERP & HRMS
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" onClick={scrollToTop}>
+                  Cloud Solutions & DevOps
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" onClick={scrollToTop}>
+                  E-Commerce & Retail POS
+                </Link>
+              </li>
+              <li>
                 <Link to="/enquiry" onClick={scrollToTop}>
-                  Enquiry Now
+                  Custom Software Enquiry
                 </Link>
               </li>
             </ul>
@@ -335,7 +357,7 @@ export default function Footer() {
                 alt="TRIOVEXA"
                 className="powered-logo-img"
               />
-              <span className="gradient-sky-text" style={{ fontWeight: 800, fontSize: '0.9rem' }}>TRIOVEXA</span>
+              <span className="gradient-sky-text" style={{ fontWeight: 800, fontSize: '0.94rem', letterSpacing: '0.4px' }}>TRIOVEXA</span>
             </div>
           </div>
         </div>
