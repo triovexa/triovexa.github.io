@@ -16,7 +16,7 @@ const CATEGORY_METRICS = {
   client: [
     {
       id: 'projects-delivered',
-      number: '250+',
+      number: '200+',
       title: 'Projects Delivered',
       desc: 'Websites, business software and custom digital solutions.',
       bg: '#84cc16', // Neon Lime (User Image 2 reference)

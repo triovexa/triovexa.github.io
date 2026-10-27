@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ProjectsNavbar from '../components/ProjectsNavbar';
 import NexusStackingCards from '../components/NexusStackingCards';
 import CTASection from '../components/CTASection';
-import ServicesFooter from '../components/ServicesFooter';
 import InquiryModal from '../components/InquiryModal';
 import WhyChooseInteractiveHero from '../components/WhyChooseInteractiveHero';
 import NexusTriangleExpandTransition from '../components/NexusTriangleExpandTransition';
@@ -79,13 +77,6 @@ export default function Projects() {
 
   return (
     <div className="projects-page-wrapper">
-      {/* Navigation Header */}
-      <ProjectsNavbar
-        activeTab={activeTab}
-        onSelectTab={handleTabChange}
-        onOpenInquiry={handleOpenInquiry}
-      />
-
       {/* 1. Yellow.ai Nexus Interactive Floating Orbs Hero (Top of Page for All 3 Categories) */}
       <WhyChooseInteractiveHero
         activeTab={activeTab}
@@ -109,9 +100,6 @@ export default function Projects() {
 
       {/* 5. CTA Section - View Our Projects button is hidden on projects page per user request */}
       <CTASection onOpenInquiry={handleOpenInquiry} showProjectsButton={false} />
-
-      {/* 4. Footer */}
-      <ServicesFooter onOpenInquiry={handleOpenInquiry} />
 
       {/* 5. Inquiry Modal */}
       <InquiryModal

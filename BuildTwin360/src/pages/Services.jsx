@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/services.css';
-import ServicesNavbar from '../components/ServicesNavbar';
 import ServicesHero from '../components/ServicesHero';
 import ServicesGrid from '../components/ServicesGrid';
 import IndustriesSection from '../components/IndustriesSection';
 import ServicesFAQ from '../components/ServicesFAQ';
 import CTASection from '../components/CTASection';
-import ServicesFooter from '../components/ServicesFooter';
 import InquiryModal from '../components/InquiryModal';
 
 export default function Services() {
@@ -123,11 +121,8 @@ export default function Services() {
       {/* Background Particles Canvas */}
       <canvas id="particles-canvas" ref={canvasRef}></canvas>
 
-      {/* Header Navigation */}
-      <ServicesNavbar onOpenInquiry={handleOpenInquiry} />
-
       {/* Main Content */}
-      <main>
+      <div className="services-main-content">
         {/* Section 1: Hero */}
         <ServicesHero onOpenInquiry={handleOpenInquiry} />
 
@@ -142,10 +137,7 @@ export default function Services() {
 
         {/* Section 5: Final CTA */}
         <CTASection onOpenInquiry={handleOpenInquiry} />
-      </main>
-
-      {/* Footer */}
-      <ServicesFooter />
+      </div>
 
       {/* Inquiry / Lead Modal */}
       <InquiryModal

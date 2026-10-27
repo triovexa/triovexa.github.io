@@ -1,89 +1,73 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import BackgroundEffects from './components/BackgroundEffects';
+import CustomCursor from './components/CustomCursor';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+
 import Home from './pages/Home';
 import Services from './pages/Services';
 import Projects from './pages/Projects';
+import AboutUs from './pages/AboutUs';
+import Achievements from './pages/Achievements';
+import Contact from './pages/Contact';
+
 import './styles/projects.css';
 
-export default function App() {
-  const getPath = () => {
-    // Check hash for SPA fallback (e.g., #/services or #/projects)
-    const hash = window.location.hash;
-    if (hash && hash.startsWith('#/')) {
-      return hash.slice(1);
-    }
-    return window.location.pathname;
-  };
-
-  const [currentPath, setCurrentPath] = useState(getPath);
+/**
+ * HashUrlRedirector:
+ * Handles fallback hashes (e.g. #/services or #/projects) from GitHub Pages
+ * and redirects cleanly to standard routes.
+ */
+function HashUrlRedirector() {
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    const handleLocationChange = () => {
-      setCurrentPath(getPath());
-    };
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#/')) {
+      const cleanRoute = hash.slice(1);
+      navigate(cleanRoute, { replace: true });
+    }
+  }, [location, navigate]);
 
-    window.addEventListener('popstate', handleLocationChange);
-    window.addEventListener('hashchange', handleLocationChange);
+  return null;
+}
 
-    // Global link interceptor for SPA navigation
-    const handleLinkClick = (e) => {
-      const anchor = e.target.closest('a');
-      if (!anchor) return;
-      const href = anchor.getAttribute('href');
-      if (!href) return;
+export default function App() {
+  return (
+    <BrowserRouter>
+      {/* Hash fallback redirector for GitHub Pages SPA support */}
+      <HashUrlRedirector />
 
-      // Only handle internal links starting with /
-      if (href.startsWith('/') && !href.startsWith('//') && !anchor.target) {
-        const [targetPathWithQuery, targetHash] = href.split('#');
-        const [cleanTargetPath] = targetPathWithQuery.split('?');
-        const currentClean = window.location.pathname.replace(/\/$/, '') || '/';
-        const targetClean = (cleanTargetPath || '/').replace(/\/$/, '') || '/';
-        const isCurrentRoute = currentClean === targetClean;
+      {/* Custom Red Dot & Trailing Circle Cursor */}
+      <CustomCursor />
 
-        if (isCurrentRoute && targetHash) {
-          // Same page hash navigation - let browser or smooth scroll handle it
-          return;
-        }
+      {/* Background Ambient Aurora Particles */}
+      <BackgroundEffects />
 
-        e.preventDefault();
-        window.history.pushState(null, '', href);
-        setCurrentPath(cleanTargetPath || '/');
+      {/* Global Navigation Bar (Header from Selvamani) */}
+      <Navbar />
 
-        if (targetHash) {
-          setTimeout(() => {
-            const el = document.getElementById(targetHash);
-            if (el) {
-              el.scrollIntoView({ behavior: 'smooth' });
-            }
-          }, 120);
-        } else {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      }
-    };
+      {/* Main Page Routing */}
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/products-projects" element={<Projects />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/achievements" element={<Achievements />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/enquiry" element={<Contact />} />
 
-    document.addEventListener('click', handleLinkClick);
+          {/* Catch-all redirect to Home */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </main>
 
-    return () => {
-      window.removeEventListener('popstate', handleLocationChange);
-      window.removeEventListener('hashchange', handleLocationChange);
-      document.removeEventListener('click', handleLinkClick);
-    };
-  }, []);
-
-  const normalizedPath = (currentPath || window.location.pathname).toLowerCase().replace(/\/$/, '') || '/';
-
-  if (normalizedPath === '/services' || normalizedPath.endsWith('/services')) {
-    return <Services />;
-  }
-
-  if (
-    normalizedPath === '/projects' ||
-    normalizedPath.startsWith('/projects/') ||
-    normalizedPath.endsWith('/projects') ||
-    normalizedPath.includes('/projects')
-  ) {
-    return <Projects />;
-  }
-
-  return <Home />;
+      {/* Global Footer (Footer from Selvamani) */}
+      <Footer />
+    </BrowserRouter>
+  );
 }
