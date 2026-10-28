@@ -76,11 +76,11 @@ export default function Contact() {
           <div className="contact-grid-pro">
             {/* Left Column: Contact Cards Stack (Exact Match with Image 2) */}
             <div className="contact-cards-stack">
-              <div style={{ marginBottom: '0.5rem' }}>
-                <h3 style={{ fontSize: '1.75rem', color: '#fff', marginBottom: '0.5rem', fontWeight: 800 }}>
+              <div className="contact-sidebar-header">
+                <h3 className="contact-sidebar-title">
                   Get In Touch
                 </h3>
-                <p style={{ color: 'var(--text-sky-light)', fontSize: '0.96rem', lineHeight: '1.7', margin: 0 }}>
+                <p className="contact-sidebar-desc">
                   Connect with our technical consulting desk directly through official phone and email channels.
                 </p>
               </div>
@@ -273,7 +273,7 @@ export default function Contact() {
                   <textarea
                     id="form-message"
                     className="contact-textarea-pro"
-                    rows={5}
+                    rows={3}
                     placeholder=""
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
