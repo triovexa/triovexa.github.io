@@ -217,9 +217,8 @@ export default function AboutSection({ handleSmoothScroll }) {
             </div>
 
             <h3 style={{ fontSize: '1.5rem', color: '#ffffff', marginBottom: '0.5rem' }}>
-              TRIOVEXA Project Success Rate (2025 – 2026 Present)
+              TRIOVEXA 2-Year Accelerated Growth & Success Rate
             </h3>
-
 
             <div
               style={{
@@ -234,51 +233,23 @@ export default function AboutSection({ handleSmoothScroll }) {
               {/* Top Chart Header / Subtitle */}
               <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
                 <h4 style={{ color: '#ffffff', fontSize: '1.1rem', margin: '0 0 0.25rem 0' }}>
-                  Annual Project Success Rate Progression (2021 – 2027)
+                  Annual Project Success Rate Progression (2024 – 2027)
                 </h4>
                 <div style={{ fontSize: '0.82rem', color: 'var(--text-sky-bright)', fontWeight: 700 }}>
-                  2026 Peak Goal Completed with <span style={{ color: '#fbbf24', textDecoration: 'underline' }}>99.8% Highest Excellence</span> • 2027 Projected Roadmap
+                  2-Year High-Velocity Growth • 2026 Peak Goal Completed with <span style={{ color: '#fbbf24', textDecoration: 'underline' }}>99.8% Highest Excellence</span> • 2027 Projected Roadmap
                 </div>
               </div>
 
               {/* Bar Graph Grid - Aligned to bottom */}
-              <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', minHeight: '250px', padding: '1rem 0.5rem 0.5rem 0.5rem', borderBottom: '1px solid var(--border-glass)', gap: '0.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', minHeight: '250px', padding: '1rem 1rem 0.5rem 1rem', borderBottom: '1px solid var(--border-glass)', gap: '1.25rem' }}>
                 
-                {/* Bar 1: Year 2021 */}
+                {/* Bar 1: Year 2024 - Founding Year */}
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end' }}>
-                  <div style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-sky-light)', marginBottom: '0.35rem' }}>88.0%</div>
+                  <div style={{ fontSize: '0.78rem', fontWeight: 800, color: 'var(--text-sky-bright)', marginBottom: '0.35rem' }}>96.2%</div>
                   <div
                     style={{
                       width: '75%',
-                      height: '45px',
-                      background: 'linear-gradient(to top, rgba(0, 242, 254, 0.1), rgba(0, 242, 254, 0.25))',
-                      borderRadius: '6px 6px 0 0',
-                      border: '1px solid rgba(0, 242, 254, 0.2)',
-                    }}
-                  ></div>
-                </div>
-
-                {/* Bar 2: Year 2022 */}
-                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end' }}>
-                  <div style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-sky-light)', marginBottom: '0.35rem' }}>91.5%</div>
-                  <div
-                    style={{
-                      width: '75%',
-                      height: '62px',
-                      background: 'linear-gradient(to top, rgba(0, 242, 254, 0.15), rgba(0, 242, 254, 0.35))',
-                      borderRadius: '6px 6px 0 0',
-                      border: '1px solid rgba(0, 242, 254, 0.3)',
-                    }}
-                  ></div>
-                </div>
-
-                {/* Bar 3: Year 2023 */}
-                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end' }}>
-                  <div style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-sky-bright)', marginBottom: '0.35rem' }}>94.0%</div>
-                  <div
-                    style={{
-                      width: '75%',
-                      height: '80px',
+                      height: '105px',
                       background: 'linear-gradient(to top, rgba(0, 242, 254, 0.2), rgba(0, 242, 254, 0.5))',
                       borderRadius: '6px 6px 0 0',
                       border: '1px solid rgba(0, 242, 254, 0.4)',
@@ -286,42 +257,28 @@ export default function AboutSection({ handleSmoothScroll }) {
                   ></div>
                 </div>
 
-                {/* Bar 4: Year 2024 */}
+                {/* Bar 2: Year 2025 - Rapid Expansion */}
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end' }}>
-                  <div style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--text-sky-bright)', marginBottom: '0.35rem' }}>96.5%</div>
+                  <div style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--text-sky-bright)', marginBottom: '0.35rem' }}>98.4%</div>
                   <div
                     style={{
                       width: '75%',
-                      height: '100px',
-                      background: 'linear-gradient(to top, rgba(0, 242, 254, 0.3), #00f2fe)',
-                      borderRadius: '6px 6px 0 0',
-                      border: '1px solid #00f2fe',
-                    }}
-                  ></div>
-                </div>
-
-                {/* Bar 5: Year 2025 */}
-                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end' }}>
-                  <div style={{ fontSize: '0.78rem', fontWeight: 800, color: 'var(--text-sky-bright)', marginBottom: '0.35rem' }}>98.2%</div>
-                  <div
-                    style={{
-                      width: '75%',
-                      height: '122px',
-                      background: 'linear-gradient(to top, rgba(0, 242, 254, 0.4), #00f2fe, #38bdf8)',
+                      height: '140px',
+                      background: 'linear-gradient(to top, rgba(0, 242, 254, 0.35), #00f2fe, #38bdf8)',
                       borderRadius: '6px 6px 0 0',
                       border: '1.5px solid #00f2fe',
-                      boxShadow: '0 0 10px rgba(0, 242, 254, 0.3)',
+                      boxShadow: '0 0 15px rgba(0, 242, 254, 0.35)',
                     }}
                   ></div>
                 </div>
 
-                {/* Bar 6: Year 2026 - TALLEST TOWERING PEAK SUCCESS BAR */}
+                {/* Bar 3: Year 2026 - TALLEST TOWERING PEAK SUCCESS BAR */}
                 <div style={{ flex: 1.15, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end' }}>
-                  <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#fbbf24', marginBottom: '0.35rem' }}>99.8%</div>
+                  <div style={{ fontSize: '0.92rem', fontWeight: 800, color: '#fbbf24', marginBottom: '0.35rem' }}>99.8%</div>
                   <div
                     style={{
-                      width: '88%',
-                      height: '175px',
+                      width: '85%',
+                      height: '185px',
                       background: 'linear-gradient(to top, rgba(0, 242, 254, 0.6), #00f2fe, #fbbf24)',
                       borderRadius: '8px 8px 0 0',
                       border: '2.5px solid #fbbf24',
@@ -331,16 +288,16 @@ export default function AboutSection({ handleSmoothScroll }) {
                   ></div>
                 </div>
 
-                {/* Bar 7: Year 2027 - PROJECTED ROADMAP */}
+                {/* Bar 4: Year 2027 - PROJECTED ROADMAP */}
                 <div style={{ flex: 1.1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end' }}>
                   <div className="pulse-dot" style={{ background: '#10b981', width: '10px', height: '10px', marginBottom: '0.2rem' }}></div>
-                  <div style={{ fontSize: '0.72rem', fontWeight: 800, color: '#10b981', marginBottom: '0.35rem', textAlign: 'center', lineHeight: 1.15 }}>
+                  <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#10b981', marginBottom: '0.35rem', textAlign: 'center', lineHeight: 1.15 }}>
                     Projected<br />Roadmap
                   </div>
                   <div
                     style={{
                       width: '80%',
-                      height: '95px',
+                      height: '110px',
                       background: 'linear-gradient(to top, rgba(16, 185, 129, 0.05), rgba(16, 185, 129, 0.25))',
                       borderRadius: '8px 8px 0 0',
                       border: '1.5px dashed #10b981',
@@ -352,24 +309,15 @@ export default function AboutSection({ handleSmoothScroll }) {
               </div>
 
               {/* X-Axis Clean Year Labels */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: '0.75rem', gap: '0.5rem', textAlign: 'center' }}>
-                <div style={{ flex: 1, fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-sky-light)' }}>
-                  2021
+              <div style={{ display: 'flex', justifyContent: 'space-between', paddingTop: '0.85rem', gap: '1.25rem', textAlign: 'center', paddingLeft: '1rem', paddingRight: '1rem' }}>
+                <div style={{ flex: 1, fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-sky-bright)' }}>
+                  2024 (Founding)
                 </div>
-                <div style={{ flex: 1, fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-sky-light)' }}>
-                  2022
+                <div style={{ flex: 1, fontSize: '0.82rem', fontWeight: 800, color: 'var(--text-sky-bright)' }}>
+                  2025 (Expansion)
                 </div>
-                <div style={{ flex: 1, fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-sky-light)' }}>
-                  2023
-                </div>
-                <div style={{ flex: 1, fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-sky-bright)' }}>
-                  2024
-                </div>
-                <div style={{ flex: 1, fontSize: '0.78rem', fontWeight: 800, color: 'var(--text-sky-bright)' }}>
-                  2025
-                </div>
-                <div style={{ flex: 1.1, fontSize: '0.88rem', fontWeight: 800, color: '#fbbf24' }}>
-                  2026 (Peak)
+                <div style={{ flex: 1.15, fontSize: '0.9rem', fontWeight: 800, color: '#fbbf24' }}>
+                  2026 (Peak Excellence)
                 </div>
                 <div style={{ flex: 1.1, fontSize: '0.85rem', fontWeight: 800, color: '#10b981' }}>
                   2027 (Projected)
@@ -410,14 +358,12 @@ export default function AboutSection({ handleSmoothScroll }) {
             </div>
           </div>
 
-          {/* Unique Engineering Team & Employee Count Growth Timeline (2021 - 2026) */}
-
-          {/* Unique Engineering Team & Employee Count Growth Timeline (2021 - 2026) */}
+          {/* Unique Engineering Team & Employee Count Growth Timeline (2-Year Journey) */}
           <div className="about-pillars-wrapper">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.5rem' }}>
               <h3 style={{ fontSize: '1.4rem', color: '#ffffff', display: 'flex', alignItems: 'center', gap: '0.6rem', margin: 0 }}>
                 <i className="ri-team-fill" style={{ color: 'var(--accent-cyan)' }}></i>
-                TRIOVEXA Engineering Team Growth Timeline
+                TRIOVEXA Engineering Team Growth (2-Year Journey)
               </h3>
               <span className="count-pill" style={{ background: 'rgba(0, 242, 254, 0.15)', color: 'var(--text-sky-bright)', border: '1px solid var(--accent-cyan)' }}>
                 35+ Tech Engineers
@@ -451,7 +397,7 @@ export default function AboutSection({ handleSmoothScroll }) {
                   }}
                 ></div>
 
-                {/* Timeline Item 1: 2021 */}
+                {/* Timeline Item 1: 2024 Founding Phase */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', zIndex: 2 }}>
                   <div
                     style={{
@@ -465,102 +411,6 @@ export default function AboutSection({ handleSmoothScroll }) {
                       alignItems: 'center',
                       justifyContent: 'center',
                       color: '#00f2fe',
-                      fontSize: '0.9rem',
-                      fontWeight: 800,
-                      flexShrink: 0,
-                    }}
-                  >
-                    '21
-                  </div>
-                  <div className="glass-card" style={{ flex: 1, padding: '0.75rem 1rem', background: 'rgba(13, 27, 54, 0.6)', border: '1px solid var(--border-glass)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <div>
-                      <strong style={{ color: '#ffffff', fontSize: '0.95rem' }}>2021 Founding Year</strong>
-                      <div style={{ fontSize: '0.8rem', color: 'var(--text-sky-light)' }}>Core R&D Software Engineers</div>
-                    </div>
-                    <span className="count-pill" style={{ background: 'rgba(0, 242, 254, 0.12)', color: 'var(--text-sky-bright)', fontWeight: 800, fontSize: '0.85rem' }}>
-                      8 Employees
-                    </span>
-                  </div>
-                </div>
-
-                {/* Timeline Item 2: 2022 */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', zIndex: 2 }}>
-                  <div
-                    style={{
-                      width: '38px',
-                      height: '38px',
-                      borderRadius: '50%',
-                      background: 'rgba(7, 13, 25, 0.95)',
-                      border: '2px solid #00f2fe',
-                      boxShadow: '0 0 12px rgba(0, 242, 254, 0.5)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#00f2fe',
-                      fontSize: '0.9rem',
-                      fontWeight: 800,
-                      flexShrink: 0,
-                    }}
-                  >
-                    '22
-                  </div>
-                  <div className="glass-card" style={{ flex: 1, padding: '0.75rem 1rem', background: 'rgba(13, 27, 54, 0.6)', border: '1px solid var(--border-glass)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <div>
-                      <strong style={{ color: '#ffffff', fontSize: '0.95rem' }}>2022 Expansion Phase</strong>
-                      <div style={{ fontSize: '0.8rem', color: 'var(--text-sky-light)' }}>Full-Stack Web & Cloud Developers</div>
-                    </div>
-                    <span className="count-pill" style={{ background: 'rgba(0, 242, 254, 0.15)', color: 'var(--text-sky-bright)', fontWeight: 800, fontSize: '0.85rem' }}>
-                      15 Employees
-                    </span>
-                  </div>
-                </div>
-
-                {/* Timeline Item 3: 2023 */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', zIndex: 2 }}>
-                  <div
-                    style={{
-                      width: '38px',
-                      height: '38px',
-                      borderRadius: '50%',
-                      background: 'rgba(7, 13, 25, 0.95)',
-                      border: '2px solid #38bdf8',
-                      boxShadow: '0 0 12px rgba(56, 189, 248, 0.5)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#38bdf8',
-                      fontSize: '0.9rem',
-                      fontWeight: 800,
-                      flexShrink: 0,
-                    }}
-                  >
-                    '23
-                  </div>
-                  <div className="glass-card" style={{ flex: 1, padding: '0.75rem 1rem', background: 'rgba(13, 27, 54, 0.6)', border: '1px solid var(--border-glass)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <div>
-                      <strong style={{ color: '#ffffff', fontSize: '0.95rem' }}>2023 Industrial ERP Squad</strong>
-                      <div style={{ fontSize: '0.8rem', color: 'var(--text-sky-light)' }}>Textile & Logistics Systems Engineers</div>
-                    </div>
-                    <span className="count-pill" style={{ background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', fontWeight: 800, fontSize: '0.85rem' }}>
-                      20 Employees
-                    </span>
-                  </div>
-                </div>
-
-                {/* Timeline Item 4: 2024 */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', zIndex: 2 }}>
-                  <div
-                    style={{
-                      width: '38px',
-                      height: '38px',
-                      borderRadius: '50%',
-                      background: 'rgba(7, 13, 25, 0.95)',
-                      border: '2px solid #38bdf8',
-                      boxShadow: '0 0 12px rgba(56, 189, 248, 0.5)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#38bdf8',
                       fontSize: '0.9rem',
                       fontWeight: 800,
                       flexShrink: 0,
@@ -570,16 +420,80 @@ export default function AboutSection({ handleSmoothScroll }) {
                   </div>
                   <div className="glass-card" style={{ flex: 1, padding: '0.75rem 1rem', background: 'rgba(13, 27, 54, 0.6)', border: '1px solid var(--border-glass)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div>
-                      <strong style={{ color: '#ffffff', fontSize: '0.95rem' }}>2024 Mobile & POS Division</strong>
-                      <div style={{ fontSize: '0.8rem', color: 'var(--text-sky-light)' }}>Native Android, iOS & Thermal POS Team</div>
+                      <strong style={{ color: '#ffffff', fontSize: '0.95rem' }}>2024 Founding Phase</strong>
+                      <div style={{ fontSize: '0.8rem', color: 'var(--text-sky-light)' }}>Core Architecture & R&D Software Engineers</div>
                     </div>
-                    <span className="count-pill" style={{ background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', fontWeight: 800, fontSize: '0.85rem' }}>
-                      23 Employees
+                    <span className="count-pill" style={{ background: 'rgba(0, 242, 254, 0.12)', color: 'var(--text-sky-bright)', fontWeight: 800, fontSize: '0.85rem' }}>
+                      12 Employees
                     </span>
                   </div>
                 </div>
 
-                {/* Timeline Item 5: 2025 */}
+                {/* Timeline Item 2: 2024 Mid-Year Expansion */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', zIndex: 2 }}>
+                  <div
+                    style={{
+                      width: '38px',
+                      height: '38px',
+                      borderRadius: '50%',
+                      background: 'rgba(7, 13, 25, 0.95)',
+                      border: '2px solid #00f2fe',
+                      boxShadow: '0 0 12px rgba(0, 242, 254, 0.5)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#00f2fe',
+                      fontSize: '0.9rem',
+                      fontWeight: 800,
+                      flexShrink: 0,
+                    }}
+                  >
+                    '24
+                  </div>
+                  <div className="glass-card" style={{ flex: 1, padding: '0.75rem 1rem', background: 'rgba(13, 27, 54, 0.6)', border: '1px solid var(--border-glass)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div>
+                      <strong style={{ color: '#ffffff', fontSize: '0.95rem' }}>2024 Mid-Year Expansion</strong>
+                      <div style={{ fontSize: '0.8rem', color: 'var(--text-sky-light)' }}>Full-Stack Web & Industrial Cloud Developers</div>
+                    </div>
+                    <span className="count-pill" style={{ background: 'rgba(0, 242, 254, 0.15)', color: 'var(--text-sky-bright)', fontWeight: 800, fontSize: '0.85rem' }}>
+                      18 Employees
+                    </span>
+                  </div>
+                </div>
+
+                {/* Timeline Item 3: 2025 Industrial Squad */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', zIndex: 2 }}>
+                  <div
+                    style={{
+                      width: '38px',
+                      height: '38px',
+                      borderRadius: '50%',
+                      background: 'rgba(7, 13, 25, 0.95)',
+                      border: '2px solid #38bdf8',
+                      boxShadow: '0 0 12px rgba(56, 189, 248, 0.5)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#38bdf8',
+                      fontSize: '0.9rem',
+                      fontWeight: 800,
+                      flexShrink: 0,
+                    }}
+                  >
+                    '25
+                  </div>
+                  <div className="glass-card" style={{ flex: 1, padding: '0.75rem 1rem', background: 'rgba(13, 27, 54, 0.6)', border: '1px solid var(--border-glass)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div>
+                      <strong style={{ color: '#ffffff', fontSize: '0.95rem' }}>2025 Industrial ERP Squad</strong>
+                      <div style={{ fontSize: '0.8rem', color: 'var(--text-sky-light)' }}>Textile, Fleet Telemetry & Billing Systems Team</div>
+                    </div>
+                    <span className="count-pill" style={{ background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', fontWeight: 800, fontSize: '0.85rem' }}>
+                      24 Employees
+                    </span>
+                  </div>
+                </div>
+
+                {/* Timeline Item 4: 2025 Mobile & QA Division */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', zIndex: 2 }}>
                   <div
                     style={{
@@ -602,16 +516,16 @@ export default function AboutSection({ handleSmoothScroll }) {
                   </div>
                   <div className="glass-card" style={{ flex: 1, padding: '0.75rem 1rem', background: 'rgba(13, 27, 54, 0.6)', border: '1px solid var(--border-glass)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div>
-                      <strong style={{ color: '#ffffff', fontSize: '0.95rem' }}>2025 QA & Security Division</strong>
-                      <div style={{ fontSize: '0.8rem', color: 'var(--text-sky-light)' }}>Automation Testing & Security Architects</div>
+                      <strong style={{ color: '#ffffff', fontSize: '0.95rem' }}>2025 Mobile & QA Division</strong>
+                      <div style={{ fontSize: '0.8rem', color: 'var(--text-sky-light)' }}>Native Android/iOS & Automation Testing Squad</div>
                     </div>
                     <span className="count-pill" style={{ background: 'rgba(251, 191, 36, 0.18)', color: '#fbbf24', fontWeight: 800, fontSize: '0.85rem' }}>
-                      28 Employees
+                      29 Employees
                     </span>
                   </div>
                 </div>
 
-                {/* Timeline Item 6: 2026 Peak Team */}
+                {/* Timeline Item 5: 2026 Peak Team */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', zIndex: 2 }}>
                   <div
                     style={{
