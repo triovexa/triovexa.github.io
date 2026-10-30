@@ -3978,6 +3978,23 @@ section {
   text-decoration: none;
 }
 
+.floating-whatsapp-btn {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.45);
+}
+
+.floating-whatsapp-btn:hover {
+  background: linear-gradient(135deg, #2fe06f 0%, #0f7e71 100%);
+  transform: scale(1.08);
+  box-shadow: 0 6px 22px rgba(37, 211, 102, 0.7);
+  color: #ffffff;
+}
+
+.floating-whatsapp-btn i {
+  font-size: 1.45rem;
+}
+
 .floating-call-btn {
   background: #ef4444;
   color: #ffffff;

@@ -46,7 +46,7 @@ const growthMilestones = [
     title: 'Target Goal & Market Leadership',
     desc: 'Achieving 100% client target goals, doubling operational throughput and revenue.',
     icon: 'ri-trophy-fill',
-    badge: 'TARGET ACHIEVED 🎯',
+    badge: 'TARGET ACHIEVED',
     color: '#fbbf24'
   }
 ];
@@ -57,112 +57,112 @@ const clientSuccessCases = [
     name: 'Senthil Kumar',
     role: 'Managing Director, TexDye Mills',
     location: 'Tirupur & Coimbatore, Tamil Nadu',
-    domain: '🧵 Textiles & Dyeing Mills',
+    domain: 'Textiles & Dyeing Mills',
     system: 'TexDye Mill ERP System',
     review: 'TRIOVEXA delivered a 100% custom textile ERP for our dyeing factory. Greige stock tracking, dyeing vessel batch recipe calculations, and GST billing work seamlessly!',
     metric: '34% Dyeing Waste Reduction',
     impact: '100% On-Time Production',
-    rating: '5.0 / 5.0 ★★★★★',
+    rating: '5.0 / 5.0',
     cardBg: 'linear-gradient(145deg, rgba(20, 15, 45, 0.95), rgba(124, 58, 237, 0.3))',
     borderGlow: '#c4b5fd',
     accentColor: '#c4b5fd',
-    avatar: '👨‍💼'
+    avatar: 'SK'
   },
   {
     id: 2,
     name: 'Rajesh Sharma',
     role: 'Head of Fleet Operations, TransCargo',
     location: 'Chennai & Mumbai, India',
-    domain: '🚚 Transport & Fleet Telemetry',
+    domain: 'Transport & Fleet Telemetry',
     system: 'FleetSync Logistics Platform',
     review: 'Real-time GPS vehicle tracking for 500+ trucks with automated driver route logs, trip fuel expense calculations, and e-way bill sync. Exceptional execution speed!',
     metric: '500+ Trucks Live Telemetry',
     impact: '99.8% Route Efficiency',
-    rating: '4.9 / 5.0 ★★★★★',
+    rating: '4.9 / 5.0',
     cardBg: 'linear-gradient(145deg, rgba(40, 35, 10, 0.95), rgba(234, 179, 8, 0.3))',
     borderGlow: '#eab308',
     accentColor: '#fef08a',
-    avatar: '🧔‍♂️'
+    avatar: 'RS'
   },
   {
     id: 3,
     name: 'K. Murugan',
     role: 'Founder, Sri Murugan Tex Exports',
     location: 'Madurai & Karur, Tamil Nadu',
-    domain: '👕 Garments Manufacturing',
+    domain: 'Garments Manufacturing',
     system: 'Garment Weaving & Cutting ERP',
     review: 'Raw yarn purchasing tallying, loom operator batch output tracking, and export packing lists are all fully automated by TRIOVEXA. Reduced order delays to zero!',
     metric: '10,000m Daily Fabric Tracked',
     impact: 'Zero Production Delays',
-    rating: '4.8 / 5.0 ★★★★★',
+    rating: '4.8 / 5.0',
     cardBg: 'linear-gradient(145deg, rgba(10, 35, 25, 0.95), rgba(16, 185, 129, 0.3))',
     borderGlow: '#10b981',
     accentColor: '#a7f3d0',
-    avatar: '👨‍🏭'
+    avatar: 'KM'
   },
   {
     id: 4,
     name: 'Ananya Patel',
     role: 'Retail Operations Head, OmniMart',
     location: 'Bengaluru & Ahmedabad, India',
-    domain: '🛒 Retail POS & E-Commerce',
+    domain: 'Retail POS & E-Commerce',
     system: 'OmniPOS Superstore Billing System',
     review: 'Thermal printer barcode billing, multi-store stock inventory sync across 25+ retail outlets, and fast checkout counters. Highly reliable tech support team!',
     metric: '10,000+ Daily Checkouts',
     impact: 'Fast Barcode Billing',
-    rating: '5.0 / 5.0 ★★★★★',
+    rating: '5.0 / 5.0',
     cardBg: 'linear-gradient(145deg, rgba(10, 35, 45, 0.95), rgba(6, 182, 212, 0.3))',
     borderGlow: '#06b6d4',
     accentColor: '#67e8f9',
-    avatar: '👩‍💼'
+    avatar: 'AP'
   },
   {
     id: 5,
     name: 'Vikram Reddy',
     role: 'CEO, QuickServe Consumer App',
     location: 'Hyderabad & Visakhapatnam, India',
-    domain: '📱 Mobile App Development',
+    domain: 'Mobile App Development',
     system: 'iOS & Android Native Shopping App',
     review: 'Built with React 19, Next.js, and Node.js backend. High velocity, zero crashes, integrated payment gateways, and live order tracking. Best software team in India!',
     metric: '50,000+ App Downloads',
     impact: '4.9 Star PlayStore Score',
-    rating: '4.9 / 5.0 ★★★★★',
+    rating: '4.9 / 5.0',
     cardBg: 'linear-gradient(145deg, rgba(45, 15, 25, 0.95), rgba(244, 63, 94, 0.3))',
     borderGlow: '#f43f5e',
     accentColor: '#fecdd3',
-    avatar: '👨‍💻'
+    avatar: 'VR'
   },
   {
     id: 6,
     name: 'Suresh Sundaram',
     role: 'Managing Director, Sri Meenakshi Travels',
     location: 'Madurai & Trichy, Tamil Nadu',
-    domain: '🚌 Travels & Fleet Booking',
+    domain: 'Travels & Fleet Booking',
     system: 'Passenger Seat Booking & GPS App',
     review: 'Instant WhatsApp seat confirmation, driver location tracking, and automated fuel expense logs. Passenger booking volume increased by 60% within 3 months!',
     metric: '60% More Bookings',
     impact: 'Zero Trip Misses',
-    rating: '4.9 / 5.0 ★★★★★',
+    rating: '4.9 / 5.0',
     cardBg: 'linear-gradient(145deg, rgba(30, 20, 50, 0.95), rgba(168, 85, 247, 0.3))',
     borderGlow: '#a855f7',
     accentColor: '#e9d5ff',
-    avatar: '🚍'
+    avatar: 'SS'
   },
   {
     id: 7,
     name: 'Amit Singhania',
     role: 'Managing Partner, Singhania Silk & Fabrics',
     location: 'Surat & Varanasi, India',
-    domain: '🧵 Textile Wholesale & B2B Billing',
+    domain: 'Textile Wholesale & B2B Billing',
     system: 'B2B Wholesale Order & Dispatch App',
     review: 'Wholesale textile catalog ordering, automated credit balance calculations, and GST e-invoicing for 400+ dealers. Exceptional custom software delivery by TRIOVEXA!',
     metric: '400+ B2B Dealers Connected',
     impact: '100% Billing Accuracy',
-    rating: '5.0 / 5.0 ★★★★★',
+    rating: '5.0 / 5.0',
     cardBg: 'linear-gradient(145deg, rgba(15, 30, 45, 0.95), rgba(14, 165, 233, 0.3))',
     borderGlow: '#0ea5e9',
     accentColor: '#7dd3fc',
-    avatar: '👔'
+    avatar: 'AS'
   }
 ];
 
@@ -221,27 +221,30 @@ export default function IndiaMapSection({ handleSmoothScroll }) {
                 <circle cx="23" cy="23" r="3" fill="#ffffff" />
               </svg>
 
-              {/* Animated Piercing Arrow (Ampu Kuri) */}
+              {/* Animated Piercing Arrow Graphic */}
               <div 
                 style={{ 
                   position: 'absolute', 
                   top: '-4px', 
                   left: '-4px', 
                   color: '#fbbf24', 
-                  fontSize: '1.5rem', 
+                  fontSize: '1.3rem', 
                   filter: 'drop-shadow(0 0 10px #fbbf24)',
                   animation: 'arrowPierce 1.8s infinite ease-in-out',
-                  pointerEvents: 'none'
+                  pointerEvents: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                 }}
               >
-                🏹
+                <i className="ri-arrow-right-up-line"></i>
               </div>
             </div>
 
             <div style={{ textAlign: 'left' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                 <span style={{ color: '#fbbf24', fontSize: '1rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '1px' }}>
-                  🎯 OUR GOAL
+                  OUR GOAL
                 </span>
                 <span className="count-pill" style={{ background: '#fbbf24', color: '#070d19', fontSize: '0.75rem', fontWeight: 900, padding: '0.15rem 0.65rem' }}>
                   100% BULLSEYE ACHIEVED
@@ -258,7 +261,7 @@ export default function IndiaMapSection({ handleSmoothScroll }) {
         <div style={{ marginBottom: '2.5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
             <span className="section-tag" style={{ background: 'rgba(0, 242, 254, 0.12)', borderColor: '#00f2fe', color: '#00f2fe', fontSize: '0.8rem', fontWeight: 800 }}>
-              🏆 TRIOVEXA ACHIEVEMENT PILLARS
+              TRIOVEXA ACHIEVEMENT PILLARS
             </span>
           </div>
 
@@ -304,7 +307,7 @@ export default function IndiaMapSection({ handleSmoothScroll }) {
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
                 <span className="count-pill" style={{ background: 'rgba(0, 242, 254, 0.15)', color: '#00f2fe', border: '1px solid #00f2fe', fontSize: '0.78rem', fontWeight: 800 }}>
-                  🚀 250+ Live Projects
+                  250+ Live Projects
                 </span>
                 <span className="count-pill" style={{ background: 'rgba(255, 255, 255, 0.06)', color: 'var(--text-sky-light)', fontSize: '0.75rem' }}>
                   99.4% SLA Speed
@@ -352,7 +355,7 @@ export default function IndiaMapSection({ handleSmoothScroll }) {
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
                 <span className="count-pill" style={{ background: 'rgba(251, 191, 36, 0.15)', color: '#fbbf24', border: '1px solid #fbbf24', fontSize: '0.78rem', fontWeight: 800 }}>
-                  ⭐ 100% Client Score
+                  100% Client Score
                 </span>
                 <span className="count-pill" style={{ background: 'rgba(255, 255, 255, 0.06)', color: 'var(--text-sky-light)', fontSize: '0.75rem' }}>
                   100% Growth Powered
@@ -400,7 +403,7 @@ export default function IndiaMapSection({ handleSmoothScroll }) {
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
                 <span className="count-pill" style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#10b981', border: '1px solid #10b981', fontSize: '0.78rem', fontWeight: 800 }}>
-                  💡 100% Bespoke Code
+                  100% Bespoke Code
                 </span>
                 <span className="count-pill" style={{ background: 'rgba(255, 255, 255, 0.06)', color: 'var(--text-sky-light)', fontSize: '0.75rem' }}>
                   Zero Templates
@@ -536,7 +539,7 @@ export default function IndiaMapSection({ handleSmoothScroll }) {
                 <span>STEP-BY-STEP TARGET GOAL SUCCESS TELEMETRY</span>
               </div>
               <div className="map-active-count">
-                Milestone Status: <strong style={{ color: '#10b981' }}>100% Goal Reached 🎯</strong>
+                Milestone Status: <strong style={{ color: '#10b981' }}>100% Goal Reached</strong>
               </div>
             </div>
 
@@ -580,13 +583,13 @@ export default function IndiaMapSection({ handleSmoothScroll }) {
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: '#fbbf24',
-                    fontSize: '1.2rem',
+                    fontSize: '1.1rem',
                   }}
                 >
-                  🎯
+                  <i className="ri-focus-3-line"></i>
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.85rem', fontWeight: 800, color: '#ffffff' }}>Target Goal Achieved!</div>
+                  <div style={{ fontSize: '0.85rem', fontWeight: 800, color: '#ffffff' }}>Target Goal Achieved</div>
                   <div style={{ fontSize: '0.75rem', color: '#fbbf24' }}>Level 6 Leadership Milestone</div>
                 </div>
               </div>
@@ -676,14 +679,14 @@ export default function IndiaMapSection({ handleSmoothScroll }) {
                       boxShadow: '0 0 10px rgba(251, 191, 36, 0.3)',
                     }}
                   >
-                    🏹
+                    <i className="ri-focus-3-line"></i>
                   </div>
                   <div>
                     <div style={{ fontSize: '0.92rem', fontWeight: 800, color: '#ffffff' }}>
                       Target Goal Precision Archery
                     </div>
                     <div style={{ fontSize: '0.75rem', color: 'var(--text-sky-bright)' }}>
-                      Arrow Hits 100% Dead-Center Bullseye
+                      Precision Hit 100% Dead-Center Target
                     </div>
                   </div>
                 </div>
@@ -699,7 +702,7 @@ export default function IndiaMapSection({ handleSmoothScroll }) {
                     letterSpacing: '0.04em',
                   }}
                 >
-                  🎯 100% BULLSEYE HIT
+                  100% TARGET ACCURACY
                 </div>
               </div>
 
@@ -756,7 +759,7 @@ export default function IndiaMapSection({ handleSmoothScroll }) {
                   {/* Distance markers */}
                   <text x="120" y="105" fill="rgba(148, 163, 184, 0.5)" fontSize="9" fontFamily="inherit">START</text>
                   <text x="280" y="105" fill="rgba(148, 163, 184, 0.5)" fontSize="9" fontFamily="inherit" textAnchor="middle">VELOCITY: 100m/s</text>
-                  <text x="480" y="148" fill="#fbbf24" fontSize="9" fontWeight="bold" fontFamily="inherit" textAnchor="middle">TARGET GOAL 🎯</text>
+                  <text x="480" y="148" fill="#fbbf24" fontSize="9" fontWeight="bold" fontFamily="inherit" textAnchor="middle">TARGET GOAL</text>
 
                   {/* ARCHER CHARACTER (PERSON) ON LEFT */}
                   <g className="archery-person-group">
@@ -964,9 +967,9 @@ export default function IndiaMapSection({ handleSmoothScroll }) {
                   </g>
                 </svg>
 
-                {/* Floating "🎯 100% BULLSEYE HIT!" Score Pill */}
+                {/* Floating Score Pill */}
                 <div className="bullseye-score-banner">
-                  🎯 100% BULLSEYE HIT!
+                  100% TARGET ACCURACY
                 </div>
               </div>
 
@@ -990,7 +993,7 @@ export default function IndiaMapSection({ handleSmoothScroll }) {
                 </div>
                 <div style={{ background: 'rgba(13, 27, 54, 0.65)', padding: '0.5rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-glass)' }}>
                   <div style={{ fontSize: '0.7rem', color: 'var(--text-sky-light)' }}>GOAL EXECUTION</div>
-                  <div style={{ fontSize: '0.92rem', fontWeight: 800, color: '#10b981' }}>🎯 Target Reached</div>
+                  <div style={{ fontSize: '0.92rem', fontWeight: 800, color: '#10b981' }}>Target Reached</div>
                 </div>
               </div>
             </div>
@@ -1080,21 +1083,21 @@ export default function IndiaMapSection({ handleSmoothScroll }) {
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem' }}>
                 <span className="count-pill" style={{ background: 'rgba(251, 191, 36, 0.15)', color: '#fbbf24', border: '1px solid #fbbf24', fontSize: '0.75rem', fontWeight: 800 }}>
-                  ⭐ VERIFIED INDIAN CLIENT REVIEWS
+                  VERIFIED CLIENT REVIEWS
                 </span>
                 <span className="count-pill" style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#10b981', border: '1px solid #10b981', fontSize: '0.75rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                   <span className="pulse-dot" style={{ background: '#10b981' }}></span>
-                  Step-and-Pause Stream (நின்று நின்று நகரும்)
+                  Client Review Stream
                 </span>
               </div>
               <h3 style={{ fontSize: '1.65rem', color: '#ffffff', margin: 0, fontWeight: 800 }}>
-                Real Indian Client Success Stories & Feedback
+                Real Client Success Stories & Feedback
               </h3>
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <span className="count-pill" style={{ background: 'rgba(0, 242, 254, 0.12)', color: '#00f2fe', border: '1px solid #00f2fe', fontSize: '0.8rem', fontWeight: 800 }}>
-                ⏱️ Auto Step & Pause • Hover to Hold
+                Client Reviews • Hover to Pause
               </span>
             </div>
           </div>
@@ -1120,20 +1123,40 @@ export default function IndiaMapSection({ handleSmoothScroll }) {
                   <div>
                     {/* Top Row: Client Avatar, Name & Rating (No 1, 2, 3 numbers) */}
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.85rem', gap: '0.5rem' }}>
-                      <div>
-                        <h4 style={{ color: '#ffffff', fontSize: '1.18rem', margin: 0, fontWeight: 800, display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-                          <span style={{ fontSize: '1.35rem' }}>{cs.avatar}</span>
-                          {cs.name}
-                        </h4>
-                        <span style={{ fontSize: '0.82rem', color: cs.accentColor, fontWeight: 700, display: 'block', marginTop: '0.15rem' }}>
-                          {cs.role}
-                        </span>
-                        <div style={{ fontSize: '0.78rem', color: 'var(--text-sky-light)', marginTop: '0.1rem' }}>
-                          {cs.location}
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                        <div
+                          style={{
+                            width: '40px',
+                            height: '40px',
+                            borderRadius: '50%',
+                            background: `${cs.accentColor}25`,
+                            color: cs.accentColor,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontWeight: 800,
+                            fontSize: '0.9rem',
+                            border: `1.5px solid ${cs.borderGlow}`,
+                            flexShrink: 0,
+                          }}
+                        >
+                          {cs.avatar}
+                        </div>
+                        <div>
+                          <h4 style={{ color: '#ffffff', fontSize: '1.1rem', margin: 0, fontWeight: 800 }}>
+                            {cs.name}
+                          </h4>
+                          <span style={{ fontSize: '0.8rem', color: cs.accentColor, fontWeight: 700, display: 'block', marginTop: '0.1rem' }}>
+                            {cs.role}
+                          </span>
+                          <div style={{ fontSize: '0.75rem', color: 'var(--text-sky-light)', marginTop: '0.1rem' }}>
+                            {cs.location}
+                          </div>
                         </div>
                       </div>
-                      <div className="count-pill" style={{ background: 'rgba(251, 191, 36, 0.18)', color: '#fbbf24', border: '1px solid #fbbf24', fontSize: '0.82rem', fontWeight: 800 }}>
-                        ⭐ {cs.rating}
+                      <div className="count-pill" style={{ background: 'rgba(251, 191, 36, 0.18)', color: '#fbbf24', border: '1px solid #fbbf24', fontSize: '0.82rem', fontWeight: 800, display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+                        <i className="ri-star-fill" style={{ fontSize: '0.8rem' }}></i>
+                        {cs.rating}
                       </div>
                     </div>
 
@@ -1162,8 +1185,8 @@ export default function IndiaMapSection({ handleSmoothScroll }) {
                       gap: '0.5rem'
                     }}
                   >
-                    <span style={{ color: cs.accentColor, fontWeight: 800 }}>⚡ {cs.metric}</span>
-                    <span style={{ color: '#10b981', fontWeight: 800 }}>🎯 {cs.impact}</span>
+                    <span style={{ color: cs.accentColor, fontWeight: 700 }}>{cs.metric}</span>
+                    <span style={{ color: '#10b981', fontWeight: 700 }}>{cs.impact}</span>
                   </div>
                 </div>
               </div>

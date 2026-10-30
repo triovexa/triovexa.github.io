@@ -77,7 +77,7 @@ export default function ServicesFooter() {
             </h4>
             <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '1.5rem' }}>
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919442462967"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-icon-btn"
@@ -85,7 +85,7 @@ export default function ServicesFooter() {
               >
                 <i className="ri-whatsapp-fill"></i>
               </a>
-              <a href="tel:+919876543210" className="social-icon-btn" aria-label="Phone">
+              <a href="tel:+919442462967" className="social-icon-btn" aria-label="Phone">
                 <i className="ri-phone-fill"></i>
               </a>
               <a href="mailto:contact@triovexa.com" className="social-icon-btn" aria-label="Mail">

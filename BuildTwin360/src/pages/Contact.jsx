@@ -86,13 +86,13 @@ export default function Contact() {
               </div>
 
               {/* Card 1: Phone Number (TRIOVEXA Official) */}
-              <a href="tel:+919500657733" className="contact-card-pro" title="Call TRIOVEXA">
+              <a href="tel:+919442462967" className="contact-card-pro" title="Call TRIOVEXA">
                 <div className="contact-circle-icon">
                   <i className="ri-phone-fill"></i>
                 </div>
                 <div className="contact-card-content">
                   <h4 className="contact-card-title">Phone Number</h4>
-                  <div className="contact-card-detail">+91 95006 57733</div>
+                  <div className="contact-card-detail">+91 94424 62967</div>
                   <div className="contact-card-sub">Direct Technical Consulting & Support (24/7)</div>
                 </div>
               </a>
@@ -139,11 +139,11 @@ export default function Contact() {
 
               {/* Card 4: WhatsApp Support */}
               <a
-                href="https://wa.me/919500657733"
+                href="https://wa.me/919442462967"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-card-pro"
-                title="Chat on WhatsApp (+91 95006 57733)"
+                title="Chat on WhatsApp (+91 94424 62967)"
               >
                 <div
                   className="contact-circle-icon"
@@ -157,7 +157,7 @@ export default function Contact() {
                 <div className="contact-card-content">
                   <h4 className="contact-card-title">WhatsApp Support</h4>
                   <div className="contact-card-detail" style={{ color: '#25D366' }}>
-                    +91 95006 57733
+                    +91 94424 62967
                   </div>
                   <div className="contact-card-sub">Instant Chat & Technical Consulting</div>
                 </div>

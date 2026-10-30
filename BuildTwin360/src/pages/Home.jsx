@@ -663,12 +663,12 @@ export default function Home() {
                 <span className="btn-icon">&gt;</span>
               </Link>
               <a
-                href="tel:+919500657733"
+                href="tel:+919442462967"
                 className="btn btn-outline-sky home-cta-btn"
                 title="Call TRIOVEXA directly"
               >
                 <i className="ri-phone-line"></i>
-                <span>+91 95006 57733</span>
+                <span>+91 94424 62967</span>
               </a>
             </div>
           </div>

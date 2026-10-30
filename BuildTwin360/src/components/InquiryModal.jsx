@@ -78,7 +78,7 @@ export default function InquiryModal({ isOpen, onClose, selectedItem, onSubmitSu
                 type="text"
                 required
                 className="modal-input"
-                placeholder="+91 98765 43210 or yourname@company.com"
+                placeholder="+91 94424 62967 or yourname@company.com"
                 value={formData.contact}
                 onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
               />
@@ -128,7 +128,7 @@ export default function InquiryModal({ isOpen, onClose, selectedItem, onSubmitSu
               </button>
 
               <a
-                href="https://wa.me/919876543210?text=Hi%20TRIOVEXA,%20I%20would%20like%20to%20discuss%20a%20software%20project"
+                href="https://wa.me/919442462967?text=Hi%20TRIOVEXA,%20I%20would%20like%20to%20discuss%20a%20software%20project"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-outline-sky"

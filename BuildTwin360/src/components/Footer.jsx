@@ -173,11 +173,11 @@ export default function Footer() {
           <div className="footer-col">
             <h4 className="footer-col-title">Contact Us</h4>
             <div className="footer-contact-items">
-              <a href="tel:+919500657733" className="footer-contact-link">
+              <a href="tel:+919442462967" className="footer-contact-link">
                 <div className="footer-icon-circle">
                   <i className="ri-phone-line"></i>
                 </div>
-                <span>+91 95006 57733</span>
+                <span>+91 94424 62967</span>
               </a>
 
               <a href="mailto:triovexa@gmail.com" className="footer-contact-link">
@@ -363,12 +363,22 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Floating Action Buttons (Direct Call & Scroll to Top - Matching Screenshot) */}
+      {/* Floating Action Buttons (WhatsApp, Direct Call & Scroll to Top) */}
       <div className="floating-actions-container">
         <a
-          href="tel:+919500657733"
+          href="https://wa.me/919442462967"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="floating-action-btn floating-whatsapp-btn"
+          title="Chat on WhatsApp (+91 94424 62967)"
+          aria-label="Chat on WhatsApp"
+        >
+          <i className="ri-whatsapp-line"></i>
+        </a>
+        <a
+          href="tel:+919442462967"
           className="floating-action-btn floating-call-btn"
-          title="Direct Phone Call (+91 95006 57733)"
+          title="Direct Phone Call (+91 94424 62967)"
           aria-label="Direct Phone Call"
         >
           <i className="ri-phone-fill"></i>

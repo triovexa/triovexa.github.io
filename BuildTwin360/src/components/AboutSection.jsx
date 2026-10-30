@@ -35,7 +35,7 @@ export default function AboutSection({ handleSmoothScroll }) {
               </div>
             </div>
             <div className="count-pill" style={{ background: 'rgba(251, 191, 36, 0.15)', color: '#fbbf24', border: '1px solid #fbbf24', fontSize: '0.82rem' }}>
-              ⭐ 8 Core Enterprise Capabilities • 100% Custom Tailored
+              8 Core Enterprise Capabilities • 100% Custom Tailored
             </div>
           </div>
 
@@ -212,7 +212,7 @@ export default function AboutSection({ handleSmoothScroll }) {
                 <i className="ri-line-chart-fill"></i> Verified SLA Growth Metric
               </div>
               <div className="count-pill" style={{ background: 'rgba(251, 191, 36, 0.18)', color: '#fbbf24', border: '1px solid #fbbf24', fontWeight: 800 }}>
-                🏆 99.4% EXCELLENT SUCCESS RATE
+                99.4% Verified Success Rate
               </div>
             </div>
 
@@ -237,7 +237,7 @@ export default function AboutSection({ handleSmoothScroll }) {
                   Annual Project Success Rate Progression (2021 – 2027)
                 </h4>
                 <div style={{ fontSize: '0.82rem', color: 'var(--text-sky-bright)', fontWeight: 700 }}>
-                  2026 Peak Goal Completed with <span style={{ color: '#fbbf24', textDecoration: 'underline' }}>99.8% Highest Excellence</span> • 2027 Success Loading...
+                  2026 Peak Goal Completed with <span style={{ color: '#fbbf24', textDecoration: 'underline' }}>99.8% Highest Excellence</span> • 2027 Projected Roadmap
                 </div>
               </div>
 
@@ -317,8 +317,7 @@ export default function AboutSection({ handleSmoothScroll }) {
 
                 {/* Bar 6: Year 2026 - TALLEST TOWERING PEAK SUCCESS BAR */}
                 <div style={{ flex: 1.15, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end' }}>
-                  <div style={{ fontSize: '1.4rem', marginBottom: '0.1rem', filter: 'drop-shadow(0 0 10px rgba(251, 191, 36, 0.9))' }}>🏆</div>
-                  <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#fbbf24', marginBottom: '0.35rem' }}>99.8% High 🎯</div>
+                  <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#fbbf24', marginBottom: '0.35rem' }}>99.8%</div>
                   <div
                     style={{
                       width: '88%',
@@ -332,11 +331,11 @@ export default function AboutSection({ handleSmoothScroll }) {
                   ></div>
                 </div>
 
-                {/* Bar 7: Year 2027 - SUCCESS LOADING BAR */}
+                {/* Bar 7: Year 2027 - PROJECTED ROADMAP */}
                 <div style={{ flex: 1.1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end' }}>
                   <div className="pulse-dot" style={{ background: '#10b981', width: '10px', height: '10px', marginBottom: '0.2rem' }}></div>
-                  <div style={{ fontSize: '0.7rem', fontWeight: 800, color: '#10b981', marginBottom: '0.35rem', textAlign: 'center', lineHeight: 1.15 }}>
-                    Success<br />Loading... 🔄
+                  <div style={{ fontSize: '0.72rem', fontWeight: 800, color: '#10b981', marginBottom: '0.35rem', textAlign: 'center', lineHeight: 1.15 }}>
+                    Projected<br />Roadmap
                   </div>
                   <div
                     style={{
@@ -370,10 +369,10 @@ export default function AboutSection({ handleSmoothScroll }) {
                   2025
                 </div>
                 <div style={{ flex: 1.1, fontSize: '0.88rem', fontWeight: 800, color: '#fbbf24' }}>
-                  2026 🎯 (Peak)
+                  2026 (Peak)
                 </div>
                 <div style={{ flex: 1.1, fontSize: '0.85rem', fontWeight: 800, color: '#10b981' }}>
-                  2027 🚀 (Loading)
+                  2027 (Projected)
                 </div>
               </div>
             </div>
@@ -421,7 +420,7 @@ export default function AboutSection({ handleSmoothScroll }) {
                 TRIOVEXA Engineering Team Growth Timeline
               </h3>
               <span className="count-pill" style={{ background: 'rgba(0, 242, 254, 0.15)', color: 'var(--text-sky-bright)', border: '1px solid var(--accent-cyan)' }}>
-                👥 8 ➔ 35 Tech Engineers
+                35+ Tech Engineers
               </span>
             </div>
 
@@ -479,7 +478,7 @@ export default function AboutSection({ handleSmoothScroll }) {
                       <div style={{ fontSize: '0.8rem', color: 'var(--text-sky-light)' }}>Core R&D Software Engineers</div>
                     </div>
                     <span className="count-pill" style={{ background: 'rgba(0, 242, 254, 0.12)', color: 'var(--text-sky-bright)', fontWeight: 800, fontSize: '0.85rem' }}>
-                      👥 8 Employees
+                      8 Employees
                     </span>
                   </div>
                 </div>
@@ -511,7 +510,7 @@ export default function AboutSection({ handleSmoothScroll }) {
                       <div style={{ fontSize: '0.8rem', color: 'var(--text-sky-light)' }}>Full-Stack Web & Cloud Developers</div>
                     </div>
                     <span className="count-pill" style={{ background: 'rgba(0, 242, 254, 0.15)', color: 'var(--text-sky-bright)', fontWeight: 800, fontSize: '0.85rem' }}>
-                      👥 15 Employees
+                      15 Employees
                     </span>
                   </div>
                 </div>
@@ -543,7 +542,7 @@ export default function AboutSection({ handleSmoothScroll }) {
                       <div style={{ fontSize: '0.8rem', color: 'var(--text-sky-light)' }}>Textile & Logistics Systems Engineers</div>
                     </div>
                     <span className="count-pill" style={{ background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', fontWeight: 800, fontSize: '0.85rem' }}>
-                      👥 20 Employees
+                      20 Employees
                     </span>
                   </div>
                 </div>
@@ -575,7 +574,7 @@ export default function AboutSection({ handleSmoothScroll }) {
                       <div style={{ fontSize: '0.8rem', color: 'var(--text-sky-light)' }}>Native Android, iOS & Thermal POS Team</div>
                     </div>
                     <span className="count-pill" style={{ background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', fontWeight: 800, fontSize: '0.85rem' }}>
-                      👥 23 Employees
+                      23 Employees
                     </span>
                   </div>
                 </div>
@@ -607,7 +606,7 @@ export default function AboutSection({ handleSmoothScroll }) {
                       <div style={{ fontSize: '0.8rem', color: 'var(--text-sky-light)' }}>Automation Testing & Security Architects</div>
                     </div>
                     <span className="count-pill" style={{ background: 'rgba(251, 191, 36, 0.18)', color: '#fbbf24', fontWeight: 800, fontSize: '0.85rem' }}>
-                      👥 28 Employees
+                      28 Employees
                     </span>
                   </div>
                 </div>
@@ -635,11 +634,11 @@ export default function AboutSection({ handleSmoothScroll }) {
                   </div>
                   <div className="glass-card" style={{ flex: 1, padding: '0.75rem 1rem', background: 'rgba(251, 191, 36, 0.12)', border: '1.5px solid #fbbf24', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div>
-                      <strong style={{ color: '#ffffff', fontSize: '0.95rem' }}>2026 Peak Enterprise Team 🚀</strong>
+                      <strong style={{ color: '#ffffff', fontSize: '0.95rem' }}>2026 Peak Enterprise Team</strong>
                       <div style={{ fontSize: '0.8rem', color: '#fbbf24', fontWeight: 700 }}>Senior Software Architects & SLA Engineers</div>
                     </div>
                     <span className="count-pill" style={{ background: '#fbbf24', color: '#070d19', fontWeight: 900, fontSize: '0.88rem' }}>
-                      👥 35 Employees 🚀
+                      35 Employees
                     </span>
                   </div>
                 </div>
@@ -653,7 +652,7 @@ export default function AboutSection({ handleSmoothScroll }) {
         <div style={{ marginTop: '3.5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
             <span className="section-tag" style={{ background: 'rgba(251, 191, 36, 0.15)', borderColor: '#fbbf24', color: '#fbbf24', padding: '0.5rem 1.25rem', borderRadius: '30px', fontWeight: 800, fontSize: '0.85rem' }}>
-              ⭐ OUR TOP 3 CLIENT COMMITMENTS
+              OUR TOP 3 CLIENT COMMITMENTS
             </span>
             <h3 style={{ fontSize: '2rem', color: '#ffffff', marginTop: '0.75rem', fontWeight: 800 }}>
               Our 3 Core Guarantees to Every Client
@@ -718,7 +717,7 @@ export default function AboutSection({ handleSmoothScroll }) {
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
                 <span className="count-pill" style={{ background: 'rgba(251, 191, 36, 0.15)', color: '#fbbf24', border: '1px solid #fbbf24', fontSize: '0.8rem', fontWeight: 800 }}>
-                  🎯 100% Tailored Codebase
+                  100% Tailored Codebase
                 </span>
                 <span className="count-pill" style={{ background: 'rgba(255, 255, 255, 0.06)', color: 'var(--text-sky-light)', fontSize: '0.78rem' }}>
                   Zero Templates
@@ -779,7 +778,7 @@ export default function AboutSection({ handleSmoothScroll }) {
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
                 <span className="count-pill" style={{ background: 'rgba(0, 242, 254, 0.15)', color: 'var(--text-sky-bright)', border: '1px solid var(--accent-cyan)', fontSize: '0.8rem', fontWeight: 800 }}>
-                  ⚡ 99.4% On-Time Record
+                  99.4% On-Time Record
                 </span>
                 <span className="count-pill" style={{ background: 'rgba(255, 255, 255, 0.06)', color: 'var(--text-sky-light)', fontSize: '0.78rem' }}>
                   Fast Sprints
@@ -840,7 +839,7 @@ export default function AboutSection({ handleSmoothScroll }) {
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
                 <span className="count-pill" style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#10b981', border: '1px solid #10b981', fontSize: '0.8rem', fontWeight: 800 }}>
-                  🟢 24/7 Active SLA Support
+                  24/7 Active SLA Support
                 </span>
                 <span className="count-pill" style={{ background: 'rgba(255, 255, 255, 0.06)', color: 'var(--text-sky-light)', fontSize: '0.78rem' }}>
                   Always Available
@@ -907,7 +906,7 @@ export default function AboutSection({ handleSmoothScroll }) {
                       Chennai, Tamil Nadu - 600097, India.
                     </span>
                     <div style={{ marginTop: '0.5rem', color: '#fbbf24', fontSize: '0.85rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-                      <i className="ri-external-link-line"></i> Click here to open GPS Location in Google Maps 📍
+                      <i className="ri-external-link-line"></i> Click here to open GPS Location in Google Maps
                     </div>
                   </div>
                 </div>
@@ -926,14 +925,8 @@ export default function AboutSection({ handleSmoothScroll }) {
                   <div>
                     <strong style={{ color: '#ffffff', display: 'block', marginBottom: '0.3rem' }}>Direct Phone / WhatsApp:</strong>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
-                      <a href="tel:+919500657733" style={{ color: 'var(--text-sky-bright)', textDecoration: 'none', fontWeight: 700 }}>
-                        📞 +91 95006 57733
-                      </a>
-                      <a href="tel:+919994718702" style={{ color: 'var(--text-sky-bright)', textDecoration: 'none', fontWeight: 700 }}>
-                        📞 +91 99947 18702
-                      </a>
-                      <a href="tel:+919361126149" style={{ color: 'var(--text-sky-bright)', textDecoration: 'none', fontWeight: 700 }}>
-                        📞 +91 93611 26149
+                      <a href="tel:+919442462967" style={{ color: 'var(--text-sky-bright)', textDecoration: 'none', fontWeight: 700 }}>
+                        +91 94424 62967
                       </a>
                     </div>
                   </div>
@@ -968,7 +961,7 @@ export default function AboutSection({ handleSmoothScroll }) {
                   className="btn btn-outline-sky"
                   style={{ padding: '0.6rem 1.2rem', fontSize: '0.88rem', whiteSpace: 'nowrap' }}
                 >
-                  <i className="ri-navigation-fill"></i> Get Directions 🚗
+                  <i className="ri-navigation-fill"></i> Get Directions
                 </a>
               </div>
             </div>

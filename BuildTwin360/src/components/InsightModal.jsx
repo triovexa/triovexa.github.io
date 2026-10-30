@@ -164,11 +164,11 @@ export default function InsightModal({ insight, isOpen, onClose }) {
                 <i className="ri-arrow-right-line"></i>
               </Link>
               <a
-                href="tel:+919500657733"
+                href="tel:+919442462967"
                 className="btn btn-outline-sky"
               >
                 <i className="ri-phone-line"></i>
-                <span>+91 95006 57733</span>
+                <span>+91 94424 62967</span>
               </a>
             </div>
           </div>
