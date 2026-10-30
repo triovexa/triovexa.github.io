@@ -332,12 +332,12 @@ export default function AboutSection({ handleSmoothScroll }) {
                 <span className="mini-stat-text">Excellent Score</span>
               </div>
               <div className="mini-stat-item">
-                <span className="mini-stat-num" style={{ color: '#10b981' }}>100%</span>
-                <span className="mini-stat-text">On-Time Velocity</span>
+                <span className="mini-stat-num" style={{ color: '#10b981' }}>50+</span>
+                <span className="mini-stat-text">Happy Clients</span>
               </div>
               <div className="mini-stat-item">
-                <span className="mini-stat-num" style={{ color: 'var(--text-sky-bright)' }}>250+</span>
-                <span className="mini-stat-text">Successful Projects</span>
+                <span className="mini-stat-num" style={{ color: 'var(--text-sky-bright)' }}>200+</span>
+                <span className="mini-stat-text">Projects Delivered</span>
               </div>
               <div className="mini-stat-item">
                 <span className="mini-stat-num" style={{ color: '#a855f7' }}>0%</span>

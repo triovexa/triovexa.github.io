@@ -192,7 +192,7 @@ export default function IndiaMapSection({ handleSmoothScroll }) {
 
           <h2>Our Achievements & Client Growth Milestones</h2>
           <p style={{ marginBottom: '1.25rem' }}>
-            With over <strong>250+ target business goals achieved</strong> across textiles, transport, garments, and retail sectors, 
+            With over <strong>200+ successful projects delivered</strong> and <strong>50+ happy enterprise clients</strong> across textiles, transport, garments, and retail sectors, 
             see how TRIOVEXA drives step-by-step software success and continuous growth velocity.
           </p>
 
@@ -307,7 +307,7 @@ export default function IndiaMapSection({ handleSmoothScroll }) {
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
                 <span className="count-pill" style={{ background: 'rgba(0, 242, 254, 0.15)', color: '#00f2fe', border: '1px solid #00f2fe', fontSize: '0.78rem', fontWeight: 800 }}>
-                  250+ Live Projects
+                  200+ Projects Delivered
                 </span>
                 <span className="count-pill" style={{ background: 'rgba(255, 255, 255, 0.06)', color: 'var(--text-sky-light)', fontSize: '0.75rem' }}>
                   99.4% SLA Speed
@@ -355,7 +355,7 @@ export default function IndiaMapSection({ handleSmoothScroll }) {
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
                 <span className="count-pill" style={{ background: 'rgba(251, 191, 36, 0.15)', color: '#fbbf24', border: '1px solid #fbbf24', fontSize: '0.78rem', fontWeight: 800 }}>
-                  100% Client Score
+                  50+ Happy Clients
                 </span>
                 <span className="count-pill" style={{ background: 'rgba(255, 255, 255, 0.06)', color: 'var(--text-sky-light)', fontSize: '0.75rem' }}>
                   100% Growth Powered
@@ -439,8 +439,8 @@ export default function IndiaMapSection({ handleSmoothScroll }) {
             <div className="achieve-icon-box" style={{ background: 'rgba(0, 242, 254, 0.18)', color: '#00f2fe', border: '1px solid #00f2fe' }}>
               <i className="ri-user-star-line"></i>
             </div>
-            <div className="achieve-value" style={{ color: '#00f2fe' }}>250+</div>
-            <div className="achieve-label">Target Client Goals Achieved</div>
+            <div className="achieve-value" style={{ color: '#00f2fe' }}>200+</div>
+            <div className="achieve-label">Projects Delivered</div>
             <div className="achieve-sub">Textile, Transport, Retail & ERP</div>
           </div>
 
@@ -495,9 +495,9 @@ export default function IndiaMapSection({ handleSmoothScroll }) {
             <div className="achieve-icon-box" style={{ background: 'rgba(251, 191, 36, 0.18)', color: '#fbbf24', border: '1px solid #fbbf24' }}>
               <i className="ri-line-chart-fill"></i>
             </div>
-            <div className="achieve-value" style={{ color: '#fbbf24' }}>+45%</div>
-            <div className="achieve-label">Client Growth Velocity</div>
-            <div className="achieve-sub">Efficiency boost across operations</div>
+            <div className="achieve-value" style={{ color: '#fbbf24' }}>50+</div>
+            <div className="achieve-label">Happy Clients</div>
+            <div className="achieve-sub">Enterprise business growth across India</div>
           </div>
 
           {/* Card 4: Purple SLA Theme (Replaced 180Cr) */}

@@ -25,10 +25,10 @@ const CATEGORY_METRICS = {
       rotation: '-4deg',
     },
     {
-      id: 'business-sectors',
-      number: '10+',
-      title: 'Business Sectors',
-      desc: 'Solutions tailored to different industries and business needs.',
+      id: 'happy-clients',
+      number: '50+',
+      title: 'Happy Clients',
+      desc: 'Enterprise business clients across textiles, logistics, retail and software services.',
       bg: '#38bdf8', // Electric Cyan
       textColor: '#070b13',
       glow: 'rgba(56, 189, 248, 0.45)',
