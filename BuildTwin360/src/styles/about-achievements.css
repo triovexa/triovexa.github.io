@@ -1,0 +1,1022 @@
+/* ==========================================================================
+   About Us Section Styles
+   ========================================================================== */
+.about-section {
+  padding: 6rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.about-story-card {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about-badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  background: rgba(0, 242, 254, 0.1);
+  border: 1px solid var(--border-glow);
+  color: var(--text-sky-bright);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  width: fit-content;
+}
+
+.about-story-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.35;
+  color: #ffffff;
+}
+
+.about-story-card p {
+  color: var(--text-sky-light);
+  margin-bottom: 1rem;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.about-mini-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-glass);
+}
+
+.mini-stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.mini-stat-num {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-sky-bright);
+}
+
+.mini-stat-text {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.pillars-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.pillar-card {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.pillar-card:hover {
+  transform: translateX(6px);
+  border-color: var(--accent-cyan);
+}
+
+.pillar-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: radial-gradient(circle, rgba(0, 242, 254, 0.2) 0%, rgba(2, 132, 199, 0.1) 100%);
+  border: 1px solid var(--border-glass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-sky-bright);
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.pillar-card h4 {
+  fontSize: 1.1rem;
+  color: #ffffff;
+  margin-bottom: 0.35rem;
+}
+
+.pillar-card p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.about-values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.value-card {
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.value-number {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 900;
+  color: rgba(0, 242, 254, 0.15);
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
+
+.value-card h4 {
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.value-card p {
+  font-size: 0.95rem;
+  color: var(--text-sky-light);
+}
+
+/* ==========================================================================
+   Achievements & Pan-India Client Location Map Styles
+   ========================================================================== */
+.achievements-map-section {
+  padding: 6rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.achievements-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.achievement-card {
+  padding: 1.75rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform var(--transition-fast);
+}
+
+.achievement-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-glow);
+}
+
+.achieve-icon-box {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(0, 242, 254, 0.12);
+  border: 1px solid var(--border-glow);
+  color: var(--text-sky-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.achieve-value {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+  background: var(--gradient-electric-sky);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.achieve-label {
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+
+.achieve-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Filter Controls Bar */
+.map-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: rgba(11, 23, 46, 0.85);
+  border: 1px solid var(--border-glass);
+  padding: 1.25rem 2rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.filter-label {
+  font-weight: 700;
+  color: var(--text-sky-light);
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-full);
+  background: rgba(13, 27, 54, 0.6);
+  border: 1px solid var(--border-glass);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+  border-color: var(--text-sky-bright);
+  color: #ffffff;
+}
+
+.filter-btn.active {
+  background: var(--gradient-electric-sky);
+  color: #070d19;
+  border-color: transparent;
+  font-weight: 800;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+}
+
+/* India Map Split Layout */
+.india-map-container {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 2.5rem;
+  padding: 2.5rem;
+  border: 1.5px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+}
+
+.map-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-status-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.status-live-dot {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--text-sky-bright);
+  letter-spacing: 0.05em;
+}
+
+.pulse-dot {
+  width: 10px;
+  height: 10px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulseGlow 1.8s infinite;
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1.15); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.map-active-count {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.svg-map-frame {
+  position: relative;
+  width: 100%;
+  background: radial-gradient(circle at center, rgba(11, 30, 61, 0.8) 0%, rgba(7, 13, 25, 0.98) 100%);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: inset 0 0 30px rgba(0, 242, 254, 0.05);
+}
+
+.india-svg {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  display: block;
+}
+
+.state-path {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.state-path:hover {
+  fill: url(#stateHoverGrad);
+  stroke: #00f2fe;
+  stroke-width: 2.5px;
+  filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.6));
+}
+
+.india-path-main {
+  transition: all var(--transition-normal);
+}
+
+.map-marker-group .pulse-ring {
+  animation: markerPulse 2.2s ease-out infinite;
+  transform-origin: center;
+}
+
+@keyframes markerPulse {
+  0% { r: 6px; opacity: 1; }
+  100% { r: 24px; opacity: 0; }
+}
+
+.map-marker-group.is-active .pulse-ring {
+  stroke: #00f2fe;
+  animation-duration: 1.5s;
+}
+
+.map-city-text {
+  pointer-events: none;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.map-footer-hint {
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+/* Detail Card Right Side */
+.map-detail-card {
+  background: var(--gradient-ocean-card);
+  border: 1.5px solid var(--border-glow);
+  border-radius: var(--radius-md);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-glow);
+}
+
+.detail-top-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #10b981;
+  font-size: 0.78rem;
+  font-weight: 800;
+  width: fit-content;
+  margin-bottom: 1rem;
+}
+
+.badge-pulse-green {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.detail-city-title {
+  font-size: 2rem;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+}
+
+.detail-state-tag {
+  color: var(--text-sky-light);
+  font-size: 1.05rem;
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.detail-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-stat-box {
+  background: rgba(7, 13, 25, 0.7);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+}
+
+.detail-stat-box .stat-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+}
+
+.detail-stat-box .stat-value {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.detail-section-block {
+  margin-bottom: 1.25rem;
+}
+
+.block-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-sky-light);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.block-text {
+  font-size: 0.95rem;
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+.highlight-story {
+  background: rgba(0, 242, 254, 0.05);
+  border-left: 3px solid var(--accent-amber);
+  padding: 0.85rem 1rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.detail-rating-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-glass);
+}
+
+.rating-stars {
+  color: var(--accent-amber);
+  font-weight: 800;
+  font-size: 0.98rem;
+}
+
+.rating-reviews-tag {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Footprint Summary Table */
+.footprint-table-wrapper {
+  overflow-x: auto;
+}
+
+.footprint-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.footprint-table th {
+  background: rgba(7, 13, 25, 0.9);
+  color: var(--text-sky-bright);
+  padding: 1rem;
+  font-weight: 700;
+  border-bottom: 2px solid var(--border-glass);
+}
+
+.footprint-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-glass);
+  color: var(--text-sky-light);
+}
+
+.footprint-table tr:hover {
+  background: rgba(0, 242, 254, 0.05);
+}
+
+.footprint-table tr.active-row {
+  background: rgba(0, 242, 254, 0.12);
+}
+
+.count-pill {
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  background: rgba(0, 242, 254, 0.15);
+  color: var(--text-sky-bright);
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-title { font-size: 3rem; }
+  .delivery-section-grid { grid-template-columns: 1fr; }
+  .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+  .dashboard-analytics-wrapper { grid-template-columns: 1fr; }
+  .industry-grid, .portfolio-grid, .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-values-grid { grid-template-columns: 1fr; }
+  .achievements-kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .india-map-container { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .nav-menu { display: none; }
+  .hero-title { font-size: 2.3rem; }
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .industry-grid, .portfolio-grid, .testimonials-grid, .estimator-options-grid { grid-template-columns: 1fr; }
+  .contact-grid, .footer-grid { grid-template-columns: 1fr; }
+  .estimator-result-card { flex-direction: column; gap: 1rem; text-align: center; }
+  .achievements-kpi-grid { grid-template-columns: 1fr; }
+  .map-filter-bar { flex-direction: column; align-items: flex-start; }
+  .about-mini-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Arrow Piercing Target Goal Animation */
+@keyframes arrowPierce {
+  0% {
+    transform: translate(-14px, -14px) rotate(45deg);
+    opacity: 0.3;
+  }
+  45% {
+    transform: translate(16px, 16px) rotate(45deg);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(13px, 13px) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-14px, -14px) rotate(45deg);
+    opacity: 0.3;
+  }
+}
+
+/* Step-and-Pause Horizontal Moving Review Animation (Stop aagi Stop aagi Move aagum) */
+@keyframes stepAndPauseReviewMarquee {
+  /* Step 0: Stop to read card 0 */
+  0%, 10.93% {
+    transform: translate3d(0, 0, 0);
+    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  /* Slide to card 1 */
+  14.29% {
+    transform: translate3d(-7.142857%, 0, 0);
+  }
+  /* Step 1: Stop to read card 1 */
+  14.29%, 25.21% {
+    transform: translate3d(-7.142857%, 0, 0);
+    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  /* Slide to card 2 */
+  28.57% {
+    transform: translate3d(-14.285714%, 0, 0);
+  }
+  /* Step 2: Stop to read card 2 */
+  28.57%, 39.50% {
+    transform: translate3d(-14.285714%, 0, 0);
+    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  /* Slide to card 3 */
+  42.86% {
+    transform: translate3d(-21.428571%, 0, 0);
+  }
+  /* Step 3: Stop to read card 3 */
+  42.86%, 53.78% {
+    transform: translate3d(-21.428571%, 0, 0);
+    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  /* Slide to card 4 */
+  57.14% {
+    transform: translate3d(-28.571429%, 0, 0);
+  }
+  /* Step 4: Stop to read card 4 */
+  57.14%, 68.07% {
+    transform: translate3d(-28.571429%, 0, 0);
+    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  /* Slide to card 5 */
+  71.43% {
+    transform: translate3d(-35.714286%, 0, 0);
+  }
+  /* Step 5: Stop to read card 5 */
+  71.43%, 82.35% {
+    transform: translate3d(-35.714286%, 0, 0);
+    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  /* Slide to card 6 */
+  85.71% {
+    transform: translate3d(-42.857143%, 0, 0);
+  }
+  /* Step 6: Stop to read card 6 */
+  85.71%, 96.64% {
+    transform: translate3d(-42.857143%, 0, 0);
+    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  /* Slide to card 7 (seamlessly wraps to card 0 at -50%) */
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.review-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: stepAndPauseReviewMarquee 24s infinite;
+  will-change: transform;
+}
+
+.review-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Individual Card Sizing with Equal Padding for Seamless Keyframe Math */
+.review-marquee-item {
+  width: 380px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  padding: 0 0.85rem;
+}
+
+.review-card-inner {
+  height: 100%;
+  padding: 1.85rem 1.6rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  cursor: pointer;
+}
+
+.review-card-inner:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Full Viewport Width Screen-to-Screen Edge-to-Edge Review Section */
+.full-screen-review-section {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  padding: 3rem 0 1rem 0;
+}
+
+.edge-to-edge-review-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 1.25rem 0;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 3%, black 10%, black 90%, rgba(0,0,0,0.4) 97%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 3%, black 10%, black 90%, rgba(0,0,0,0.4) 97%, transparent 100%);
+}
+
+/* Left & Right Disappearing Fade Curtains (Maraiyum effects at screen start and end) */
+.screen-fade-curtain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 240px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.screen-fade-left {
+  left: 0;
+  background: linear-gradient(to right, #070d19 0%, rgba(7, 13, 25, 0.95) 25%, rgba(7, 13, 25, 0.6) 65%, transparent 100%);
+}
+
+.screen-fade-right {
+  right: 0;
+  background: linear-gradient(to left, #070d19 0%, rgba(7, 13, 25, 0.95) 25%, rgba(7, 13, 25, 0.6) 65%, transparent 100%);
+}
+
+@media (max-width: 768px) {
+  .screen-fade-curtain {
+    width: 90px;
+  }
+}
+
+
+/* ==========================================================================
+   Precision Archer & Bullseye Target Center Hit Animation
+   ========================================================================== */
+.archer-bullseye-card {
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.archer-bullseye-card:hover {
+  border-color: #fbbf24;
+  box-shadow: 0 15px 35px rgba(251, 191, 36, 0.25), inset 0 0 25px rgba(0, 242, 254, 0.08);
+}
+
+/* Bowstring Animation: Drawn Back (0-22%), Released (23-100%) */
+.bowstring-drawn {
+  animation: bowstringDrawCycle 3.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  transform-origin: 105px 85px;
+}
+
+.bowstring-released {
+  animation: bowstringReleaseCycle 3.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  transform-origin: 105px 85px;
+}
+
+@keyframes bowstringDrawCycle {
+  0%, 21% {
+    opacity: 1;
+  }
+  22%, 92% {
+    opacity: 0;
+  }
+  93%, 100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bowstringReleaseCycle {
+  0%, 21% {
+    opacity: 0;
+  }
+  22%, 92% {
+    opacity: 1;
+  }
+  93%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Archer Draw Arm: pulls back then releases */
+.draw-arm-animated {
+  animation: drawArmMotion 3.5s ease-in-out infinite;
+  transform-origin: 48px 68px;
+}
+
+.draw-hand-animated {
+  animation: drawHandMotion 3.5s ease-in-out infinite;
+}
+
+@keyframes drawArmMotion {
+  0%, 20% {
+    transform: rotate(0deg);
+  }
+  23% {
+    transform: rotate(-4deg) translate(-2px, 0);
+  }
+  30%, 85% {
+    transform: rotate(2deg) translate(3px, 0);
+  }
+  94%, 100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes drawHandMotion {
+  0%, 20% {
+    transform: translate(0, 0);
+  }
+  23% {
+    transform: translate(-3px, 0);
+  }
+  30%, 85% {
+    transform: translate(12px, 0);
+  }
+  94%, 100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Flying Arrow: Shoots from Archer (0) to Target Center (375px) */
+.flying-arrow-group {
+  animation: arrowFlightToCenter 3.5s cubic-bezier(0.12, 0.7, 0.25, 1) infinite;
+  transform-origin: 105px 85px;
+}
+
+@keyframes arrowFlightToCenter {
+  0%, 21% {
+    opacity: 0.95;
+    transform: translate(0px, 0px);
+  }
+  22% {
+    opacity: 1;
+    transform: translate(15px, 0px);
+  }
+  34% {
+    opacity: 1;
+    transform: translate(375px, 0px);
+  }
+  36% {
+    opacity: 1;
+    transform: translate(375px, 0px) rotate(2deg);
+  }
+  38% {
+    opacity: 1;
+    transform: translate(375px, 0px) rotate(-1.5deg);
+  }
+  41%, 86% {
+    opacity: 1;
+    transform: translate(375px, 0px) rotate(0deg);
+  }
+  92% {
+    opacity: 0;
+    transform: translate(375px, 0px);
+  }
+  93%, 100% {
+    opacity: 0;
+    transform: translate(0px, 0px);
+  }
+}
+
+/* Bullseye Shockwave Ripple from Center Circle */
+.bullseye-shockwave-ring {
+  animation: shockwaveRipple 3.5s ease-out infinite;
+  transform-origin: 480px 85px;
+}
+
+@keyframes shockwaveRipple {
+  0%, 33% {
+    opacity: 0;
+    transform: scale(0.3);
+    stroke: #fbbf24;
+    stroke-width: 4px;
+  }
+  34% {
+    opacity: 1;
+    transform: scale(1);
+    stroke: #fbbf24;
+    stroke-width: 3.5px;
+  }
+  52% {
+    opacity: 0.8;
+    stroke: #00f2fe;
+    stroke-width: 2px;
+    transform: scale(2.8);
+  }
+  62%, 100% {
+    opacity: 0;
+    transform: scale(4.2);
+    stroke: #00f2fe;
+    stroke-width: 0.5px;
+  }
+}
+
+/* Spark Burst Explosion from Center Circle */
+.bullseye-sparks {
+  animation: sparksExplosion 3.5s ease-out infinite;
+  transform-origin: 480px 85px;
+}
+
+@keyframes sparksExplosion {
+  0%, 33% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  34% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  45% {
+    opacity: 0.9;
+    transform: scale(1.4);
+  }
+  56%, 100% {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+
+/* Center Golden Circle Pulse */
+.bullseye-center-circle {
+  animation: centerCircleGlow 3.5s ease-out infinite;
+  transform-origin: 480px 85px;
+}
+
+@keyframes centerCircleGlow {
+  0%, 33% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 4px #fbbf24);
+  }
+  34% {
+    transform: scale(1.35);
+    filter: drop-shadow(0 0 25px #fbbf24) drop-shadow(0 0 40px #00f2fe);
+  }
+  42% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 15px #fbbf24);
+  }
+  86% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px #fbbf24);
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 4px #fbbf24);
+  }
+}
+
+/* Floating Bullseye Score Badge */
+.bullseye-score-banner {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  background: rgba(7, 13, 25, 0.92);
+  border: 1.5px solid #fbbf24;
+  color: #fbbf24;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  box-shadow: 0 10px 25px rgba(251, 191, 36, 0.35);
+  pointer-events: none;
+  animation: scoreBannerPop 3.5s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+@keyframes scoreBannerPop {
+  0%, 33% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.75);
+  }
+  34% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.15);
+  }
+  40%, 85% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+  92%, 100% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.85);
+  }
+}
+
+
+/* Settled Theme Buttons for About and Achievements */
+.nav-btn-about {
+  position: relative;
+}
+.nav-btn-about:hover {
+  border-color: #00f2fe !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.45) !important;
+  transform: translateY(-2px);
+}
+
+.nav-btn-achieve {
+  position: relative;
+}
+.nav-btn-achieve:hover {
+  border-color: #fbbf24 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 25px rgba(251, 191, 36, 0.45) !important;
+  transform: translateY(-2px);
+}

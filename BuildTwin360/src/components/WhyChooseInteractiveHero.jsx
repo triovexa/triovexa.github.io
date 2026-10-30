@@ -451,7 +451,6 @@ export default function WhyChooseInteractiveHero({ activeTab, onSelectTab }) {
           </div>
         </div>
 
-        {/* Integrated Category Switcher Tabs (Tagline removed per user request) */}
         <div className="why-choose-category-tabs">
           {PROJECT_CATEGORIES.map((cat) => {
             const isActive = activeTab === cat.id;

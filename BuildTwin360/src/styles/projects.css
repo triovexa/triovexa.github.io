@@ -10,7 +10,7 @@
   min-height: 100vh;
   position: relative;
   overflow-x: clip;
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* Ambient glow accents */
@@ -376,7 +376,7 @@
 }
 
 .nexus-desktop-stream-card .nexus-card-title {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(1.4rem, 2vw, 1.95rem);
   font-weight: 800;
   line-height: 1.25;
@@ -390,7 +390,7 @@
 }
 
 .nexus-desktop-stream-card .nexus-card-bullets li {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 0.92rem;
   line-height: 1.45;
 }
@@ -401,7 +401,7 @@
 }
 
 .nexus-desktop-stream-card .nexus-tech-chip {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 0.76rem;
   font-weight: 600;
   padding: 0.22rem 0.65rem;
@@ -415,7 +415,7 @@
 
 .nexus-desktop-stream-card .nexus-btn-action,
 .nexus-desktop-stream-card .nexus-private-badge {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 700;
   font-size: 0.88rem;
 }
@@ -505,7 +505,7 @@
 }
 
 .nexus-tag-pill {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -517,7 +517,7 @@
 }
 
 .nexus-card-title {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(1.25rem, 1.85vw, 1.8rem);
   font-weight: 800;
   line-height: 1.16;
@@ -535,7 +535,7 @@
 }
 
 .nexus-card-bullets li {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   display: flex;
   align-items: flex-start;
   gap: 0.55rem;
@@ -560,7 +560,7 @@
 }
 
 .nexus-tech-chip {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
   padding: 0.18rem 0.55rem;
@@ -576,7 +576,7 @@
 }
 
 .nexus-btn-action {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
@@ -597,7 +597,7 @@
 }
 
 .nexus-private-badge {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -1093,7 +1093,7 @@
 }
 
 .grid-overview-badge {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -1110,7 +1110,7 @@
 }
 
 .grid-overview-title {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   font-weight: 800;
   color: #ffffff;
@@ -1118,7 +1118,7 @@
 }
 
 .grid-overview-subtitle {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.05rem;
   color: #94a3b8;
   max-width: 650px;
@@ -1133,7 +1133,7 @@
 }
 
 .project-grid-card {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: rgba(13, 21, 39, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 22px;
@@ -1174,7 +1174,7 @@
 }
 
 .grid-card-pill {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   position: absolute;
   top: 14px;
   left: 14px;
@@ -1203,7 +1203,7 @@
 }
 
 .grid-card-category {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -1212,7 +1212,7 @@
 }
 
 .grid-card-title {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   color: #ffffff;
@@ -1231,7 +1231,7 @@
 }
 
 .grid-card-bullets li {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   display: flex;
   align-items: flex-start;
   gap: 0.55rem;
@@ -1257,7 +1257,7 @@
 }
 
 .grid-tech-badge {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: #cbd5e1;
@@ -1272,7 +1272,7 @@
 }
 
 .btn-grid-action {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1312,7 +1312,7 @@
 }
 
 .grid-private-tag {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2549,7 +2549,7 @@
 }
 
 .nexus-white-pill {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
@@ -2565,7 +2565,7 @@
 }
 
 .nexus-white-title {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(2rem, 5vw, 3.4rem);
   font-weight: 900;
   color: #090d16;
@@ -2581,7 +2581,7 @@
 }
 
 .nexus-white-subtitle {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.05rem;
   color: #475569;
   max-width: 680px;
@@ -2731,7 +2731,7 @@
 }
 
 .nexus-metrics-main-title {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(2.4rem, 4.5vw, 3.2rem);
   font-weight: 700;
   color: #ffffff;
@@ -2741,7 +2741,7 @@
 }
 
 .nexus-metrics-subtitle {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.05rem;
   color: rgba(255, 255, 255, 0.82);
   max-width: 720px;
@@ -2772,7 +2772,7 @@
 }
 
 .nexus-metric-title {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(1.7rem, 2.5vw, 2.5rem);
   font-weight: 700;
   color: #ffffff;
@@ -2781,7 +2781,7 @@
 }
 
 .nexus-metric-scope {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 0.95rem;
   color: #94a3b8;
   font-weight: 400;
@@ -2823,7 +2823,7 @@
 }
 
 .nexus-metric-number {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(4.4rem, 7.2vw, 6.8rem);
   font-weight: 700;
   letter-spacing: -0.04em;
@@ -2841,7 +2841,7 @@
 }
 
 .nexus-metric-desc {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.82);
   line-height: 1.6;
